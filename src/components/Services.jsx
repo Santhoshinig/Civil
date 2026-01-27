@@ -9,52 +9,55 @@ const servicesData = [
     {
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
         ),
-        title: 'Chemical Consulting',
+        title: 'Epoxy Flooring',
+        image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop',
         description:
-            'Expert guidance on chemical processes, safety protocols, and regulatory compliance. Our consultants bring decades of industry experience to help optimize your operations.',
-        fullDescription: 'Our chemical consulting services provide end-to-end support for industrial setups. We assist in facility design, Material Safety Data Sheet (MSDS) preparation, and environmental impact assessments. We ensure your plant operates at peak efficiency while maintaining 100% compliance with international safety standards.',
+            'Durable, high-performance flooring solutions for industrial and commercial environments.',
+        fullDescription: 'Our epoxy flooring systems provide a seamless, heavy-duty surface resistant to chemicals, abrasion, and heavy traffic. Ideal for factories, warehouses, and sleek modern showrooms, our solutions combine aesthetic appeal with industrial-grade strength.',
         delay: '0s',
     },
     {
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
         ),
-        title: 'Product Development',
+        title: 'Pest Control',
+        image: 'https://plus.unsplash.com/premium_photo-1682126082802-983618de1dd9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGVzdCUyMGNvbnRyb2x8ZW58MHx8MHx8fDA%3D',
         description:
-            'Custom formulation and development services to create specialized chemical products that meet your exact specifications and performance requirements.',
-        fullDescription: 'From initial research to pilot-scale production, our R&D team works closely with you to formulate unique chemical solutions. Whether you need a specific viscosity, heat resistance, or reaction time, we develop high-performance formulas tailored strictly to your technical use-cases.',
+            'Professional pest management to safeguard your property and health.',
+        fullDescription: 'We provide comprehensive pest control services including anti-termite treatment, rodent control, and general pest management. Our eco-friendly approach ensures structural integrity while maintaining a safe environment for occupants.',
         delay: '0.1s',
     },
     {
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
             </svg>
         ),
-        title: 'Quality Testing',
+        title: 'Waterproof Systems',
+        image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop',
         description:
-            'Comprehensive analytical testing and quality assurance services using advanced laboratory equipment to ensure product excellence and compliance.',
-        fullDescription: 'We employ advanced HPLC, GC-MS, and Spectrophotometric analysis to verify the purity and composition of every sample. Our quality control lab is equipped to test for trace contaminants, stability, and reactivity across a wide range of industrial and laboratory-grade chemicals.',
+            'Advanced waterproofing solutions to prevent leaks and structural decay.',
+        fullDescription: 'Protect your building from water ingress with our specialized waterproofing systems. From terrace and basement waterproofing to wet area treatments, we use crystalline and membrane technologies to ensure a dry, moisture-free structure.',
         delay: '0.2s',
     },
     {
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.7-3.7a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3.7 3.7z" />
+                <path d="M20 16v4a2 2 0 01-2 2H4a2 2 0 01-2-2V7a2 2 0 012-2h4" />
             </svg>
         ),
-        title: 'Custom Solutions',
+        title: 'Repair & Rehabilitation',
+        image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop',
         description:
-            'Tailored chemical solutions designed to address unique challenges in your industry. From concept to delivery, we partner with you every step of the way.',
-        fullDescription: 'Every industry has its unique challenges. We create bespoke chemical blends and distribution strategies that solve specific logistical and performance hurdles. Our custom work spans across logistics-optimized bulk packaging to unique compound syntheses not available in the mass market.',
+            'Expert structural restoration and strengthening of ageing buildings.',
+        fullDescription: 'We specialize in the rehabilitation of distressed structures. Our services include jacketting, polymer-modified mortar repairs, and epoxy injections to restore the load-bearing capacity and extend the life of your civil assets.',
         delay: '0.3s',
     },
 ];
@@ -72,16 +75,21 @@ const ServiceCard = ({ service, onClick }) => {
             className="service-card animate-slide-left"
             style={{ animationDelay: service.delay }}
         >
-            <div className="service-icon">{service.icon}</div>
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
-            <span
-                className="service-link"
-                style={{ cursor: 'pointer' }}
-                onClick={() => onClick(service)}
-            >
-                Know More →
-            </span>
+            <div className="service-image-container">
+                <img src={service.image} alt={service.title} className="service-card-image" />
+                <div className="service-icon-overlay">{service.icon}</div>
+            </div>
+            <div className="service-card-body">
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+                <span
+                    className="service-link"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => onClick(service)}
+                >
+                    Know More →
+                </span>
+            </div>
         </div>
     );
 };
@@ -118,7 +126,7 @@ const Services = () => {
                 <div className="section-header">
                     <h2 className="section-title">Our Services</h2>
                     <p className="section-subtitle">
-                        Comprehensive chemical solutions tailored to your industry needs
+                        Advanced civil solutions for construction, protection, and structural restoration
                     </p>
                 </div>
 
@@ -133,11 +141,13 @@ const Services = () => {
                 </div>
             </div>
 
-            {/* Service Detail Modal */}
             {selectedService && (
                 <div className="service-modal-overlay" onClick={() => setSelectedService(null)}>
                     <div className="service-modal" onClick={e => e.stopPropagation()}>
                         <button className="modal-close" onClick={() => setSelectedService(null)}>×</button>
+                        <div className="modal-image-container">
+                            <img src={selectedService.image} alt={selectedService.title} className="modal-banner-img" />
+                        </div>
                         <div className="modal-icon">{selectedService.icon}</div>
                         <h2 className="modal-title">{selectedService.title}</h2>
                         <div className="modal-divider"></div>

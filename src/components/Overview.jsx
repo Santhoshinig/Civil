@@ -39,41 +39,43 @@ const Overview = () => {
                     {/* Visual Showcase Side */}
                     <div className="overview-image animate-slide-left">
                         <div className="image-placeholder">
-                            <img src="/lab-overview.png" alt="Chemical Laboratory" />
+                            <img src="/civil-doctor-avatar.png" alt="Civil Doctor Avatar" style={{ objectFit: 'contain', background: 'transparent' }} />
                         </div>
                     </div>
 
                     {/* Text Content Side */}
                     <div className="overview-text animate-slide-right">
-                        <h2 className="section-title">About ChemPro Solutions</h2>
+                        <h2 className="section-title">About Civil Doctor</h2>
                         <p className="overview-description">
-                            With over 25 years of excellence in the chemical industry, we are committed to
-                            delivering innovative solutions that drive progress. Our state-of-the-art facilities
-                            and expert team ensure the highest quality standards in every product we manufacture.
+                            With over 15 years of technical expertise in civil construction, we specialize in
+                            high-performance construction chemicals and protective systems. Our mission is to
+                            enhance the lifespan of buildings through innovative waterproofing and structural
+                            rehabilitation solutions.
                         </p>
                         <p className="overview-description">
-                            From industrial chemicals to specialized compounds, we serve diverse sectors including
-                            pharmaceuticals, manufacturing, agriculture, and research institutions. Our commitment
-                            to sustainability and safety sets us apart as an industry leader.
+                            From industrial epoxy flooring to advanced pest management, we serve a wide range
+                            of clients across real estate, infrastructure, and industrial sectors. Our focus on
+                            quality, safety, and sustainable building practices makes us a trusted partner in
+                            the construction industry.
                         </p>
 
                         {/* Quick-Scan Features Table */}
                         <div className="overview-features">
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>ISO Certified Quality</span>
+                                <span>Advanced Construction Chemicals</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Sustainable Practices</span>
+                                <span>Expert Engineering Team</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Expert R&D Team</span>
+                                <span>Structural Warranty Assured</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Global Distribution</span>
+                                <span>ISO 9001:2015 Certified</span>
                             </div>
                         </div>
                     </div>

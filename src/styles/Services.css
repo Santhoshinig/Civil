@@ -26,7 +26,8 @@
 
 .service-card {
     background: var(--white);
-    padding: 50px 40px;
+    padding: 0;
+    /* Changed to allow full-width image */
     border-radius: 30px;
     box-shadow: var(--shadow-sm);
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -34,6 +35,8 @@
     opacity: 0;
     transform: translateX(-50px);
     transform-style: preserve-3d;
+    overflow: hidden;
+    /* Important for image corners */
 }
 
 .service-card.visible {
@@ -60,49 +63,62 @@
     border-color: var(--secondary);
 }
 
-.service-icon {
-    width: 70px;
-    height: 70px;
-    background: rgba(8, 131, 149, 0.1);
-    color: var(--primary-light);
+.service-image-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-card-image {
+    transform: scale(1.1);
+}
+
+.service-icon-overlay {
+    position: absolute;
+    bottom: -30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-light);
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    transition: var(--transition-smooth);
-    animation: icon-float 4s ease-in-out infinite;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s ease;
+    z-index: 2;
 }
 
-@keyframes icon-float {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(10deg);
-    }
+.service-card:hover .service-icon-overlay {
+    transform: rotateY(180deg) translateY(-10px);
+    background: var(--secondary);
 }
 
-.service-card:hover .service-icon {
-    background: var(--primary-light);
-    color: var(--white);
-    transform: translateZ(30px) rotateY(180deg);
+.service-icon-overlay svg {
+    width: 30px;
+    height: 30px;
 }
 
-.service-icon svg {
-    width: 35px;
-    height: 35px;
+.service-card-body {
+    padding: 40px 30px 40px;
 }
 
 .service-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     color: var(--primary);
     transform: translateZ(20px);
 }
+
 
 .service-description {
     color: #777;
@@ -148,13 +164,28 @@
     background: var(--white);
     max-width: 600px;
     width: 100%;
-    padding: 50px;
+    padding: 0 0 50px 0;
+    /* Changed to allow full-width image at top */
     border-radius: 30px;
     position: relative;
     text-align: center;
     box-shadow: var(--shadow-lg);
     animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow: hidden;
 }
+
+.modal-image-container {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.modal-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .modal-close {
     position: absolute;
@@ -208,6 +239,8 @@
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 40px;
+    padding: 0 40px;
+    /* Added side padding */
 }
 
 @keyframes fadeIn {

@@ -17,12 +17,12 @@ const Footer = () => {
                     {/* Brand Identity Pillar */}
                     <div className="footer-col footer-brand">
                         <div className="footer-logo">
-                            <span className="logo-icon">⚗️</span>
-                            <span className="logo-text">ChemPro Solutions</span>
+                            <span className="logo-icon">👷</span>
+                            <span className="logo-text">Civil Doctor</span>
                         </div>
                         <p className="footer-description">
-                            Pioneering chemical excellence through innovation and sustainability. Delivering
-                            industrial solutions for a brighter future worldwide.
+                            Leading the way in high-performance construction chemicals, waterproofing
+                            systems, and structural rehabilitation for modern infrastructure.
                         </p>
                         {/* Social Connection Hub */}
                         <div className="social-links">
@@ -48,10 +48,10 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-title">Our Services</h4>
                         <ul className="footer-links">
-                            <li><a href="#services">Consulting</a></li>
-                            <li><a href="#services">Development</a></li>
-                            <li><a href="#services">Quality Testing</a></li>
-                            <li><a href="#services">Custom Solutions</a></li>
+                            <li><a href="#services">Epoxy Flooring</a></li>
+                            <li><a href="#services">Pest Control</a></li>
+                            <li><a href="#services">Waterproofing</a></li>
+                            <li><a href="#services">Structural Repair</a></li>
                         </ul>
                     </div>
 
@@ -59,16 +59,16 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-title">Contact</h4>
                         <ul className="footer-info">
-                            <li>📍 123 Industrial Ave, ChemCity</li>
+                            <li>📍 123 Construction Hub, Build City</li>
                             <li>📞 +1 (555) 123-4567</li>
-                            <li>✉️ info@chempro.com</li>
+                            <li>✉️ info@civildoctor.com</li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Global Bottom Bar / Legal */}
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} ChemPro Solutions. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Civil Doctor. All rights reserved.</p>
                     <div className="footer-bottom-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>

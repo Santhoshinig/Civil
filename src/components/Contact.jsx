@@ -164,9 +164,9 @@ const Contact = () => {
                             </div>
                             <h3>Our Location</h3>
                             <p>
-                                123 Chemical Park Drive, Industrial Zone
+                                123 Construction Hub, Build City
                                 <br />
-                                New York, NY 10001
+                                Industrial Area Phase 1
                             </p>
                         </div>
 
@@ -190,7 +190,7 @@ const Contact = () => {
                                 </svg>
                             </div>
                             <h3>Email</h3>
-                            <p>info@chemprosolutions.com</p>
+                            <p>info@civildoctor.com</p>
                         </div>
 
                         {/* Availability Tracker */}

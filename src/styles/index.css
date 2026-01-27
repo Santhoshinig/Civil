@@ -8,19 +8,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Color Palette - Elegant & Professional */
-    --primary: #0a4d68;
-    /* Deep professional blue */
-    --primary-light: #088395;
-    /* Teal accent */
-    --secondary: #05bfdb;
-    /* Vibrant cyan */
-    --accent: #00ffca;
-    /* Bright highlight green */
-    --dark: #051923;
-    /* Near black for text */
-    --light: #f8f9fa;
-    /* Light gray background */
+    /* Color Palette - Construction & Industrial Focus */
+    --primary: #1e293b;
+    /* Slate 800 for a solid foundation */
+    --primary-light: #334155;
+    /* Slate 700 for depth */
+    --secondary: #f97316;
+    /* Industrial Orange for visibility and energy */
+    --accent: #fbbf24;
+    /* Amber for highlights and safety */
+    --dark: #0f172a;
+    /* Near black for high contrast text */
+    --light: #f1f5f9;
+    /* Light slate background */
     --white: #ffffff;
 
     /* Glassmorphism effects */

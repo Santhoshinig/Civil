@@ -50,7 +50,7 @@ const MolecularBackground = () => {
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(0, 255, 202, 0.5)'; // Molecular green highlight
+                ctx.fillStyle = 'rgba(249, 115, 22, 0.5)'; // Industrial orange highlight
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -77,7 +77,7 @@ const MolecularBackground = () => {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < connectionDistance) {
-                        ctx.strokeStyle = `rgba(5, 191, 219, ${1 - distance / connectionDistance})`;
+                        ctx.strokeStyle = `rgba(148, 163, 184, ${1 - distance / connectionDistance})`; // Slate connection lines
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
