@@ -1,0 +1,300 @@
+/**
+ * Navigation Bar Styles
+ * 
+ * Features:
+ * - Fixed positioning for constant accessibility
+ * - Dynamic scroll behavior (transparent to glassmorphism)
+ * - Corner-aligned branding and navigation
+ * - Realistic logo "dancing" animation and Premium SVG logo
+ */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 45px 0 30px;
+    /* Increased top padding for the man */
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+/* 
+ * Scrolled State 
+ */
+.navbar.scrolled {
+    padding: 25px 0 15px;
+    /* Balanced padding for scrolled state */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Layout Container - Full Width Positioning */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 60px;
+    /* Increased side padding for premium feel */
+}
+
+/* Mobile Layout Padding Adjustment */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+}
+
+/* 
+ * Logo & Branding 
+ */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Increased space between logo and content */
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.logo-wrapper {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-svg {
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    transition: var(--transition-fast);
+    animation: icon-dance 5s ease-in-out infinite;
+}
+
+.navbar.scrolled .logo-svg {
+    color: var(--primary);
+}
+
+.logo-fluid {
+    animation: bubble 3s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10px) scale(1.1);
+        opacity: 1;
+    }
+}
+
+.logo-text {
+    position: relative;
+    font-size: 1.8rem;
+    /* Enlarged Company Name */
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+}
+
+/* 
+ * Animated Beaker in Navbar
+ */
+.nav-beaker-container {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 30px;
+    height: 35px;
+    z-index: 10;
+    animation: beaker-slide 12s linear infinite;
+    pointer-events: none;
+}
+
+.moving-beaker {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.beaker-svg-nav {
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+}
+
+.navbar.scrolled .beaker-svg-nav {
+    color: var(--primary);
+}
+
+@keyframes beaker-slide {
+    0% {
+        left: -40px;
+        transform: rotate(-5deg);
+    }
+
+    45% {
+        left: calc(100% + 20px);
+        transform: rotate(5deg);
+    }
+
+    50% {
+        left: calc(100% + 20px);
+        transform: rotate(5deg) scaleX(-1);
+    }
+
+    95% {
+        left: -40px;
+        transform: rotate(-5deg) scaleX(-1);
+    }
+
+    100% {
+        left: -40px;
+        transform: rotate(-5deg) scaleX(1);
+    }
+}
+
+
+
+.navbar.scrolled .logo-text {
+    color: var(--primary);
+}
+
+/* Dancing Logo Animation */
+@keyframes icon-dance {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-5px);
+    }
+}
+
+.nav-logo:hover .logo-svg {
+    animation: icon-vibe 0.5s ease-in-out infinite;
+}
+
+@keyframes icon-vibe {
+    0% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+/* Navigation Link Group */
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+/* 
+ * Navigation Link Item 
+ */
+.nav-link {
+    font-weight: 600;
+    color: var(--white);
+    position: relative;
+    padding: 5px 0;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark);
+}
+
+/* Link Hover/Active Underline Effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Active Section Highlight */
+.nav-link.active {
+    color: var(--secondary);
+}
+
+.navbar.scrolled .nav-link.active {
+    color: var(--primary);
+}
+
+/* Mobile Toggle */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--white);
+    transition: var(--transition-fast);
+}
+
+.navbar.scrolled .mobile-menu-btn span {
+    background: var(--primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 40px;
+        gap: 20px;
+        align-items: center;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-150%);
+        transition: var(--transition-smooth);
+        opacity: 0;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}

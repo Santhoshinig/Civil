@@ -1,0 +1,160 @@
+/**
+ * Contact Section Styles
+ * 
+ * Includes:
+ * - Professional form layout with validation focus states
+ * - Post-submission success UI
+ * - Informational contact cards
+ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+}
+
+/* White form container with shadow for elevation */
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.contact-form-wrapper.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Logic: Hide form when submission is successful */
+.contact-form.hidden {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+/* 
+ * Input Field Logic 
+ * Uses transition-fast for immediate user feedback on focus.
+ */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    background: #fdfdfd;
+}
+
+/* High-contrast focus state for accessibility */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary);
+    outline: none;
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(5, 191, 219, 0.1);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* 
+ * Success Message UI 
+ * Only displayed after JS sets isSubmitted to true.
+ */
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.form-success.active {
+    display: block;
+    animation: zoomIn 0.5s forwards;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--accent);
+    color: var(--primary);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+/* Right-side Contact Details Dashboard */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.contact-info.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.info-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.info-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Mobile responsive layout shift */
+@media (max-width: 968px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

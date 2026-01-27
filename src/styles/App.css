@@ -1,0 +1,130 @@
+/**
+ * Main Application Styles
+ * 
+ * This file contains base component styles like buttons and shared 
+ * animation keyframes used globally across the app.
+ */
+
+.App {
+    position: relative;
+}
+
+/* 
+ * Button Components 
+ * -----------------
+ * Design logic: Clean, rounded, with subtle depth reminiscent 
+ * of premium lifestyle and industrial brands.
+ */
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Primary Action Button (Solid) */
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(10, 77, 104, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(10, 77, 104, 0.4);
+}
+
+/* Secondary Action Button (Outlined) */
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* 
+ * Animation Keyframes 
+ * -------------------
+ * Reusable motion patterns to create a dynamic, living interface.
+ */
+
+/* Vertical Fade Slide */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Horizontal Left-to-Right Slide */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Horizontal Right-to-Left Slide */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Focusable Expansion Animation */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation Utility Classes */
+.animate-up {
+    animation: fadeInUp 1s forwards;
+}
+
+.animate-left {
+    animation: slideInLeft 1s forwards;
+}
+
+.animate-right {
+    animation: slideInRight 1s forwards;
+}
+
+.animate-zoom {
+    animation: zoomIn 1s forwards;
+}
