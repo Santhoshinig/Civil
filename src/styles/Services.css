@@ -27,34 +27,15 @@
 .service-card {
     background: var(--white);
     padding: 0;
-    /* Changed to allow full-width image */
     border-radius: 30px;
     box-shadow: var(--shadow-sm);
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     border: 1px solid transparent;
-    opacity: 0;
-    transform: translateX(-50px);
-    transform-style: preserve-3d;
     overflow: hidden;
-    /* Important for image corners */
 }
 
 .service-card.visible {
     opacity: 1;
-    transform: translateX(0);
-    animation: slide-left-fade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-@keyframes slide-left-fade {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .service-card:hover {
@@ -87,7 +68,7 @@
     right: 30px;
     width: 60px;
     height: 60px;
-    background: var(--primary-light);
+    background: var(--primary);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -130,7 +111,7 @@
 
 .service-link {
     font-weight: 700;
-    color: var(--primary-light);
+    color: var(--primary);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -140,7 +121,7 @@
 
 .service-link:hover {
     gap: 12px;
-    color: var(--secondary);
+    color: var(--primary);
 }
 
 /* Service Modal Styles */

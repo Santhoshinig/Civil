@@ -35,12 +35,12 @@ const Footer = () => {
 
                     {/* Site Navigation Links */}
                     <div className="footer-col">
-                        <h4 className="footer-title">Quick Links</h4>
+                        <h4 className="footer-title">Why Choose Us</h4>
                         <ul className="footer-links">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#products">Products</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#services">ISO 9001:2015 Certified</a></li>
+                            <li><a href="#services">Expert Engineering Team</a></li>
+                            <li><a href="#services">Structural Warranty Assured</a></li>
+                            <li><a href="#services">Advanced Diagnostics</a></li>
                         </ul>
                     </div>
 

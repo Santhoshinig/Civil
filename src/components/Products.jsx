@@ -59,6 +59,11 @@ const Products = () => {
     const productsRef = useRef(null);
     const navigate = useNavigate();
 
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }, []);
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {

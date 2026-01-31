@@ -65,10 +65,10 @@
 /* High-contrast focus state for accessibility */
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--secondary);
+    border-color: var(--primary);
     outline: none;
     background: var(--white);
-    box-shadow: 0 0 0 4px rgba(5, 191, 219, 0.1);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
 }
 
 .btn-full {
@@ -93,8 +93,8 @@
 .success-icon {
     width: 80px;
     height: 80px;
-    background: var(--accent);
-    color: var(--primary);
+    background: var(--primary);
+    color: var(--white);
     font-size: 2.5rem;
     display: flex;
     align-items: center;

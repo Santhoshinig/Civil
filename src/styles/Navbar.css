@@ -80,7 +80,7 @@
     font-size: 1.8rem;
     /* Enlarged Company Name */
     font-weight: 800;
-    color: var(--white);
+    color: var(--primary);
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: var(--transition-fast);
@@ -96,8 +96,9 @@
     width: 40px;
     height: 35px;
     z-index: 10;
-    animation: walker-slide 8s linear infinite;
     pointer-events: none;
+    transition: transform 0.2s ease-out;
+    /* Allow smooth vertical movement */
 }
 
 .walking-cap-mascot {
@@ -106,33 +107,6 @@
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     animation: cap-walk-bob 0.4s ease-in-out infinite alternate;
-}
-
-@keyframes walker-slide {
-    0% {
-        left: -10%;
-        transform: scaleX(1);
-    }
-
-    45% {
-        left: 100%;
-        transform: scaleX(1);
-    }
-
-    50% {
-        left: 100%;
-        transform: scaleX(-1);
-    }
-
-    95% {
-        left: -10%;
-        transform: scaleX(-1);
-    }
-
-    100% {
-        left: -10%;
-        transform: scaleX(1);
-    }
 }
 
 @keyframes cap-walk-bob {
@@ -210,7 +184,7 @@
  */
 .nav-link {
     font-weight: 600;
-    color: var(--white);
+    color: var(--primary);
     position: relative;
     padding: 5px 0;
     font-size: 0.95rem;
@@ -218,7 +192,7 @@
 }
 
 .navbar.scrolled .nav-link {
-    color: var(--dark);
+    color: var(--primary);
 }
 
 /* Link Hover/Active Underline Effect */

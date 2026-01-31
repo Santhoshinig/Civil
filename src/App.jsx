@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 /* Import Layout Components */
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 /* Import Pages */
 import HomePage from './components/HomePage';
 import ProductDetail from './components/ProductDetail';
+import Products from './components/Products';
 import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
 
@@ -62,9 +64,11 @@ function MainContent() {
       <Navbar activeSection={activeSection} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products-page" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

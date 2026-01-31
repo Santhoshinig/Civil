@@ -15,17 +15,30 @@ import '../styles/Navbar.css';
 const Navbar = ({ activeSection }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
+
+            // Calculate scroll progress for cap movement - works on all pages
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const totalScroll = documentHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = totalScroll > 0 ? (scrolled / totalScroll) * 100 : 0;
+            setScrollProgress(progress);
         };
 
         window.addEventListener('scroll', handleScroll);
+        
+        // Call once on mount to set initial state
+        handleScroll();
+        
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [location.pathname]);
 
     /**
      * Navigation Logic
@@ -68,8 +81,11 @@ const Navbar = ({ activeSection }) => {
                         <img src="/civil-doctor-logo.png" alt="Civil Doctor Logo" className="logo-img" />
                     </div>
                     <span className="logo-text">
-                        {/* Sliding Walking Cap Mascot */}
-                        <div className="nav-walker-container">
+                        {/* Sliding Walking Cap Mascot - Moves left to right based on scroll progress */}
+                        <div 
+                            className="nav-walker-container"
+                            style={{ transform: `translateX(${scrollProgress * 15}px)` }}
+                        >
                             <img src="/walking-cap.png" alt="Walking Cap" className="walking-cap-mascot" />
                         </div>
                         CIVIL DOCTOR

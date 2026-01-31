@@ -2,7 +2,7 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import Overview from './Overview';
 import Services from './Services';
-import Products from './Products';
+import ProductsPreview from './ProductsPreview';
 import Contact from './Contact';
 import Footer from './Footer';
 
@@ -17,7 +17,7 @@ const HomePage = ({ activeSection }) => {
             <Hero />
             <Overview />
             <Services />
-            <Products />
+            <ProductsPreview />
             <Contact />
         </>
     );
