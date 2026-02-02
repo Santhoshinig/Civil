@@ -4,6 +4,13 @@
 
 .services-section {
     background-color: var(--light);
+    padding: 60px 20px;
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 40px 15px;
+    }
 }
 
 .section-header {
@@ -19,9 +26,16 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
 }
 
 .service-card {
@@ -32,6 +46,12 @@
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     border: 1px solid transparent;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        max-height: none;
+    }
 }
 
 .service-card.visible {
@@ -46,9 +66,15 @@
 
 .service-image-container {
     width: 100%;
-    height: 200px;
+    height: 150px;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .service-image-container {
+        height: 110px;
+    }
 }
 
 .service-card-image {
@@ -90,7 +116,20 @@
 }
 
 .service-card-body {
-    padding: 40px 30px 40px;
+    padding: 25px 20px 30px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .service-card-body {
+        padding: 20px 16px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
 }
 
 .service-title {
@@ -98,6 +137,15 @@
     margin-bottom: 15px;
     color: var(--primary);
     transform: translateZ(20px);
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .service-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        width: 100%;
+    }
 }
 
 
@@ -107,6 +155,22 @@
     font-size: 0.95rem;
     line-height: 1.7;
     transform: translateZ(10px);
+    pointer-events: auto;
+    cursor: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .service-description {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        width: 100%;
+    }
 }
 
 .service-link {
@@ -117,11 +181,20 @@
     gap: 8px;
     cursor: pointer;
     transition: var(--transition-fast);
+    font-size: 0.95rem;
+    text-decoration: none;
 }
 
 .service-link:hover {
     gap: 12px;
-    color: var(--primary);
+    color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .service-link {
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
 }
 
 /* Service Modal Styles */
@@ -153,12 +226,30 @@
     box-shadow: var(--shadow-lg);
     animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .service-modal {
+        max-width: 95%;
+        padding: 0 0 40px 0;
+        border-radius: 20px;
+        max-height: 85vh;
+    }
 }
 
 .modal-image-container {
     width: 100%;
     height: 250px;
     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .modal-image-container {
+        height: 180px;
+        margin-bottom: 15px;
+    }
 }
 
 .modal-banner-img {
@@ -196,6 +287,15 @@
     margin: 0 auto 30px;
 }
 
+@media (max-width: 768px) {
+    .modal-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        border-radius: 15px;
+    }
+}
+
 .modal-icon svg {
     width: 40px;
     height: 40px;
@@ -205,6 +305,13 @@
     font-size: 2rem;
     color: var(--primary);
     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .modal-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
 }
 
 .modal-divider {
@@ -222,6 +329,15 @@
     margin-bottom: 40px;
     padding: 0 40px;
     /* Added side padding */
+}
+
+@media (max-width: 768px) {
+    .modal-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
 }
 
 @keyframes fadeIn {
