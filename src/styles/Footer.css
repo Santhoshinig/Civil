@@ -1,0 +1,151 @@
+/**
+ * Footer Styles
+ * 
+ * Logic: Orange and construction-themed footer with professional design
+ * Uses construction tools background with overlay for readability
+ */
+
+.footer {
+    background: linear-gradient(135deg, rgba(45, 62, 80, 0.75) 0%, rgba(45, 62, 80, 0.75) 100%),
+                url('/footer theme.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    color: var(--white);
+    padding: 80px 0 30px;
+    position: relative;
+    border-top: 4px solid var(--primary);
+}
+
+/* 4-column grid for brand, links, and contact */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--primary);
+}
+
+.footer-description {
+    opacity: 0.7;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* 
+ * Social Icon Wrapper 
+ * Logic: Boxy glass containers with a color pop on hover.
+ */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(249, 115, 22, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: var(--transition-fast);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+/* Section headings within footer */
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+/* Sliding hover effect for list items */
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.footer-info li {
+    margin-bottom: 15px;
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+/* 
+ * Copyright & Legal Area 
+ * Border-top creates visual separation from the main grid.
+ */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 968px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}

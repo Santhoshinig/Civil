@@ -1,0 +1,233 @@
+/**
+ * Overwritten Product Showcase Styles with Animation enhancements
+ */
+
+.products-section {
+    padding: 100px 20px 60px;
+    background: var(--white);
+}
+
+.products-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 30px auto 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.product-card.visible {
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        height: 180px;
+    }
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1) translateZ(20px);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(249, 115, 22, 0.4), rgba(31, 41, 55, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    transform: translateZ(50px);
+    /* Lift overlay button in 3D */
+}
+
+.product-overlay.active {
+    opacity: 1;
+}
+
+.product-btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-overlay.active .product-btn {
+    transform: translateY(0);
+}
+
+.product-btn:hover {
+    background: var(--primary-light);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.product-content {
+    padding: 30px;
+    background: white;
+    transform-style: preserve-3d;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .product-content {
+        padding: 24px 20px 26px;
+    }
+}
+
+.product-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    transform: translateZ(20px);
+}
+
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+}
+
+.product-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    pointer-events: auto;
+    cursor: auto;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transform: translateZ(10px);
+}
+
+@media (max-width: 768px) {
+    .product-description {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+}
+
+.product-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    transform: translateZ(5px);
+}
+
+.tag {
+    background: var(--light);
+    color: var(--primary-light);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.product-card:hover .tag {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+@keyframes slide-left-fade {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

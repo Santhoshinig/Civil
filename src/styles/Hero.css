@@ -1,0 +1,312 @@
+/**
+ * Lottie-Style Industrial Hero Styles
+ */
+
+.hero-section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: url('/hero-bg.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1500px;
+    padding-top: 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.92) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Tightened space */
+    transform-style: preserve-3d;
+}
+
+.hero-main-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    transform: translateZ(50px);
+    color: var(--dark);
+    padding-right: 20px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 900;
+    text-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: var(--dark);
+    letter-spacing: -2px;
+}
+
+.title-line {
+    display: flex;
+    gap: 0.1em;
+}
+
+.char-animate {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-30px) rotateY(-90deg);
+    filter: blur(10px);
+    animation: char-reveal 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes char-reveal {
+    to {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+        filter: blur(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    opacity: 0.85;
+    max-width: 550px;
+    color: var(--dark);
+    /* Entry animation: Slide from below - starts after title */
+    animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s backwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    /* Entry animation: Slide from below - starts after subtitle */
+    animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.2s backwards;
+}
+
+/* 
+ * Chemistry Animation Container 
+ */
+.hero-character-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    /* Reduced to avoid overlap */
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Animation comes in AFTER the text content */
+    animation: slide-up-entry 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.8s backwards;
+}
+
+/* Stats Styling - Prevent Overlap */
+.hero-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    transform: translateZ(30px);
+    margin-top: 30px;
+    z-index: 20;
+}
+
+
+
+.stat-card-wrapper {
+    flex: 1;
+    min-width: 140px;
+    /* Reduced from 180px */
+    max-width: 200px;
+    position: relative;
+    padding-top: 25px;
+    opacity: 0;
+    animation: fast-up-entry 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.stat-card-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+    z-index: 5;
+}
+
+.stat-card-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.stat-card {
+    background: rgba(249, 115, 22, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: var(--dark);
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+    /* Fast Upward Float */
+    transform-origin: top center;
+    animation: fast-float-up 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes fast-float-up {
+    0% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateY(-25px) rotate(1deg);
+    }
+}
+
+@keyframes fast-up-entry {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card-wrapper:nth-child(1) {
+    animation-delay: 2.2s;
+}
+
+.stat-card-wrapper:nth-child(2) {
+    animation-delay: 2.4s;
+}
+
+.stat-card-wrapper:nth-child(3) {
+    animation-delay: 2.6s;
+}
+
+.stat-card-wrapper:nth-child(1) .stat-card {
+    animation-delay: 0.1s;
+}
+
+.stat-card-wrapper:nth-child(2) .stat-card {
+    animation-delay: 0.3s;
+}
+
+.stat-card-wrapper:nth-child(3) .stat-card {
+    animation-delay: 0.5s;
+}
+
+@keyframes slide-up-entry {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card:hover {
+    background: rgba(249, 115, 22, 0.25);
+    transform: translateY(-15px) translateZ(60px);
+    border-color: var(--secondary);
+    box-shadow: 0 30px 60px rgba(249, 115, 22, 0.3);
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+}
+
+/* Buttons Overrides */
+.hero-btn-main {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+    font-weight: 700;
+    border: none;
+}
+
+.hero-btn-main:hover {
+    background: var(--primary-light) !important;
+    transform: translateY(-3px) scale(1.05);
+}
+
+.hero-btn-outline {
+    border: 2px solid var(--primary) !important;
+    color: var(--primary) !important;
+    background: transparent;
+}
+
+.hero-btn-outline:hover {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+    .hero-main-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-character-container {
+        /* Text appears first, animation comes after */
+        order: 1;
+        max-width: 300px;
+        margin-top: 20px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-subtitle {
+        margin-inline: auto;
+    }
+
+    .hero-stats {
+        margin-top: 30px;
+    }
+}

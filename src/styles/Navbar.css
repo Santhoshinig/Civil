@@ -1,0 +1,211 @@
+/**
+ * Navigation Bar Styles
+ */
+
+.navbar {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 60px;
+    z-index: 9999 !important;
+    background: rgba(255, 255, 255, 0.99);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    margin: 0 !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 0 !important;
+        min-height: 50px;
+    }
+}
+
+/* Scrolled State */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Layout Container */
+.nav-container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 60px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.logo-wrapper {
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 768px) {
+    .logo-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: icon-dance 5s ease-in-out infinite;
+}
+
+.logo-text {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary) !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Walking Cap */
+.nav-walker-container {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 40px;
+    height: 35px;
+    pointer-events: none;
+}
+
+.walking-cap-mascot {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes icon-dance {
+
+    0%,
+    100% {
+        transform: rotate(-2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(2deg) translateY(-2px);
+    }
+}
+
+@keyframes cap-walk-bob {
+    from {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    to {
+        transform: translateY(-4px) rotate(3deg);
+    }
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 40px;
+        gap: 20px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 9998;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #000000 !important;
+    position: relative;
+    padding: 5px 0;
+    background: transparent !important;
+    /* Ensure no background */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    transition: width 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+.mobile-menu-btn span {
+    width: 30px;
+    height: 2px;
+    background: var(--primary);
+    transition: 0.3s;
+}
