@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { productsData as fallbackProducts } from '../data/products';
+=======
+import { productsData } from '../data/products';
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 import '../styles/Products.css';
 import useTilt from '../hooks/useTilt';
 
@@ -43,7 +47,11 @@ const ProductCard = ({ product, index, onClick }) => {
                 <p className="product-description">{product.description}</p>
 
                 <div className="product-tags">
+<<<<<<< HEAD
                     {product.tags?.map((tag, tagIndex) => (
+=======
+                    {product.tags.map((tag, tagIndex) => (
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
                         <span key={tagIndex} className="tag">
                             {tag}
                         </span>
@@ -56,19 +64,26 @@ const ProductCard = ({ product, index, onClick }) => {
 
 /**
  * Products Component
+<<<<<<< HEAD
  * Fetches products from Firebase AND merges with local data
+=======
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
  */
 const Products = () => {
     const productsRef = useRef(null);
     const navigate = useNavigate();
+<<<<<<< HEAD
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+=======
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 
     // Scroll to top when component mounts
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'auto' });
     }, []);
 
+<<<<<<< HEAD
     // Fetch products from Firebase and merge with local
     useEffect(() => {
         const fetchProducts = async () => {
@@ -107,6 +122,9 @@ const Products = () => {
     useEffect(() => {
         if (loading) return;
 
+=======
+    useEffect(() => {
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -125,12 +143,17 @@ const Products = () => {
         elements?.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
+<<<<<<< HEAD
     }, [loading, products]);
+=======
+    }, []);
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
     };
 
+<<<<<<< HEAD
     if (loading) {
         return (
             <section className="products-section">
@@ -144,6 +167,8 @@ const Products = () => {
         );
     }
 
+=======
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
     return (
         <section id="products" className="products-section" ref={productsRef}>
             <div className="container">
@@ -155,9 +180,15 @@ const Products = () => {
                 </div>
 
                 <div className="products-grid">
+<<<<<<< HEAD
                     {products.map((product, index) => (
                         <ProductCard
                             key={product.id || index}
+=======
+                    {productsData.map((product, index) => (
+                        <ProductCard
+                            key={product.id}
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
                             product={product}
                             index={index}
                             onClick={handleProductClick}

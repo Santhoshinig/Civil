@@ -13,6 +13,7 @@ import Products from './components/Products';
 import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
 
+<<<<<<< HEAD
 /* Import Admin Components */
 import { AuthProvider } from './hooks/useAuth';
 import AdminLogin from './admin/AdminLogin';
@@ -23,6 +24,8 @@ import ProductForm from './admin/ProductForm';
 import AdminAnalytics from './admin/AdminAnalytics';
 import ProtectedRoute from './admin/ProtectedRoute';
 
+=======
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 /**
  * Main App Styles
  * Organized in styles/App.css
@@ -36,9 +39,12 @@ function MainContent() {
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
 
+<<<<<<< HEAD
   // Check if current route is admin
   const isAdminRoute = location.pathname.startsWith('/admin');
 
+=======
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
   useEffect(() => {
     /**
      * Scroll Listener Logic
@@ -70,6 +76,7 @@ function MainContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+<<<<<<< HEAD
   // Render admin routes separately (without main site layout)
   if (isAdminRoute) {
     return (
@@ -96,6 +103,10 @@ function MainContent() {
   // Render main site
   return (
     <div className="public-layout">
+=======
+  return (
+    <>
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
       <CustomCursor />
       <MolecularBackground />
       <Navbar activeSection={activeSection} />
@@ -106,12 +117,17 @@ function MainContent() {
       </Routes>
       <Footer />
       <ScrollToTop />
+<<<<<<< HEAD
     </div>
+=======
+    </>
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
   );
 }
 
 /**
  * App Root Component
+<<<<<<< HEAD
  * Handles the global routing context with Authentication.
  */
 function App() {
@@ -123,6 +139,17 @@ function App() {
         </div>
       </Router>
     </AuthProvider>
+=======
+ * Handles the global routing context.
+ */
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <MainContent />
+      </div>
+    </Router>
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
   );
 }
 

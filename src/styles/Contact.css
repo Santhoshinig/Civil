@@ -41,9 +41,14 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
+<<<<<<< HEAD
     font-weight: 700;
     color: #000000 !important;
     /* Force Black */
+=======
+    font-weight: 600;
+    color: var(--primary);
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
     font-size: 0.9rem;
 }
 
@@ -60,10 +65,14 @@
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition-fast);
+<<<<<<< HEAD
     background: #ffffff !important;
     /* Force White */
     color: #000000 !important;
     /* Force Black */
+=======
+    background: #fdfdfd;
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 /* High-contrast focus state for accessibility */
@@ -71,7 +80,11 @@
 .form-group textarea:focus {
     border-color: var(--primary);
     outline: none;
+<<<<<<< HEAD
     background: #ffffff !important;
+=======
+    background: var(--white);
+>>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
     box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
 }
 
