@@ -55,20 +55,10 @@ body {
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
-<<<<<<< HEAD
 }
 
 @media (max-width: 768px) {
     /* Auto-adjusts */
-=======
-    padding-top: 100px;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-top: 65px;
-    }
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 /* Header Typography */
@@ -135,8 +125,4 @@ section {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078

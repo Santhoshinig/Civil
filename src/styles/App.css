@@ -9,7 +9,6 @@
     position: relative;
 }
 
-<<<<<<< HEAD
 /* Base Layout for Public Site (Handles Fixed Navbar Spacing) */
 .public-layout {
     padding-top: 100px;
@@ -22,8 +21,6 @@
     }
 }
 
-=======
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 /* 
  * Button Components 
  * -----------------
