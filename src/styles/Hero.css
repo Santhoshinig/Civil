@@ -89,25 +89,15 @@
     opacity: 0.85;
     max-width: 550px;
     color: var(--dark);
-<<<<<<< HEAD
     /* Entry animation: Slide from below - starts after title */
     animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s backwards;
-=======
-    /* Entry animation: Slide from below */
-    animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s backwards;
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
-<<<<<<< HEAD
     /* Entry animation: Slide from below - starts after subtitle */
     animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.2s backwards;
-=======
-    /* Entry animation: Slide from below */
-    animation: slide-up-entry 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s backwards;
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 /* 
@@ -123,12 +113,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     /* Animation comes in AFTER the text content */
     animation: slide-up-entry 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.8s backwards;
-=======
-    animation: slide-up-entry 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s backwards;
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 /* Stats Styling - Prevent Overlap */
@@ -218,7 +204,6 @@
 }
 
 .stat-card-wrapper:nth-child(1) {
-<<<<<<< HEAD
     animation-delay: 2.2s;
 }
 
@@ -228,17 +213,6 @@
 
 .stat-card-wrapper:nth-child(3) {
     animation-delay: 2.6s;
-=======
-    animation-delay: 0.3s;
-}
-
-.stat-card-wrapper:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.stat-card-wrapper:nth-child(3) {
-    animation-delay: 0.7s;
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
 }
 
 .stat-card-wrapper:nth-child(1) .stat-card {
@@ -318,16 +292,10 @@
     }
 
     .hero-character-container {
-<<<<<<< HEAD
         /* Text appears first, animation comes after */
         order: 1;
         max-width: 300px;
         margin-top: 20px;
-=======
-        order: -1;
-        max-width: 300px;
-        margin-bottom: 10px;
->>>>>>> 0d6cb52b6a91dcc7ab9c937f0ec50610c4c4e078
     }
 
     .hero-buttons {
