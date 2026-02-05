@@ -1,0 +1,90 @@
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.contact-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #f3f4f6;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #4b5563;
+    transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: #e5e7eb;
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.contact-modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-modal-title {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.contact-modal-subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpModal {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

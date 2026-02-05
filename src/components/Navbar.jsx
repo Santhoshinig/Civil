@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-/**
- * Component-specific styles 
- * Located in organized styles directory
- */
 import '../styles/Navbar.css';
+import { useContact } from '../context/ContactContext';
 
 /**
  * Navbar Component
@@ -13,6 +10,7 @@ import '../styles/Navbar.css';
  * background/color shifts based on user scroll position.
  */
 const Navbar = ({ activeSection }) => {
+    const { openContact } = useContact();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);

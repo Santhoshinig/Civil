@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Hero.css';
 import BuildingScanner from './BuildingScanner';
+import { useContact } from '../context/ContactContext';
 
 /**
  * Hero Component 
@@ -9,6 +10,7 @@ import BuildingScanner from './BuildingScanner';
  * Features a high-fidelity building scanner to detect structural defects.
  */
 const Hero = () => {
+    const { openContact } = useContact();
     const heroRef = useRef(null);
     const navigate = useNavigate();
 
@@ -45,22 +47,11 @@ const Hero = () => {
                 <div className="hero-main-layout">
                     {/* Left Side: Professional Messaging */}
                     <div className="hero-text animate-slide-up">
-                        <h1 className="hero-title">
-                            <div className="title-line">
-                                {"CIVIL".split('').map((char, index) => (
-                                    <span key={index} className="char-animate" style={{ animationDelay: `${index * 0.08}s` }}>
-                                        {char}
-                                    </span>
-                                ))}
-                            </div>
-                            <div className="title-line">
-                                {"DOCTOR".split('').map((char, index) => (
-                                    <span key={index} className="char-animate" style={{ animationDelay: `${(index + 5) * 0.08}s` }}>
-                                        {char}
-                                    </span>
-                                ))}
-                            </div>
-                        </h1>
+                        <div className="hero-tagline">
+                            <span>If you have a <span className="text-problem">problem</span></span>
+                            <span>We have a <span className="text-solution">solution</span></span>
+                        </div>
+
                         <p className="hero-subtitle">
                             Pioneering Structural Intelligence & Precision Restoration.
                             We diagnose the unseen to curate resilient, long-term engineering

@@ -35,7 +35,7 @@ const Overview = () => {
                     {/* Visual Showcase Side */}
                     <div className="overview-image animate-slide-left">
                         <div className="image-placeholder">
-                            <img src="/civil-doctor-avatar.png" alt="Civil Doctor Avatar" style={{ objectFit: 'contain', background: 'transparent' }} />
+                            <img src="/avatar.png" alt="Civil Doctor Avatar" style={{ objectFit: 'contain', background: 'transparent' }} />
                         </div>
                     </div>
 
@@ -71,14 +71,14 @@ const Overview = () => {
                                 <span className="feature-icon">✓</span>
                                 <span>Repair & Rehabilitation of Distressed Assets</span>
                             </div>
-                            <div className="feature-item">
+                            {/* <div className="feature-item">
                                 <span className="feature-icon">✓</span>
                                 <span>CIDOMLITE Lightweight Structural Solutions</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
                                 <span>High-Modulus Joint Sealant Application</span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

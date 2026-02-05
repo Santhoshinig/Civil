@@ -4,6 +4,7 @@ import { doc, getDoc, updateDoc, increment, collection, getDocs } from 'firebase
 import { db } from '../firebase/config';
 import '../styles/ProductDetail.css';
 import useTilt from '../hooks/useTilt';
+import { useContact } from '../context/ContactContext';
 
 /**
  * ProductDetail Component
@@ -15,6 +16,7 @@ import useTilt from '../hooks/useTilt';
 const ProductDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { openContact } = useContact();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [relatedProducts, setRelatedProducts] = useState([]);
@@ -150,7 +152,7 @@ const ProductDetail = () => {
 
                             {/* Inquiry Action Section */}
                             <div className="purchase-section">
-                                <button className="btn btn-primary buy-btn" onClick={scrollToContact}>Request Personalized Quote</button>
+                                <button className="btn btn-primary buy-btn" onClick={openContact}>Request Personalized Quote</button>
                             </div>
                         </div>
                     </div>

@@ -2,10 +2,19 @@
  * Overwritten Company Overview Styles with enhanced checklist animations
  */
 
+/* Specific override for overview section spacing */
+.overview-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    margin-top: 0;
+}
+
 .overview-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
 }
 
@@ -23,10 +32,13 @@
 
 .image-placeholder {
     width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 30px;
+    max-width: 550px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    margin: 0 auto;
+    background: transparent;
+    border: none;
 }
 
 .image-placeholder img {
@@ -61,15 +73,16 @@
 }
 
 .overview-description {
-    margin-bottom: 20px;
-    color: #666;
-    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
 .overview-features {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 25px;
     margin-top: 40px;
 }
 

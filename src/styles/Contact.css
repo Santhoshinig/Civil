@@ -13,6 +13,20 @@
     gap: 60px;
 }
 
+.contact-section .section-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-section .section-header .section-title {
+    margin-bottom: 10px;
+}
+
+.contact-section .section-header .section-subtitle {
+    margin-bottom: 0;
+    color: #666;
+}
+
 /* White form container with shadow for elevation */
 .contact-form-wrapper {
     background: var(--white);

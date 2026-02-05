@@ -11,7 +11,23 @@ const CustomCursor = () => {
     const [isPointer, setIsPointer] = useState(false);
     const [isHidden, setIsHidden] = useState(true);
 
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
+        // diverse checks for touch capability
+        const checkIsMobile = () => {
+            return (
+                window.matchMedia('(pointer: coarse)').matches ||
+                window.matchMedia('(hover: none)').matches ||
+                navigator.maxTouchPoints > 0
+            );
+        };
+        setIsMobile(checkIsMobile());
+    }, []);
+
+    useEffect(() => {
+        if (isMobile) return;
+
         const handleMouseMove = (e) => {
             setPosition({ x: e.clientX, y: e.clientY });
             if (isHidden) setIsHidden(false);
@@ -40,7 +56,9 @@ const CustomCursor = () => {
             document.removeEventListener('mouseleave', handleMouseLeave);
             document.removeEventListener('mouseenter', handleMouseEnter);
         };
-    }, [isHidden]);
+    }, [isHidden, isMobile]);
+
+    if (isMobile) return null;
 
     return (
         <div

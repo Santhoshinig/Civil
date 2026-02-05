@@ -113,10 +113,10 @@ function MainContent() {
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: 'auto'
           });
         }
-      }, 500);
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [location]);
@@ -140,6 +140,9 @@ function MainContent() {
   );
 }
 
+import { ContactProvider } from './context/ContactContext';
+import ContactModal from './components/ContactModal';
+
 /**
  * App Root Component
  * Handles the global routing context with Authentication.
@@ -147,11 +150,14 @@ function MainContent() {
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="App">
-          <MainContent />
-        </div>
-      </Router>
+      <ContactProvider>
+        <Router>
+          <div className="App">
+            <MainContent />
+            <ContactModal />
+          </div>
+        </Router>
+      </ContactProvider>
     </AuthProvider>
   );
 }

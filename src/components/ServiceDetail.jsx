@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { servicesData } from './Services';
 import '../styles/Services.css';
+import { useContact } from '../context/ContactContext';
 
 const ServiceDetail = () => {
     const { serviceId } = useParams();
     const navigate = useNavigate();
+    const { openContact } = useContact();
 
     // Find the service in the data array
     const service = servicesData.find(s => s.id === serviceId);
@@ -119,7 +121,7 @@ const ServiceDetail = () => {
                                 padding: '15px',
                                 fontWeight: 'bold',
                                 fontSize: '1rem'
-                            }} onClick={() => navigate('/#contact')}>
+                            }} onClick={openContact}>
                                 Contact Us Now
                             </button>
                         </div>

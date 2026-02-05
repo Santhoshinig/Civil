@@ -11,7 +11,7 @@
 
 /* Base Layout for Public Site (Handles Fixed Navbar Spacing) */
 .public-layout {
-    padding-top: 80px;
+    padding-top: 60px;
     /* Aligns content exactly with the navbar height */
     min-height: 100vh;
 }
