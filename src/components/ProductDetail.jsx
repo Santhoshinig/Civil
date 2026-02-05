@@ -1,6 +1,6 @@
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { doc, getDoc, updateDoc, increment } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, increment, collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import '../styles/ProductDetail.css';
 import useTilt from '../hooks/useTilt';
