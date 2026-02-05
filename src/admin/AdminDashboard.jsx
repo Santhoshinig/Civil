@@ -5,10 +5,9 @@ import { db } from '../firebase/config';
 const AdminDashboard = () => {
     const [stats, setStats] = useState({
         products: 0,
-        views: 0,
-        growth: 0
+        views: 0
     });
-    const [recentProducts, setRecentProducts] = useState([]);
+    const [topProducts, setTopProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -18,7 +17,7 @@ const AdminDashboard = () => {
     const fetchDashboardData = async () => {
         try {
             const productsRef = collection(db, 'products');
-            const q = query(productsRef, orderBy('createdAt', 'desc'), limit(5));
+            const q = query(productsRef, orderBy('views', 'desc'), limit(3));
             const snapshot = await getDocs(q);
             const allSnapshot = await getDocs(productsRef);
 
@@ -32,10 +31,9 @@ const AdminDashboard = () => {
 
             setStats({
                 products: allSnapshot.size,
-                views: totalViews,
-                growth: 12 // Mock growth
+                views: totalViews
             });
-            setRecentProducts(productsData);
+            setTopProducts(productsData);
         } catch (error) {
             console.error("Error fetching dashboard data:", error);
         } finally {
@@ -49,7 +47,7 @@ const AdminDashboard = () => {
         <div className="admin-dashboard">
             <div className="dashboard-header">
                 <h1>Dashboard Overview</h1>
-                <p>Welcome back! Here's what's happening with your products.</p>
+                <p>Performance insights for your top performing products</p>
             </div>
 
             <div className="stats-grid">
@@ -67,19 +65,12 @@ const AdminDashboard = () => {
                         <p>Total Views</p>
                     </div>
                 </div>
-                <div className="stat-card-admin">
-                    <div className="stat-icon growth">📈</div>
-                    <div className="stat-content">
-                        <h3>+{stats.growth}%</h3>
-                        <p>Monthly Growth</p>
-                    </div>
-                </div>
             </div>
 
             <div className="dashboard-section">
-                <h2>Recent Products</h2>
+                <h2>Top 3 Performing Products</h2>
                 <div className="top-products-list">
-                    {recentProducts.map((product, index) => (
+                    {topProducts.map((product, index) => (
                         <div key={product.id} className="top-product-item">
                             <span className="rank">#{index + 1}</span>
                             {product.image && <img src={product.image} alt={product.title} className="product-thumb" />}
@@ -88,12 +79,18 @@ const AdminDashboard = () => {
                                 <span className="product-code">{product.code}</span>
                             </div>
                             <div className="view-count">
-                                <span className="views-number">{product.views || 0}</span>
-                                <span className="views-label">Views</span>
+                                {product.views > 0 ? (
+                                    <>
+                                        <span className="views-number">{product.views}</span>
+                                        <span className="views-label">Views</span>
+                                    </>
+                                ) : (
+                                    <span className="no-views-msg">No views yet</span>
+                                )}
                             </div>
                         </div>
                     ))}
-                    {recentProducts.length === 0 && <p className="empty-state">No products found.</p>}
+                    {topProducts.length === 0 && <p className="empty-state">No products found yet.</p>}
                 </div>
             </div>
         </div>

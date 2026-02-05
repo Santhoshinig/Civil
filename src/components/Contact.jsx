@@ -164,9 +164,13 @@ const Contact = () => {
                             </div>
                             <h3>Our Location</h3>
                             <p>
-                                123 Construction Hub, Build City
+                                #12/20, SND Layout No II,
                                 <br />
-                                Industrial Area Phase 1
+                                Tatabad, Coimbatore-641012
+                                <br />
+                                <strong>Branch: Chennai</strong>
+                                <br />
+                                Tamil Nadu, India
                             </p>
                         </div>
 
@@ -178,7 +182,8 @@ const Contact = () => {
                                 </svg>
                             </div>
                             <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
+                            <p>+91-9894600048</p>
+                            <p>+91-9894171051</p>
                         </div>
 
                         {/* Digital Correspondence */}
@@ -190,7 +195,7 @@ const Contact = () => {
                                 </svg>
                             </div>
                             <h3>Email</h3>
-                            <p>info@civildoctor.com</p>
+                            <p>admin@civildoctor.com</p>
                         </div>
 
                         {/* Availability Tracker */}
@@ -202,7 +207,7 @@ const Contact = () => {
                                 </svg>
                             </div>
                             <h3>Business Hours</h3>
-                            <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
                         </div>
                     </div>
                 </div>

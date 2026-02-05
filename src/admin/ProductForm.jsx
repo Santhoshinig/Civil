@@ -28,7 +28,6 @@ const ProductForm = () => {
         features: [],
         idealFor: [],
         shades: ['#e2e8f0', '#94a3b8', '#475569', '#1e293b'],
-        price: '',
         image: '',
         views: 0
     });
@@ -296,16 +295,7 @@ const ProductForm = () => {
                             />
                         </div>
 
-                        <div className="form-group">
-                            <label>Price</label>
-                            <input
-                                type="text"
-                                name="price"
-                                value={formData.price}
-                                onChange={handleChange}
-                                placeholder="e.g., From $15.00/sqft"
-                            />
-                        </div>
+
 
                         {/* Tags */}
                         <div className="form-group">

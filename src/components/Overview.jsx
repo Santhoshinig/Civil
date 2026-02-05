@@ -11,10 +11,6 @@ const Overview = () => {
     const overviewRef = useRef(null);
 
     useEffect(() => {
-        /**
-         * Scroll-Reveal Logic
-         * Animates image and text from opposite directions on scroll.
-         */
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -45,37 +41,43 @@ const Overview = () => {
 
                     {/* Text Content Side */}
                     <div className="overview-text animate-slide-right">
-                        <h2 className="section-title">About Civil Doctor</h2>
+                        <h2 className="section-title">A LEGACY OF STRUCTURAL EXCELLENCE</h2>
                         <p className="overview-description">
-                            With over 15 years of technical expertise in civil construction, we specialize in
-                            high-performance construction chemicals and protective systems. Our mission is to
-                            enhance the lifespan of buildings through innovative waterproofing and structural
-                            rehabilitation solutions.
+                            Since its inception in <strong>1998</strong>, Civil Doctor has stood as a
+                            bastion of engineering integrity, delivering bespoke solutions in
+                            high-performance construction chemicals and technical restoration.
                         </p>
                         <p className="overview-description">
-                            From industrial epoxy flooring to advanced pest management, we serve a wide range
-                            of clients across real estate, infrastructure, and industrial sectors. Our focus on
-                            quality, safety, and sustainable building practices makes us a trusted partner in
-                            the construction industry.
+                            Our multidisciplinary approach harmonizes decades of on-field
+                            mastery with innovative material science to ensure your structural
+                            assets remain resilient, sustainable, and bone-dry.
                         </p>
 
-                        {/* Quick-Scan Features Table */}
+                        {/* Specialty Works List */}
                         <div className="overview-features">
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Advanced Construction Chemicals</span>
+                                <span>Waterproofing (Roofs, Basements, Slabs, Tanks)</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Expert Engineering Team</span>
+                                <span>Technical Protective Coatings & Barriers</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>Structural Warranty Assured</span>
+                                <span>Industrial & Heavy-Duty Flooring Systems</span>
                             </div>
                             <div className="feature-item">
                                 <span className="feature-icon">✓</span>
-                                <span>ISO 9001:2015 Certified</span>
+                                <span>Repair & Rehabilitation of Distressed Assets</span>
+                            </div>
+                            <div className="feature-item">
+                                <span className="feature-icon">✓</span>
+                                <span>CIDOMLITE Lightweight Structural Solutions</span>
+                            </div>
+                            <div className="feature-item">
+                                <span className="feature-icon">✓</span>
+                                <span>High-Modulus Joint Sealant Application</span>
                             </div>
                         </div>
                     </div>

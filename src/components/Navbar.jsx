@@ -33,10 +33,10 @@ const Navbar = ({ activeSection }) => {
         };
 
         window.addEventListener('scroll', handleScroll);
-        
+
         // Call once on mount to set initial state
         handleScroll();
-        
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname]);
 
@@ -82,7 +82,7 @@ const Navbar = ({ activeSection }) => {
                     </div>
                     <span className="logo-text">
                         {/* Sliding Walking Cap Mascot - Moves left to right based on scroll progress */}
-                        <div 
+                        <div
                             className="nav-walker-container"
                             style={{ transform: `translateX(${scrollProgress * 15}px)` }}
                         >
@@ -102,16 +102,24 @@ const Navbar = ({ activeSection }) => {
                         Home
                     </a>
                     <a
-                        href="/#services"
-                        className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
-                        onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                        href="/services"
+                        className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services');
+                            setIsMobileMenuOpen(false);
+                        }}
                     >
                         Services
                     </a>
                     <a
-                        href="/#products"
-                        className={`nav-link ${activeSection === 'products' ? 'active' : ''}`}
-                        onClick={(e) => { e.preventDefault(); handleNavClick('products'); }}
+                        href="/products-page"
+                        className={`nav-link ${location.pathname === '/products-page' ? 'active' : ''}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/products-page');
+                            setIsMobileMenuOpen(false);
+                        }}
                     >
                         Products
                     </a>

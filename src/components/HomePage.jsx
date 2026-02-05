@@ -13,13 +13,11 @@ import Footer from './Footer';
  */
 const HomePage = ({ activeSection }) => {
     return (
-        <>
+        <div className="page-transition">
             <Hero />
             <Overview />
-            <Services />
-            <ProductsPreview />
             <Contact />
-        </>
+        </div>
     );
 };
 

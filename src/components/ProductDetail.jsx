@@ -1,9 +1,9 @@
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { doc, getDoc, updateDoc, increment } from 'firebase/firestore';
 import { db } from '../firebase/config';
-import { productsData } from '../data/products';
 import '../styles/ProductDetail.css';
+import useTilt from '../hooks/useTilt';
 
 /**
  * ProductDetail Component
@@ -17,9 +17,10 @@ const ProductDetail = () => {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    // Find related products (just using local data for now as fallback/mix)
-    const relatedProducts = productsData.filter(p => p.id !== id).slice(0, 3);
+    const [relatedProducts, setRelatedProducts] = useState([]);
+    const hasIncrementedView = useRef(false);
+    const lastViewedId = useRef(null);
+    const tiltRef = useTilt();
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -27,35 +28,49 @@ const ProductDetail = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
+            // Reset increment flag if ID changes
+            if (lastViewedId.current !== id) {
+                hasIncrementedView.current = false;
+                lastViewedId.current = id;
+            }
+
             setLoading(true);
             try {
-                // 1. Check local static data first (fastest for legacy products)
-                // Note: Admin created products will have different IDs not in this list
-                const localProduct = productsData.find(p => p.id === id);
-
-                if (localProduct) {
-                    setProduct({ ...localProduct, source: 'local' });
-                    setLoading(false);
-                    return;
-                }
-
-                // 2. If not local, fetch from Firebase
+                // 1. Fetch from Firebase
                 const docRef = doc(db, 'products', id);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
                     setProduct({ id: docSnap.id, ...docSnap.data(), source: 'firebase' });
 
-                    // Increment view count in background
-                    try {
-                        await updateDoc(docRef, {
-                            views: increment(1)
-                        });
-                    } catch (err) {
-                        console.error("Error incrementing views:", err);
+                    // Increment view count in background - robust guard with 5s cooldown
+                    const now = Date.now();
+                    const lastIncrement = sessionStorage.getItem(`last_inc_${id}`);
+
+                    if (!hasIncrementedView.current && (!lastIncrement || now - parseInt(lastIncrement) > 5000)) {
+                        hasIncrementedView.current = true;
+                        sessionStorage.setItem(`last_inc_${id}`, now.toString());
+
+                        try {
+                            const docRefToUpdate = doc(db, 'products', id);
+                            await updateDoc(docRefToUpdate, {
+                                views: increment(1)
+                            });
+                        } catch (err) {
+                            hasIncrementedView.current = false;
+                            console.error("Error incrementing views:", err);
+                        }
                     }
                 } else {
-                    console.error("Product not found in Local or Firebase");
+                    console.error("Product not found");
+                }
+
+                // 2. Fetch related products from Firebase
+                const productsCollectionRef = collection(db, 'products');
+                const relSnapshot = await getDocs(productsCollectionRef);
+                if (!relSnapshot.empty) {
+                    const allProducts = relSnapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    setRelatedProducts(allProducts.filter(p => p.id !== id).slice(0, 3));
                 }
             } catch (error) {
                 console.error("Error fetching product details:", error);
@@ -71,12 +86,6 @@ const ProductDetail = () => {
 
     const scrollToContact = () => {
         navigate('/#contact');
-        setTimeout(() => {
-            const element = document.getElementById('contact');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
     };
 
     if (loading) {
@@ -103,15 +112,14 @@ const ProductDetail = () => {
             <div className="container">
                 {/* Breadcrumb Navigation */}
                 <div className="breadcrumb">
-                    <Link to="/">Home</Link> /
-                    <Link to="/products-page">Products</Link> /
+                    <Link to="/products-page">Product</Link> /
                     <span className="current">{product.title}</span>
                 </div>
 
                 <div className="detail-grid">
                     {/* Left: Product Image */}
                     <div className="detail-image-section animate-left">
-                        <div className="detail-image-wrapper">
+                        <div ref={tiltRef} className="detail-image-wrapper">
                             <img src={product.image || 'https://via.placeholder.com/600'} alt={product.title} className="main-product-img" />
                         </div>
                     </div>
@@ -122,12 +130,7 @@ const ProductDetail = () => {
                             <h1 className="product-name">{product.title}</h1>
                             <p className="product-code">CODE: {product.code}</p>
 
-                            {/* Price positioned immediately after name per user request */}
-                            <div className="price-top-display">
-                                <span className="price-label">Price: </span>
-                                <span className="price-amount">{product.price || 'Available on Request'}</span>
-                                <p className="tax-info">(Inclusive of all taxes)</p>
-                            </div>
+
                         </div>
 
                         <div className="info-body">
@@ -147,20 +150,7 @@ const ProductDetail = () => {
 
                             {/* Inquiry Action Section */}
                             <div className="purchase-section">
-                                <div className="purchase-card">
-                                    <div className="quantity-selector">
-                                        <label>Quantity</label>
-                                        <select>
-                                            <option>1 Unit</option>
-                                            <option>5 Units</option>
-                                            <option>Bulk Order</option>
-                                        </select>
-                                    </div>
-                                    <div className="inquiry-hint">
-                                        <p>Need a custom quote?</p>
-                                    </div>
-                                </div>
-                                <button className="btn btn-primary buy-btn" onClick={scrollToContact}>Request Inquiry</button>
+                                <button className="btn btn-primary buy-btn" onClick={scrollToContact}>Request Personalized Quote</button>
                             </div>
                         </div>
                     </div>

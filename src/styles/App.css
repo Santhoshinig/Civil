@@ -11,7 +11,8 @@
 
 /* Base Layout for Public Site (Handles Fixed Navbar Spacing) */
 .public-layout {
-    padding-top: 100px;
+    padding-top: 80px;
+    /* Aligns content exactly with the navbar height */
     min-height: 100vh;
 }
 
@@ -139,4 +140,21 @@
 
 .animate-zoom {
     animation: zoomIn 1s forwards;
+}
+
+/* Page Transition Animation */
+.page-transition {
+    animation: pageFadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

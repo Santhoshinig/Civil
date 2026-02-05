@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
 /**
@@ -33,25 +34,15 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Site Navigation Links */}
-                    <div className="footer-col">
-                        <h4 className="footer-title">Why Choose Us</h4>
-                        <ul className="footer-links">
-                            <li><a href="#services">ISO 9001:2015 Certified</a></li>
-                            <li><a href="#services">Expert Engineering Team</a></li>
-                            <li><a href="#services">Structural Warranty Assured</a></li>
-                            <li><a href="#services">Advanced Diagnostics</a></li>
-                        </ul>
-                    </div>
-
                     {/* Core Offerings Recap */}
                     <div className="footer-col">
                         <h4 className="footer-title">Our Services</h4>
                         <ul className="footer-links">
-                            <li><a href="#services">Epoxy Flooring</a></li>
-                            <li><a href="#services">Pest Control</a></li>
-                            <li><a href="#services">Waterproofing</a></li>
-                            <li><a href="#services">Structural Repair</a></li>
+                            <li><Link to="/services">Waterproofing</Link></li>
+                            <li><Link to="/services">Flooring Systems</Link></li>
+                            <li><Link to="/services">Protective Coatings</Link></li>
+                            <li><Link to="/services">Repair & Rehab</Link></li>
+                            <li><Link to="/services">Joint Sealants</Link></li>
                         </ul>
                     </div>
 
@@ -59,16 +50,17 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-title">Contact</h4>
                         <ul className="footer-info">
-                            <li>📍 123 Construction Hub, Build City</li>
-                            <li>📞 +1 (555) 123-4567</li>
-                            <li>✉️ info@civildoctor.com</li>
+                            <li>📍 #12/20, SND Layout No II, Tatabad, Coimbatore-12</li>
+                            <li>📍 Branch: Chennai</li>
+                            <li>📞 +91-9894600048</li>
+                            <li>✉️ admin@civildoctor.com</li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Global Bottom Bar / Legal */}
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Civil Doctor. All rights reserved.</p>
+                    <p>Copyright &copy; 2015 Civil Doctor. All rights reserved. Designed and Hosted by Inway</p>
                     <div className="footer-bottom-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>

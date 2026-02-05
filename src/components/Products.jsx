@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
-import { productsData as fallbackProducts } from '../data/products';
 import '../styles/Products.css';
 import useTilt from '../hooks/useTilt';
 
@@ -19,7 +18,7 @@ const ProductCard = ({ product, index, onClick }) => {
         <div
             ref={tiltRef}
             className="product-card animate-slide-left"
-            style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
+            style={{ animationDelay: `${(index % 8) * 0.1}s`, cursor: 'pointer' }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={() => onClick(product.id)}
@@ -39,16 +38,13 @@ const ProductCard = ({ product, index, onClick }) => {
             </div>
 
             <div className="product-content">
-                <h3 className="product-title">{product.title}</h3>
+                <h3 className="product-title" style={{ fontSize: '1.1rem', marginBottom: '8px' }}>{product.title}</h3>
                 <p className="product-description">{product.description}</p>
-
-                <div className="product-tags">
-                    {product.tags?.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="tag">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+                {product.tags && product.tags.length > 0 && (
+                    <div className="product-tags">
+                        <span className="tag">{product.tags[0]}</span>
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -56,46 +52,40 @@ const ProductCard = ({ product, index, onClick }) => {
 
 /**
  * Products Component
- * Fetches products from Firebase AND merges with local data
+ * Fetches products from Firebase AND manages visibility count
  */
 const Products = () => {
     const productsRef = useRef(null);
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [visibleCount, setVisibleCount] = useState(8);
 
     // Scroll to top when component mounts
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'auto' });
     }, []);
 
-    // Fetch products from Firebase and merge with local
+    // Fetch products from Firebase
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                // Fetch from Firebase
                 const productsCollectionRef = collection(db, 'products');
                 const snapshot = await getDocs(productsCollectionRef);
 
-                let firebaseProducts = [];
                 if (!snapshot.empty) {
-                    firebaseProducts = snapshot.docs.map(doc => ({
+                    const firebaseProducts = snapshot.docs.map(doc => ({
                         id: doc.id,
                         ...doc.data(),
-                        // Ensure tags is strictly an array
                         tags: Array.isArray(doc.data().tags) ? doc.data().tags : []
                     }));
+                    setProducts(firebaseProducts);
+                } else {
+                    setProducts([]);
                 }
-
-                // Merge Firebase products with local hardcoded products
-                // We display Firebase products first (newest), then local ones
-                const combinedProducts = [...firebaseProducts, ...fallbackProducts];
-
-                setProducts(combinedProducts);
             } catch (error) {
                 console.error('Error fetching products:', error);
-                // On error, still show local products
-                setProducts(fallbackProducts);
+                setProducts([]);
             } finally {
                 setLoading(false);
             }
@@ -113,7 +103,6 @@ const Products = () => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     } else {
-                        // Logic: Remove class when out of view to re-trigger animation
                         entry.target.classList.remove('visible');
                     }
                 });
@@ -125,10 +114,14 @@ const Products = () => {
         elements?.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, [loading, products]);
+    }, [loading, products, visibleCount]);
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
+    };
+
+    const handleLoadMore = () => {
+        setVisibleCount(prev => prev + 8);
     };
 
     if (loading) {
@@ -145,7 +138,7 @@ const Products = () => {
     }
 
     return (
-        <section id="products" className="products-section" ref={productsRef}>
+        <section id="products" className="products-section page-transition" ref={productsRef}>
             <div className="container">
                 <div className="section-header">
                     <h2 className="section-title">Our Products</h2>
@@ -155,7 +148,7 @@ const Products = () => {
                 </div>
 
                 <div className="products-grid">
-                    {products.map((product, index) => (
+                    {products.slice(0, visibleCount).map((product, index) => (
                         <ProductCard
                             key={product.id || index}
                             product={product}
@@ -164,6 +157,14 @@ const Products = () => {
                         />
                     ))}
                 </div>
+
+                {visibleCount < products.length && (
+                    <div className="load-more-container" style={{ textAlign: 'center', marginTop: '50px' }}>
+                        <button className="btn btn-primary" onClick={handleLoadMore}>
+                            Know More
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );

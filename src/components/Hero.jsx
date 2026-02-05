@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Hero.css';
 import BuildingScanner from './BuildingScanner';
 
@@ -9,6 +10,7 @@ import BuildingScanner from './BuildingScanner';
  */
 const Hero = () => {
     const heroRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -60,11 +62,12 @@ const Hero = () => {
                             </div>
                         </h1>
                         <p className="hero-subtitle">
-                            Harnessing advanced structural diagnostics and civil engineering
-                            to reveal hidden defects and provide precision restoration solutions.
+                            Pioneering Structural Intelligence & Precision Restoration.
+                            We diagnose the unseen to curate resilient, long-term engineering
+                            solutions for modern infrastructure.
                         </p>
                         <div className="hero-buttons">
-                            <button className="btn hero-btn-main" onClick={() => scrollToSection('services')}>
+                            <button className="btn hero-btn-main" onClick={() => navigate('/services')}>
                                 Our Services
                             </button>
                             <button className="btn hero-btn-outline" onClick={() => scrollToSection('contact')}>
@@ -82,9 +85,15 @@ const Hero = () => {
                 {/* Construction Trust Dashboard */}
                 <div className="hero-stats">
                     <div className="stat-card-wrapper">
-                        <div className="stat-card">
-                            <div className="stat-number">15+</div>
+                        <div className="stat-card celebration-card">
+                            <div className="popper-icon">🎉</div>
+                            <div className="stat-number">25+</div>
                             <div className="stat-label">Years of Excellence</div>
+                            <div className="confetti-container">
+                                {[...Array(20)].map((_, i) => (
+                                    <span key={i} className={`particle ${i % 3 === 0 ? 'ribbon' : i % 2 === 0 ? 'square' : 'diamond'}`}></span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="stat-card-wrapper">

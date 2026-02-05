@@ -10,6 +10,8 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './components/HomePage';
 import ProductDetail from './components/ProductDetail';
 import Products from './components/Products';
+import ServicesPage from './components/ServicesPage';
+import ServiceDetail from './components/ServiceDetail';
 import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
 
@@ -21,6 +23,7 @@ import AdminDashboard from './admin/AdminDashboard';
 import AdminProducts from './admin/AdminProducts';
 import ProductForm from './admin/ProductForm';
 import AdminAnalytics from './admin/AdminAnalytics';
+import BulkUpload from './admin/BulkUpload';
 import ProtectedRoute from './admin/ProtectedRoute';
 
 /**
@@ -85,6 +88,7 @@ function MainContent() {
         }>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="products" element={<AdminProducts />} />
+          <Route path="products/bulk" element={<BulkUpload />} />
           <Route path="products/new" element={<ProductForm />} />
           <Route path="products/edit/:id" element={<ProductForm />} />
           <Route path="analytics" element={<AdminAnalytics />} />
@@ -92,6 +96,30 @@ function MainContent() {
       </Routes>
     );
   }
+
+  // Handle hash scrolling globally (for Contact Us buttons on detail pages)
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      // Use a timeout to ensure the HomePage has mounted and layouts are settled
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80; // Account for fixed navbar
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   // Render main site
   return (
@@ -101,6 +129,8 @@ function MainContent() {
       <Navbar activeSection={activeSection} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/service/:serviceId" element={<ServiceDetail />} />
         <Route path="/products-page" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
