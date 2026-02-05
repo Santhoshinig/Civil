@@ -162,16 +162,16 @@ const Contact = () => {
                                     <circle cx="12" cy="10" r="3" />
                                 </svg>
                             </div>
-                            <h3>Our Location</h3>
-                            <p>
-                                #12/20, SND Layout No II,
-                                <br />
-                                Tatabad, Coimbatore-641012
-                                <br />
-                                <strong>Branch: Chennai</strong>
-                                <br />
-                                Tamil Nadu, India
-                            </p>
+                            <div className="info-content">
+                                <h3>Our Location</h3>
+                                <p>
+                                    No. 50, Suramangalam Main Rd,
+                                    <br />
+                                    Sundaram Colony, Meyyanur,
+                                    <br />
+                                    Salem, Tamil Nadu 636004
+                                </p>
+                            </div>
                         </div>
 
                         {/* Telephone Lines */}
@@ -181,9 +181,10 @@ const Contact = () => {
                                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                                 </svg>
                             </div>
-                            <h3>Phone</h3>
-                            <p>+91-9894600048</p>
-                            <p>+91-9894171051</p>
+                            <div className="info-content">
+                                <h3>Phone</h3>
+                                <p>+91-9159040422</p>
+                            </div>
                         </div>
 
                         {/* Digital Correspondence */}
@@ -194,8 +195,10 @@ const Contact = () => {
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
                             </div>
-                            <h3>Email</h3>
-                            <p>admin@civildoctor.com</p>
+                            <div className="info-content">
+                                <h3>Email</h3>
+                                <p>admin@civildoctor.com</p>
+                            </div>
                         </div>
 
                         {/* Availability Tracker */}
@@ -206,8 +209,10 @@ const Contact = () => {
                                     <polyline points="12 6 12 12 16 14" />
                                 </svg>
                             </div>
-                            <h3>Business Hours</h3>
-                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                            <div className="info-content">
+                                <h3>Business Hours</h3>
+                                <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                            </div>
                         </div>
                     </div>
                 </div>

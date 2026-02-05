@@ -99,7 +99,6 @@
     font-weight: 800;
     animation: bounce-in 2s infinite ease-in-out;
 }
-}
 
 @keyframes bounce-in {
 
@@ -135,5 +134,11 @@
     .overview-grid {
         grid-template-columns: 1fr;
         gap: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-features {
+        grid-template-columns: 1fr;
     }
 }

@@ -154,11 +154,26 @@
 .info-card p {
     color: #666;
     font-size: 0.95rem;
+    margin: 0;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Mobile responsive layout shift */
 @media (max-width: 968px) {
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        padding: 0 5%;
+    }
+
+    .info-card {
+        gap: 20px;
+        justify-content: flex-start;
     }
 }

@@ -60,10 +60,14 @@
     flex-direction: column;
     color: var(--dark);
     letter-spacing: -2px;
+    word-break: break-word;
+    /* Prevent stretching */
 }
 
 .title-line {
     display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
     gap: 0.1em;
 }
 
@@ -558,5 +562,28 @@
 
     .hero-stats {
         margin-top: 30px;
+    }
+
+    .hero-title {
+        align-items: center;
+        justify-content: center;
+        letter-spacing: -1px;
+    }
+
+    .title-line {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 0;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+        text-align: center;
     }
 }

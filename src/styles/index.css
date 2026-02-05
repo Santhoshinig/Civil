@@ -115,6 +115,22 @@ section {
     border-radius: 2px;
 }
 
+/* Mobile adjustments for section titles */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+        word-spacing: 0.15em;
+        letter-spacing: 0.02em;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+        word-spacing: 0.2em;
+    }
+}
+
 /* Scroll Animation Base Classes */
 .animate-on-scroll {
     opacity: 0;

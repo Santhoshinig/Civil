@@ -29,7 +29,7 @@ const ServiceDetail = () => {
                 position: 'relative',
                 height: '250px',
                 overflow: 'hidden',
-                background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${service.image}")`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${service.image}")`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 display: 'flex',

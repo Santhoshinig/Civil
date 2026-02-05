@@ -41,7 +41,7 @@ const Overview = () => {
 
                     {/* Text Content Side */}
                     <div className="overview-text animate-slide-right">
-                        <h2 className="section-title">A LEGACY OF STRUCTURAL EXCELLENCE</h2>
+                        <h2 className="section-title">LEGACY OF EXCELLENCE</h2>
                         <p className="overview-description">
                             Since its inception in <strong>1998</strong>, Civil Doctor has stood as a
                             bastion of engineering integrity, delivering bespoke solutions in

@@ -38,11 +38,11 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-title">Our Services</h4>
                         <ul className="footer-links">
-                            <li><Link to="/services">Waterproofing</Link></li>
-                            <li><Link to="/services">Flooring Systems</Link></li>
-                            <li><Link to="/services">Protective Coatings</Link></li>
-                            <li><Link to="/services">Repair & Rehab</Link></li>
-                            <li><Link to="/services">Joint Sealants</Link></li>
+                            <li><Link to="/service/waterproofing">Waterproofing</Link></li>
+                            <li><Link to="/service/flooring">Flooring Systems</Link></li>
+                            <li><Link to="/service/protective-coatings">Protective Coatings</Link></li>
+                            <li><Link to="/service/repair-rehab">Repair & Rehab</Link></li>
+                            <li><Link to="/service/joint-sealants">Joint Sealants</Link></li>
                         </ul>
                     </div>
 
@@ -50,9 +50,8 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-title">Contact</h4>
                         <ul className="footer-info">
-                            <li>📍 #12/20, SND Layout No II, Tatabad, Coimbatore-12</li>
-                            <li>📍 Branch: Chennai</li>
-                            <li>📞 +91-9894600048</li>
+                            <li>📍 No. 50, Suramangalam Main Rd, Sundaram Colony, Meyyanur, Salem - 636004</li>
+                            <li>📞 +91-9159040422</li>
                             <li>✉️ admin@civildoctor.com</li>
                         </ul>
                     </div>
@@ -60,7 +59,7 @@ const Footer = () => {
 
                 {/* Global Bottom Bar / Legal */}
                 <div className="footer-bottom">
-                    <p>Copyright &copy; 2015 Civil Doctor. All rights reserved. Designed and Hosted by Inway</p>
+                    <p>Copyright &copy; 2015 Civil Doctor.       All rights reserved.</p>
                     <div className="footer-bottom-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
