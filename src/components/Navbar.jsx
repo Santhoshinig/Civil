@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useContact } from '../context/ContactContext';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Navbar Component
@@ -11,6 +12,7 @@ import { useContact } from '../context/ContactContext';
  */
 const Navbar = ({ activeSection }) => {
     const { openContact } = useContact();
+    const { theme, toggleTheme } = useTheme();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -129,6 +131,15 @@ const Navbar = ({ activeSection }) => {
                         Contact Us
                     </a>
                 </div>
+
+                {/* Theme Toggle Button */}
+                <button
+                    onClick={toggleTheme}
+                    className="theme-toggle-nav-btn"
+                    title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                >
+                    {theme === 'light' ? '🌙' : '☀️'}
+                </button>
 
                 {/* Hamburger Menu Icon (Mobile Only) */}
                 <button

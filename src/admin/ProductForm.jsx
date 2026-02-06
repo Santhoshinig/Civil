@@ -208,16 +208,27 @@ const ProductForm = () => {
                             {imagePreview ? (
                                 <div className="image-preview">
                                     <img src={imagePreview} alt="Preview" />
-                                    <button
-                                        type="button"
-                                        className="remove-image"
-                                        onClick={() => {
-                                            setImagePreview('');
-                                            setFormData(prev => ({ ...prev, image: '' }));
-                                        }}
-                                    >
-                                        ✕
-                                    </button>
+                                    <div className="preview-overlay">
+                                        <label className="change-image-btn">
+                                            📷 Change Image
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleFileChange}
+                                                hidden
+                                            />
+                                        </label>
+                                        <button
+                                            type="button"
+                                            className="remove-image-btn"
+                                            onClick={() => {
+                                                setImagePreview('');
+                                                setFormData(prev => ({ ...prev, image: '' }));
+                                            }}
+                                        >
+                                            🗑️ Remove
+                                        </button>
+                                    </div>
                                 </div>
                             ) : (
                                 <div className="upload-placeholder">

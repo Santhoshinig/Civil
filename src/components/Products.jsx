@@ -24,7 +24,7 @@ const ProductCard = ({ product, index, onClick }) => {
             onClick={() => onClick(product.id)}
         >
             <div className="product-image">
-                <div className="image-placeholder">
+                <div className="product-image-placeholder">
                     <img src={product.image} alt={product.title} />
                 </div>
                 <div className={`product-overlay ${isHovered ? 'active' : ''}`}>

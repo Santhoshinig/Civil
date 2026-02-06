@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, orderBy, query, limit } from 'firebase/firestore';
 import { db } from '../firebase/config';
+import { useTheme } from '../context/ThemeContext';
 
 const AdminDashboard = () => {
+    const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
     const [stats, setStats] = useState({
         products: 0,
         views: 0
@@ -46,20 +50,30 @@ const AdminDashboard = () => {
     return (
         <div className="admin-dashboard">
             <div className="dashboard-header">
-                <h1>Dashboard Overview</h1>
-                <p>Performance insights for your top performing products</p>
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p>Performance insights for your top performing products</p>
+                </div>
+                <div className="dashboard-actions">
+                    <button onClick={() => navigate('/admin/products/new')} className="add-product-btn">
+                        <span>+</span> Add Product
+                    </button>
+                    <button onClick={toggleTheme} className="theme-toggle-btn" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+                        {theme === 'light' ? '◐' : '◑'}
+                    </button>
+                </div>
             </div>
 
             <div className="stats-grid">
-                <div className="stat-card-admin">
-                    <div className="stat-icon products">📦</div>
+                <div className="stat-card-admin clickable" onClick={() => navigate('/admin/products')}>
+                    <div className="stat-icon products">▦</div>
                     <div className="stat-content">
                         <h3>{stats.products}</h3>
                         <p>Total Products</p>
                     </div>
                 </div>
                 <div className="stat-card-admin">
-                    <div className="stat-icon views">👀</div>
+                    <div className="stat-icon views">◉</div>
                     <div className="stat-content">
                         <h3>{stats.views}</h3>
                         <p>Total Views</p>

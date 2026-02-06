@@ -14,6 +14,7 @@ import ServicesPage from './components/ServicesPage';
 import ServiceDetail from './components/ServiceDetail';
 import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 /* Import Admin Components */
 import { AuthProvider } from './hooks/useAuth';
@@ -31,6 +32,7 @@ import ProtectedRoute from './admin/ProtectedRoute';
  * Organized in styles/App.css
  */
 import './styles/App.css';
+import './styles/UserDarkMode.css';
 
 /**
  * Main Content Wrapper for Scroll Logic 
@@ -105,7 +107,7 @@ function MainContent() {
       const timer = setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
-          const offset = 80; // Account for fixed navbar
+          const offset = 100; // Account for fixed navbar
           const bodyRect = document.body.getBoundingClientRect().top;
           const elementRect = element.getBoundingClientRect().top;
           const elementPosition = elementRect - bodyRect;
@@ -136,11 +138,13 @@ function MainContent() {
       </Routes>
       <Footer />
       <ScrollToTop />
+      <FloatingWhatsApp />
     </div>
   );
 }
 
 import { ContactProvider } from './context/ContactContext';
+import { ThemeProvider } from './context/ThemeContext';
 import ContactModal from './components/ContactModal';
 
 /**
@@ -149,16 +153,18 @@ import ContactModal from './components/ContactModal';
  */
 function App() {
   return (
-    <AuthProvider>
-      <ContactProvider>
-        <Router>
-          <div className="App">
-            <MainContent />
-            <ContactModal />
-          </div>
-        </Router>
-      </ContactProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <ContactProvider>
+          <Router>
+            <div className="App">
+              <MainContent />
+              <ContactModal />
+            </div>
+          </Router>
+        </ContactProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

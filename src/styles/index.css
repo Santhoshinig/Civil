@@ -32,9 +32,43 @@
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 
+    /* Hero Overlay Theme Aware */
+    --hero-overlay-start: rgba(255, 255, 255, 0.95);
+    --hero-overlay-end: rgba(255, 255, 255, 0.92);
+
     /* Standardized Transitions */
     --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --primary: #fb923c;
+    --primary-light: #fdba74;
+    --secondary: #ff8c5a;
+    --accent: #fcd34d;
+    --dark: #e5e7eb;
+    --light: #1f2937;
+    --white: #111827;
+
+    /* Hero Overlay Dark Mode */
+    --hero-overlay-start: rgba(15, 23, 42, 0.95);
+    --hero-overlay-end: rgba(15, 23, 42, 0.92);
+
+    /* Admin specific dark mode */
+    --admin-bg: #0f172a;
+    --admin-sidebar: #1e293b;
+    --admin-card: #1e293b;
+    --admin-border: #334155;
+    --admin-text: #f1f5f9;
+    --admin-text-muted: #94a3b8;
+
+    --glass: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 /* Global Reset */
@@ -55,6 +89,24 @@ body {
     color: var(--dark);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Dark Mode Body */
+[data-theme="dark"] body {
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+[data-theme="dark"] .public-layout {
+    background-color: #111827;
+}
+
+[data-theme="dark"] section {
+    background-color: transparent;
+}
+
+[data-theme="dark"] .container {
+    color: #e5e7eb;
 }
 
 @media (max-width: 768px) {

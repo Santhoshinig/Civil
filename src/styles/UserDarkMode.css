@@ -1,0 +1,253 @@
+/* USER-FACING DARK MODE STYLES - AGGRESSIVE FIX */
+
+/* Main Layout Dark Mode */
+[data-theme="dark"],
+[data-theme="dark"] body {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .App,
+[data-theme="dark"] .public-layout {
+    background-color: #0f172a !important;
+}
+
+/* Global Text Visibility Override */
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] li,
+[data-theme="dark"] div:not(.logo-wrapper):not(.image-placeholder) {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #ffffff !important;
+}
+
+/* Specific Section Fixes */
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .services-section,
+[data-theme="dark"] .overview-section,
+[data-theme="dark"] .product-section,
+[data-theme="dark"] .contact-section {
+    background-color: #0f172a !important;
+}
+
+/* Card Overrides (Aggressive) */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .service-features-highlight,
+[data-theme="dark"] [style*="background: #f8fafc"],
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background: rgb(248, 250, 252)"],
+[data-theme="dark"] [style*="background-color: #f8fafc"],
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background-color: rgb(248, 250, 252)"] {
+    background-color: #1e293b !important;
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+/* Border Overrides */
+[data-theme="dark"] *,
+[data-theme="dark"] [style*="border"] {
+    border-color: #334155 !important;
+}
+
+/* Link Overrides */
+[data-theme="dark"] .service-link,
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] a {
+    color: #fb923c !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] a:hover {
+    color: #ff8c5a !important;
+}
+
+/* Admin Sidebar Visibility Fix */
+[data-theme="dark"] .user-email {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .user-role {
+    color: #cbd5e1 !important;
+    font-weight: 500 !important;
+}
+
+/* Hero Tagline Fix */
+[data-theme="dark"] .hero-tagline span {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .text-problem {
+    color: #ff8c5a !important;
+}
+
+[data-theme="dark"] .text-solution {
+    color: #4ade80 !important;
+}
+
+/* Form Elements */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+    border: 1px solid #334155 !important;
+}
+
+/* Footer Fix */
+[data-theme="dark"] .footer {
+    background-color: #0d1117 !important;
+    border-top: 1px solid #30363d !important;
+}
+
+/* Fix for the barely visible gray text in inline styles */
+[data-theme="dark"] [style*="color: #444"],
+[data-theme="dark"] [style*="color: #64748b"],
+[data-theme="dark"] [style*="color: #666"],
+[data-theme="dark"] [style*="color: #777"],
+[data-theme="dark"] [style*="color: #555"],
+[data-theme="dark"] [style*="color: #334155"] {
+    color: #cbd5e1 !important;
+}
+
+/* Fix for the white text on white background in Hero stats */
+[data-theme="dark"] .stat-card {
+    background: #1e293b !important;
+}
+
+[data-theme="dark"] .stat-label {
+    color: #f1f5f9 !important;
+}
+
+/* Ensure Navbar text is visible */
+[data-theme="dark"] .nav-link {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.95) !important;
+}
+
+/* Professional Icons Fix - Ensure they are white/orange */
+[data-theme="dark"] .nav-icon,
+[data-theme="dark"] .btn-icon,
+[data-theme="dark"] .feature-icon {
+    color: #fb923c !important;
+}
+
+/* Aggressive Card Fix for User Side */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .service-card-body,
+[data-theme="dark"] .product-card-body,
+[data-theme="dark"] .product-content,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .service-modal,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .contact-modal-content {
+    background-color: #1e293b !important;
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .service-description,
+[data-theme="dark"] .product-description,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .modal-description,
+[data-theme="dark"] .contact-modal-subtitle,
+[data-theme="dark"] .product-content *,
+[data-theme="dark"] .service-card-body *,
+[data-theme="dark"] .contact-modal-content label {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .product-title,
+[data-theme="dark"] .service-title,
+[data-theme="dark"] .product-name,
+[data-theme="dark"] .stat-number,
+[data-theme="dark"] .contact-modal-title {
+    color: #fb923c !important;
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .modal-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-modal-content label {
+    color: #f1f5f9 !important;
+}
+
+/* Close button fix for contact modal */
+[data-theme="dark"] .modal-close-btn {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .image-placeholder {
+    background: #0f172a !important;
+}
+
+/* Specific tag visibility overrides for dark mode */
+[data-theme="dark"] .tag {
+    background: #334155 !important;
+    color: #fb923c !important;
+}
+
+[data-theme="dark"] .product-card:hover .tag {
+    background: #fb923c !important;
+    color: #ffffff !important;
+}
+
+/* UNIVERSAL FALLBACK FOR INLINE STYLES */
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background-color: #fff"] {
+    background-color: #1e293b !important;
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+/* Product Detail Page Specifics */
+[data-theme="dark"] .ideal-tag {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .related-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .related-content h3 {
+    color: #fb923c !important;
+}
+
+[data-theme="dark"] .related-content p {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .view-link {
+    color: #ff8c5a !important;
+}
+
+[data-theme="dark"] .product-long-desc {
+    color: #cbd5e1 !important;
+}

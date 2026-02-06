@@ -20,7 +20,7 @@
 }
 
 .section-subtitle {
-    color: #666;
+    color: var(--dark);
     font-size: 1.1rem;
 }
 
@@ -156,7 +156,7 @@
 
 
 .service-description {
-    color: #777;
+    color: var(--dark);
     margin-bottom: 25px;
     font-size: 0.95rem;
     line-height: 1.7;
@@ -333,7 +333,7 @@
 }
 
 .modal-description {
-    color: #555;
+    color: var(--dark);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 25px;

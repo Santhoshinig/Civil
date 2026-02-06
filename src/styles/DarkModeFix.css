@@ -1,0 +1,33 @@
+/* DARK MODE COMPREHENSIVE FIX - Add this to ensure all text is visible */
+
+[data-theme="dark"] * {
+    border-color: #334155;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] .admin-layout,
+[data-theme="dark"] .admin-sidebar,
+[data-theme="dark"] .admin-main {
+    background-color: #0f172a;
+}
+
+[data-theme="dark"] .admin-sidebar {
+    background: #1e293b;
+}
+
+[data-theme="dark"] button,
+[data-theme="dark"] a,
+[data-theme="dark"] span,
+[data-theme="dark"] p,
+[data-theme="dark"] div {
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #f1f5f9 !important;
+}
