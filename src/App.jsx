@@ -117,11 +117,18 @@ function MainContent() {
             top: offsetPosition,
             behavior: 'auto'
           });
+
+          // Clear hash from URL so it doesn't jump again on refresh
+          window.history.replaceState(
+            null,
+            document.title,
+            window.location.pathname + window.location.search
+          );
         }
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [location]);
+  }, [location.hash]); // Only dependency needed is the hash itself
 
   // Render main site
   return (

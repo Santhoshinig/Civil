@@ -10,11 +10,11 @@
 .contact-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
+    gap: 57px;
 }
 
 .contact-section .section-header {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .form-group label {
@@ -125,7 +125,7 @@
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 27px;
     opacity: 0;
     transform: translateX(50px);
 }

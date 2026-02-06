@@ -14,7 +14,7 @@
     background: rgba(255, 255, 255, 0.99);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
+    padding: 12px 0;
     margin: 0 !important;
     border: none !important;
     box-sizing: border-box !important;
@@ -64,9 +64,11 @@
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     height: 100%;
-    padding: 0 60px;
+    padding-left: 20px;
 }
 
 @media (max-width: 768px) {
@@ -113,6 +115,11 @@
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
     .nav-logo {
         gap: 8px;
         padding-right: 15px;
@@ -171,7 +178,7 @@
     .nav-links {
         display: none;
         position: fixed;
-        top: 60px;
+        top: 65px;
         left: 0;
         width: 100%;
         flex-direction: column;
@@ -186,6 +193,11 @@
 
     .nav-links.active {
         display: flex;
+    }
+
+    [data-theme="dark"] .nav-links {
+        background: rgba(17, 24, 39, 0.98);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 }
 

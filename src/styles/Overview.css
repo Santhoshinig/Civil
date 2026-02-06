@@ -7,7 +7,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 80px 0;
+    padding: 78px 0;
     margin-top: 0;
 }
 
@@ -65,7 +65,7 @@
 
 .overview-text h2 {
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .overview-text h2::after {
@@ -73,7 +73,7 @@
 }
 
 .overview-description {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
     color: #555;
     font-size: 1.15rem;
     line-height: 1.8;
@@ -82,8 +82,8 @@
 .overview-features {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 40px;
+    gap: 22px;
+    margin-top: 37px;
 }
 
 .feature-item {
