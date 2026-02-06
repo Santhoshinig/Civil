@@ -48,8 +48,8 @@ const Hero = () => {
                     {/* Left Side: Professional Messaging */}
                     <div className="hero-text animate-slide-up">
                         <div className="hero-tagline">
-                            <span>If you have a <span className="text-problem">problem</span></span>
-                            <span>We have a <span className="text-solution">solution</span></span>
+                            <span>IF YOU HAVE A <span className="text-problem">PROBLEM</span></span>
+                            <span>WE HAVE A <span className="text-solution">SOLUTION</span></span>
                         </div>
 
                         <p className="hero-subtitle">
