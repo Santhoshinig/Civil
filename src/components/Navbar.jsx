@@ -124,6 +124,13 @@ const Navbar = ({ activeSection }) => {
                         Products
                     </a>
                     <a
+                        href="/#clients"
+                        className={`nav-link ${activeSection === 'clients' ? 'active' : ''}`}
+                        onClick={(e) => { e.preventDefault(); handleNavClick('clients'); }}
+                    >
+                        Clients
+                    </a>
+                    <a
                         href="/#contact"
                         className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
                         onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}

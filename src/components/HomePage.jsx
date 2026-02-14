@@ -6,6 +6,8 @@ import ProductsPreview from './ProductsPreview';
 import Contact from './Contact';
 import Footer from './Footer';
 
+import Clients from './Clients';
+
 /**
  * HomePage Component
  * 
@@ -16,6 +18,7 @@ const HomePage = ({ activeSection }) => {
         <div className="page-transition">
             <Hero />
             <Overview />
+            <Clients />
             <Contact />
         </div>
     );

@@ -51,7 +51,7 @@
 
 [data-theme="dark"] .nav-link:hover,
 [data-theme="dark"] .nav-link.active {
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 /* Flip 'C' logo color in Dark Mode (Invert black to white, keep yellow yellow) */
@@ -274,7 +274,7 @@
 
 .theme-toggle-nav-btn:hover {
     border-color: var(--primary);
-    background: #fff7ed;
+    background: #f0f9ff;
     transform: rotate(20deg) scale(1.1);
 }
 

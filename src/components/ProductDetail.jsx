@@ -94,7 +94,7 @@ const ProductDetail = () => {
         return (
             <div className="product-detail-page">
                 <div className="container" style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <div className="loading-spinner" style={{ borderTopColor: '#f97316' }}></div>
+                    <div className="loading-spinner" style={{ borderTopColor: '#0ea5e9' }}></div>
                 </div>
             </div>
         );

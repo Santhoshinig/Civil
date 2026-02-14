@@ -8,15 +8,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Color Palette - White & Orange Theme */
-    --primary: #f97316;
-    /* Orange for main brand color */
-    --primary-light: #fb923c;
-    /* Light orange for depth */
-    --secondary: #ff6b35;
-    /* Bright orange for energy */
-    --accent: #fbbf24;
-    /* Amber for highlights */
+    /* Color Palette - White & Light Sky Blue Theme */
+    --primary: #0ea5e9;
+    /* Sky blue for main brand color */
+    --primary-light: #38bdf8;
+    /* Light sky blue for depth */
+    --secondary: #0284c7;
+    /* Deep sky blue for energy */
+    --accent: #7dd3fc;
+    /* Soft sky blue for highlights */
     --dark: #1f2937;
     /* Dark gray for text */
     --light: #f8f9fa;
@@ -43,10 +43,10 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --primary: #fb923c;
-    --primary-light: #fdba74;
-    --secondary: #ff8c5a;
-    --accent: #fcd34d;
+    --primary: #38bdf8;
+    --primary-light: #7dd3fc;
+    --secondary: #0ea5e9;
+    --accent: #bae6fd;
     --dark: #e5e7eb;
     --light: #1f2937;
     --white: #111827;

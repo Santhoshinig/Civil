@@ -67,12 +67,12 @@
 [data-theme="dark"] .service-link,
 [data-theme="dark"] .nav-link,
 [data-theme="dark"] a {
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .nav-link:hover,
 [data-theme="dark"] a:hover {
-    color: #ff8c5a !important;
+    color: #0ea5e9 !important;
 }
 
 /* Admin Sidebar Visibility Fix */
@@ -92,7 +92,7 @@
 }
 
 [data-theme="dark"] .text-problem {
-    color: #ff8c5a !important;
+    color: #0ea5e9 !important;
 }
 
 [data-theme="dark"] .text-solution {
@@ -146,7 +146,7 @@
 [data-theme="dark"] .nav-icon,
 [data-theme="dark"] .btn-icon,
 [data-theme="dark"] .feature-icon {
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 /* Aggressive Card Fix for User Side */
@@ -181,7 +181,7 @@
 [data-theme="dark"] .product-name,
 [data-theme="dark"] .stat-number,
 [data-theme="dark"] .contact-modal-title {
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .section-title,
@@ -206,11 +206,11 @@
 /* Specific tag visibility overrides for dark mode */
 [data-theme="dark"] .tag {
     background: #334155 !important;
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .product-card:hover .tag {
-    background: #fb923c !important;
+    background: #38bdf8 !important;
     color: #ffffff !important;
 }
 
@@ -237,7 +237,7 @@
 }
 
 [data-theme="dark"] .related-content h3 {
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .related-content p {
@@ -245,7 +245,7 @@
 }
 
 [data-theme="dark"] .view-link {
-    color: #ff8c5a !important;
+    color: #0ea5e9 !important;
 }
 
 [data-theme="dark"] .product-long-desc {

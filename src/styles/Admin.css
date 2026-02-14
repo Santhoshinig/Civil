@@ -13,9 +13,9 @@
     /* White Cards */
     --admin-border: #e5e7eb;
     /* Light Border */
-    --admin-primary: #f97316;
-    /* Main Orange */
-    --admin-primary-light: #fb923c;
+    --admin-primary: #0ea5e9;
+    /* Main Sky Blue */
+    --admin-primary-light: #38bdf8;
     --admin-text: #1f2937;
     /* Dark Text */
     --admin-text-muted: #6b7280;
@@ -68,7 +68,7 @@
 
 [data-theme="dark"] .top-product-item:hover {
     background: #334155 !important;
-    border-color: #fb923c !important;
+    border-color: #38bdf8 !important;
 }
 
 /* Dark Mode Product Cards */
@@ -139,8 +139,8 @@
 [data-theme="dark"] .tag-input-wrapper button:hover,
 [data-theme="dark"] .back-btn:hover {
     background: #334155 !important;
-    border-color: #fb923c !important;
-    color: #fb923c !important;
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .submit-btn:disabled {
@@ -208,7 +208,7 @@
 
 [data-theme="dark"] .tag {
     background: #334155 !important;
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .product-actions {
@@ -229,8 +229,8 @@
 [data-theme="dark"] .theme-toggle-btn:hover,
 [data-theme="dark"] .back-to-site-btn:hover {
     background: #334155 !important;
-    border-color: #fb923c !important;
-    color: #fb923c !important;
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .user-email {
@@ -271,7 +271,7 @@
 
 [data-theme="dark"] .brand-icon {
     background: #334155 !important;
-    color: #fb923c !important;
+    color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .logout-btn {
@@ -291,7 +291,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #fff 100%);
     padding: 20px;
 }
 
@@ -386,7 +386,7 @@
 .form-group textarea:focus {
     outline: none;
     border-color: var(--admin-primary) !important;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
 }
 
 .form-group input::placeholder,
@@ -408,13 +408,13 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
 }
 
 .admin-login-btn:hover:not(:disabled) {
     background: var(--admin-primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
 }
 
 .admin-login-btn:disabled {
@@ -451,7 +451,7 @@
     width: 40px;
     height: 40px;
     border-width: 3px;
-    border-color: rgba(249, 115, 22, 0.2);
+    border-color: rgba(14, 165, 233, 0.2);
     border-top-color: var(--admin-primary);
 }
 
@@ -516,13 +516,13 @@
 
 .admin-badge {
     display: inline-block;
-    background: #fff7ed;
+    background: #f0f9ff;
     color: var(--admin-primary);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 700;
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    border: 1px solid rgba(14, 165, 233, 0.2);
 }
 
 .sidebar-nav {
@@ -553,14 +553,14 @@
 }
 
 .sidebar-nav .nav-link:hover {
-    background: #fff7ed !important;
+    background: #f0f9ff !important;
     color: var(--admin-primary) !important;
 }
 
 .sidebar-nav .nav-link.active {
     background: var(--admin-primary) !important;
     color: white !important;
-    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
 }
 
 .nav-icon {
@@ -641,7 +641,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--admin-primary);
-    background: #fff7ed;
+    background: #f0f9ff;
     width: 40px;
     height: 40px;
     display: flex;
@@ -706,7 +706,7 @@
 .theme-toggle-sidebar-btn:hover {
     border-color: var(--admin-primary);
     color: var(--admin-primary);
-    background: #fff7ed;
+    background: #f0f9ff;
 }
 
 .admin-main {
@@ -953,7 +953,7 @@
 .quick-action-btn:hover {
     transform: translateY(-3px);
     background: var(--admin-primary-light);
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
 }
 
 .quick-action-btn.secondary {
@@ -1032,7 +1032,7 @@
 .add-product-btn:hover {
     transform: translateY(-2px);
     background: var(--admin-primary-light);
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
 }
 
 .products-toolbar {
@@ -1532,7 +1532,7 @@
 .submit-btn:hover {
     background: var(--admin-primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
 }
 
 /* ==================== Bulk Upload ==================== */
@@ -1706,21 +1706,21 @@
 /* Result Warning for Bulk Upload */
 .result-warning {
     grid-column: 1 / -1;
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
+    background: #e0f2fe;
+    border: 1px solid #bfdbfe;
     border-radius: 12px;
     padding: 20px;
     margin-top: 20px;
 }
 
 .result-warning h4 {
-    color: #92400e;
+    color: #0c4a6e;
     margin-bottom: 10px;
     font-size: 1rem;
 }
 
 .result-warning p {
-    color: #b45309;
+    color: #075985;
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
@@ -1738,7 +1738,7 @@
     background: white;
     padding: 8px 12px;
     border-radius: 6px;
-    border: 1px solid #fef3c7;
+    border: 1px solid #e0f2fe;
     font-size: 0.85rem;
     color: #4b5563;
     overflow: hidden;
@@ -1800,9 +1800,9 @@
 }
 
 .bulk-delete-btn {
-    background: #fee2e2;
+    background: #e0f2fe;
     color: var(--admin-error);
-    border: 1px solid #fecaca;
+    border: 1px solid #bfdbfe;
     padding: 10px 20px;
     border-radius: 10px;
     font-weight: 600;
@@ -1921,7 +1921,7 @@
     transform: translateY(-2px);
     background: var(--admin-primary);
     color: white;
-    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
 }
 
 .no-views-msg {

@@ -1,0 +1,112 @@
+/**
+ * Clients Marquee Styles
+ * Continuous horizontal scroll for client logos
+ */
+
+.clients-section {
+    padding: 60px 0;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.clients-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clients-container .section-title {
+    margin-bottom: 40px;
+}
+
+.clients-container .section-title::after {
+    background: var(--primary);
+}
+
+.clients-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.clients-marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    gap: 60px;
+    padding-left: 60px;
+}
+
+.clients-marquee:hover {
+    animation-play-state: paused;
+}
+
+.client-logo-item {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 2px solid var(--admin-border);
+    transition: var(--transition-fast);
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.client-logo-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.15);
+}
+
+.client-logo-item img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    filter: brightness(1.05) contrast(1.05);
+    transition: var(--transition-fast);
+}
+
+.client-logo-item:hover img {
+    transform: scale(1.1);
+}
+
+.placeholder-text {
+    font-weight: 700;
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 30px));
+    }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .clients-section {
+    background-color: var(--white);
+    /* Keep consistent or use dark bg */
+}
+
+[data-theme="dark"] .client-logo-item {
+    background: var(--admin-sidebar);
+    border-color: var(--admin-border);
+}
+
+[data-theme="dark"] .placeholder-text {
+    color: var(--admin-text-muted);
+}

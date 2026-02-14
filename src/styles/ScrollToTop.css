@@ -22,13 +22,13 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
     animation: slideUp 0.4s ease-out;
 }
 
 .scroll-btn:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 15px 40px rgba(14, 165, 233, 0.4);
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
 }
 
@@ -47,6 +47,7 @@
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -54,9 +55,12 @@
 }
 
 @keyframes bounceUp {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }

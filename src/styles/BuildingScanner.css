@@ -52,7 +52,7 @@
     right: 0;
     width: 100px;
     height: 100%;
-    background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.1));
+    background: linear-gradient(to right, transparent, rgba(14, 165, 233, 0.1));
 }
 
 .scan-label {
@@ -117,9 +117,12 @@
 }
 
 @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 12px #ff6600) drop-shadow(0 0 8px #00ccff);
     }
+
     50% {
         filter: drop-shadow(0 0 15px #ff0000) drop-shadow(0 0 20px #ff6600) drop-shadow(0 0 15px #00ccff);
     }
@@ -135,7 +138,7 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(249, 115, 22, 0.95);
+    background: rgba(14, 165, 233, 0.95);
     color: var(--white);
     padding: 8px 20px;
     border-radius: 20px;
@@ -143,7 +146,7 @@
     font-size: 0.9rem;
     z-index: 20;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
 }
 
 @keyframes drawDefect {

@@ -21,7 +21,7 @@ const FloatingWhatsApp = () => {
 
     return (
         <a
-            href="https://wa.me/919159040422"
+            href="https://wa.me/919688898230"
             className={`floating-whatsapp ${scrolling ? 'scrolling' : ''}`}
             target="_blank"
             rel="noopener noreferrer"

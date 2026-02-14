@@ -67,13 +67,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     width: fit-content;
-    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 .explore-btn:hover {
     background: var(--secondary);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(249, 115, 22, 0.4);
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
 }
 
 /* Responsive */

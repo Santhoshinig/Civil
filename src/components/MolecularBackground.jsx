@@ -50,7 +50,7 @@ const MolecularBackground = () => {
             }
 
             draw() {
-                ctx.fillStyle = 'rgba(249, 115, 22, 0.5)'; // Industrial orange highlight
+                ctx.fillStyle = 'rgba(14, 165, 233, 0.5)'; // Sky blue highlight
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();

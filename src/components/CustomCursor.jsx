@@ -68,7 +68,7 @@ const CustomCursor = () => {
                 left: 0,
                 width: isPointer ? '60px' : '20px',
                 height: isPointer ? '60px' : '20px',
-                backgroundColor: isPointer ? 'rgba(249, 115, 22, 0.15)' : 'rgba(251, 146, 60, 0.4)',
+                backgroundColor: isPointer ? 'rgba(14, 165, 233, 0.15)' : 'rgba(56, 189, 248, 0.4)',
                 border: isPointer ? '2px solid var(--secondary)' : 'none',
                 borderRadius: '50%',
                 pointerEvents: 'none',
