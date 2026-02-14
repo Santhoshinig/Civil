@@ -47,35 +47,29 @@
 
 .client-logo-item {
     flex: 0 0 auto;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    border-radius: 50%;
-    border: 2px solid var(--admin-border);
     transition: var(--transition-fast);
-    padding: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    padding: 10px;
 }
 
 .client-logo-item:hover {
-    border-color: var(--primary);
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.15);
+    transform: translateY(-8px);
 }
 
 .client-logo-item img {
-    max-width: 85%;
-    max-height: 85%;
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
-    filter: brightness(1.05) contrast(1.05);
+    filter: brightness(1) contrast(1.02);
     transition: var(--transition-fast);
 }
 
 .client-logo-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .placeholder-text {
@@ -98,13 +92,21 @@
 
 /* Dark Mode Support */
 [data-theme="dark"] .clients-section {
-    background-color: var(--white);
-    /* Keep consistent or use dark bg */
+    background-color: transparent;
 }
 
 [data-theme="dark"] .client-logo-item {
-    background: var(--admin-sidebar);
-    border-color: var(--admin-border);
+    background: transparent;
+    border: none;
+}
+
+[data-theme="dark"] .client-logo-item img {
+    filter: brightness(0) invert(1) opacity(0.8);
+    /* Make logos white and slightly transparent in dark mode */
+}
+
+[data-theme="dark"] .client-logo-item:hover img {
+    filter: brightness(0) invert(1) opacity(1);
 }
 
 [data-theme="dark"] .placeholder-text {
