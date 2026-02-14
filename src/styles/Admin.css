@@ -241,13 +241,136 @@
     color: #94a3b8 !important;
 }
 
-/* Dark Mode - All Admin Text Elements */
 [data-theme="dark"] .admin-layout,
 [data-theme="dark"] .admin-main,
 [data-theme="dark"] .admin-dashboard,
 [data-theme="dark"] .admin-products {
     color: #f1f5f9 !important;
 }
+
+/* Bulk Upload Dark Mode Fixes */
+[data-theme="dark"] .bulk-upload-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .upload-instructions {
+    background: #0f172a !important;
+    border-left-color: var(--admin-primary) !important;
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .upload-instructions ol,
+[data-theme="dark"] .upload-instructions li {
+    color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .start-bulk-btn {
+    background: var(--admin-primary) !important;
+    color: white !important;
+}
+
+/* Product Catalog Header Buttons Fix */
+[data-theme="dark"] .search-box {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .search-box input {
+    color: #f1f5f9 !important;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .bulk-upload-btn-admin {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .bulk-upload-btn-admin:hover {
+    background: #334155 !important;
+    color: var(--admin-primary) !important;
+    border-color: var(--admin-primary) !important;
+}
+
+[data-theme="dark"] .submit-btn,
+[data-theme="dark"] .start-bulk-btn {
+    background: var(--admin-primary) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .submit-btn:hover,
+[data-theme="dark"] .start-bulk-btn:hover {
+    background: var(--admin-primary-light) !important;
+}
+
+[data-theme="dark"] .custom-file-btn {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .custom-file-btn:hover {
+    background: #334155 !important;
+    border-color: var(--admin-primary) !important;
+}
+
+[data-theme="dark"] .upload-box label {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .upload-status {
+    color: #38bdf8 !important;
+    background: rgba(14, 165, 233, 0.1) !important;
+}
+
+[data-theme="dark"] .result-item {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .result-item .label {
+    color: #cbd5e1 !important;
+}
+
+
+[data-theme="dark"] .secondary-btn-admin {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .secondary-btn-admin:hover {
+    background: #334155 !important;
+}
+
+
+/* Form Sections */
+[data-theme="dark"] .form-right,
+[data-theme="dark"] .product-form-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .tag-input-wrapper button {
+    background: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+/* Search Bar Inner Styling */
+[data-theme="dark"] .products-toolbar {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .select-all-box span {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .select-all-box:hover {
+    background: #334155 !important;
+}
+
 
 [data-theme="dark"] .header-left h1,
 [data-theme="dark"] .header-left p {
