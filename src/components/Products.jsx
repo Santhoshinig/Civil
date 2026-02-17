@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import '../styles/Products.css';
@@ -57,14 +57,31 @@ const ProductCard = ({ product, index, onClick }) => {
 const Products = () => {
     const productsRef = useRef(null);
     const navigate = useNavigate();
+    const location = useLocation();
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(8);
 
-    // Scroll to top when component mounts
+    // Get partner from query param
+    const searchParams = new URLSearchParams(location.search);
+    const partnerFilter = searchParams.get('partner');
+
+    const partnerNames = {
+        'ardex': 'Ardex Endura',
+        'fosroc': 'Fosroc',
+        'myk': 'MYK Laticrete',
+        'ramco': 'Ramco Cements',
+        'allied': 'Allied'
+    };
+
+    // Redirect to partners if no partner filter is present
     useEffect(() => {
+        if (!partnerFilter) {
+            navigate('/partners');
+        }
         window.scrollTo({ top: 0, behavior: 'auto' });
-    }, []);
+    }, [partnerFilter, navigate]);
 
     // Fetch products from Firebase
     useEffect(() => {
@@ -80,19 +97,31 @@ const Products = () => {
                         tags: Array.isArray(doc.data().tags) ? doc.data().tags : []
                     }));
                     setProducts(firebaseProducts);
+
+                    // Initial filtering
+                    if (partnerFilter) {
+                        setFilteredProducts(firebaseProducts.filter(p =>
+                            p.partner?.toLowerCase() === partnerFilter.toLowerCase() ||
+                            p.brand?.toLowerCase() === partnerFilter.toLowerCase()
+                        ));
+                    } else {
+                        setFilteredProducts(firebaseProducts);
+                    }
                 } else {
                     setProducts([]);
+                    setFilteredProducts([]);
                 }
             } catch (error) {
                 console.error('Error fetching products:', error);
                 setProducts([]);
+                setFilteredProducts([]);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchProducts();
-    }, []);
+    }, [partnerFilter]);
 
     useEffect(() => {
         if (loading) return;
@@ -114,7 +143,7 @@ const Products = () => {
         elements?.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-    }, [loading, products, visibleCount]);
+    }, [loading, filteredProducts, visibleCount]);
 
     const handleProductClick = (productId) => {
         navigate(`/product/${productId}`);
@@ -140,25 +169,42 @@ const Products = () => {
     return (
         <section id="products" className="products-section page-transition" ref={productsRef}>
             <div className="container">
+                <div className="breadcrumb-nav">
+                    <span onClick={() => navigate('/partners')}>Partners</span>
+                    <span className="separator">/</span>
+                    <span className="current">{partnerFilter && partnerNames[partnerFilter] ? partnerNames[partnerFilter] : 'All Products'}</span>
+                </div>
+
                 <div className="section-header">
-                    <h2 className="section-title">Our Products</h2>
+                    <h2 className="section-title">
+                        {partnerFilter && partnerNames[partnerFilter] ? `${partnerNames[partnerFilter]} Products` : 'Our Products'}
+                    </h2>
                     <p className="section-subtitle">
-                        Premium chemical products for diverse industrial applications
+                        {partnerFilter && partnerNames[partnerFilter] ? `Exclusive range of high-performance solutions from ${partnerNames[partnerFilter]}` : 'Premium chemical products for diverse industrial applications'}
                     </p>
                 </div>
 
                 <div className="products-grid">
-                    {products.slice(0, visibleCount).map((product, index) => (
-                        <ProductCard
-                            key={product.id || index}
-                            product={product}
-                            index={index}
-                            onClick={handleProductClick}
-                        />
-                    ))}
+                    {filteredProducts.length > 0 ? (
+                        filteredProducts.slice(0, visibleCount).map((product, index) => (
+                            <ProductCard
+                                key={product.id || index}
+                                product={product}
+                                index={index}
+                                onClick={handleProductClick}
+                            />
+                        ))
+                    ) : (
+                        <div className="no-products">
+                            <p>No products found for this partner.</p>
+                            <button className="btn btn-primary" onClick={() => navigate('/partners')}>
+                                Back to Partners
+                            </button>
+                        </div>
+                    )}
                 </div>
 
-                {visibleCount < products.length && (
+                {visibleCount < filteredProducts.length && (
                     <div className="load-more-container" style={{ textAlign: 'center', marginTop: '50px' }}>
                         <button className="btn btn-primary" onClick={handleLoadMore}>
                             Know More

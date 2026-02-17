@@ -12,15 +12,19 @@ import ProductDetail from './components/ProductDetail';
 import Products from './components/Products';
 import ServicesPage from './components/ServicesPage';
 import ServiceDetail from './components/ServiceDetail';
+import PartnersPage from './components/PartnersPage';
 import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import LoadingScreen from './components/LoadingScreen';
 
 /* Import Admin Components */
 import { AuthProvider } from './hooks/useAuth';
 import AdminLogin from './admin/AdminLogin';
 import AdminLayout from './admin/AdminLayout';
 import AdminDashboard from './admin/AdminDashboard';
+import AdminPartners from './admin/AdminPartners';
+import PartnerForm from './admin/PartnerForm';
 import AdminProducts from './admin/AdminProducts';
 import ProductForm from './admin/ProductForm';
 import AdminAnalytics from './admin/AdminAnalytics';
@@ -44,6 +48,17 @@ function MainContent() {
   // Check if current route is admin
   const isAdminRoute = location.pathname.startsWith('/admin');
 
+  // Loading State
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // 2.5 seconds loading time
+
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     /**
      * Scroll Listener Logic
@@ -89,6 +104,10 @@ function MainContent() {
           </ProtectedRoute>
         }>
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="partners" element={<AdminPartners />} />
+          <Route path="partners/new" element={<PartnerForm />} />
+          <Route path="partners/edit/:id" element={<PartnerForm />} />
+          <Route path="partners/:partnerId/products" element={<AdminProducts />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="products/bulk" element={<BulkUpload />} />
           <Route path="products/new" element={<ProductForm />} />
@@ -132,21 +151,25 @@ function MainContent() {
 
   // Render main site
   return (
-    <div className="public-layout">
-      <CustomCursor />
-      <MolecularBackground />
-      <Navbar activeSection={activeSection} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/service/:serviceId" element={<ServiceDetail />} />
-        <Route path="/products-page" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-      </Routes>
-      <Footer />
-      <ScrollToTop />
-      <FloatingWhatsApp />
-    </div>
+    <>
+      <LoadingScreen isLoading={isLoading} />
+      <div className="public-layout">
+        <CustomCursor />
+        <MolecularBackground />
+        <Navbar activeSection={activeSection} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/service/:serviceId" element={<ServiceDetail />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/products-page" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+        <Footer />
+        <ScrollToTop />
+        <FloatingWhatsApp />
+      </div>
+    </>
   );
 }
 

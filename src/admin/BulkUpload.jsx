@@ -135,6 +135,16 @@ const BulkUpload = () => {
                         // Clean up temp fields
                         delete product.filename;
 
+                        // Map partner if present in CSV
+                        const partnerVal = (product.partner || '').toLowerCase();
+                        const partnerNames = {
+                            ardex: 'Ardex Endura',
+                            fosroc: 'Fosroc',
+                            myk: 'MYK Laticrete',
+                            ramco: 'Ramco Cements',
+                            allied: 'Allied'
+                        };
+
                         // Ensure required fields
                         const finalProduct = {
                             title: product.title || 'Untitled Product',
@@ -145,6 +155,8 @@ const BulkUpload = () => {
                             features: product.features || [],
                             idealFor: product.idealFor || [],
                             image: product.image || '',
+                            partner: partnerVal || '',
+                            brand: partnerNames[partnerVal] || product.brand || '',
                             views: 0,
                             createdAt: new Date().toISOString(),
                             updatedAt: new Date().toISOString()
@@ -188,7 +200,8 @@ const BulkUpload = () => {
                 <div className="upload-instructions">
                     <h3>Instructions:</h3>
                     <ol>
-                        <li>Prepare a CSV file with columns: <strong>title, code, description, fulldescription, tags, features, idealfor, image</strong></li>
+                        <li>Prepare a CSV file with columns: <strong>title, code, partner, description, fulldescription, tags, features, idealfor, image</strong></li>
+                        <li>In the <strong>partner</strong> column, use: <em>ardex, fosroc, myk, ramco,</em> or <em>allied</em>.</li>
                         <li>In the <strong>image</strong> column, specify the filename (e.g., product1.jpg).</li>
                         <li>Use semicolon (;) to separate items in tags, features, and idealfor columns.</li>
                         <li>Select the CSV file and all corresponding images below.</li>

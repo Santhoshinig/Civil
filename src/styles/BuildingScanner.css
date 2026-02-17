@@ -1,12 +1,23 @@
 .building-scanner-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 100%;
+    /* Fill the grid height on desktop */
     border-radius: 20px;
     overflow: hidden;
     background: #000;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ... existing code ... */
+
+@media (max-width: 768px) {
+    .building-scanner-container {
+        height: auto;
+        aspect-ratio: 1/1;
+        /* Square shape on mobile */
+    }
 }
 
 .image-layer {
@@ -198,6 +209,8 @@
 
 @media (max-width: 768px) {
     .building-scanner-container {
-        height: 300px;
+        height: auto;
+        aspect-ratio: 4/3;
+        /* Rectangular shape on mobile */
     }
 }

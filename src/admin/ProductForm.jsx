@@ -3,21 +3,36 @@
  * Add/Edit product with drag & drop image upload
  */
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { doc, getDoc, setDoc, addDoc, collection } from 'firebase/firestore';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { doc, getDoc, getDocs, setDoc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { uploadToCloudinary } from '../cloudinary/config';
 import '../styles/Admin.css';
 
 const ProductForm = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { id } = useParams();
     const isEditing = !!id;
+    const preselectPartner = location.state?.preselectPartner;
 
     const [loading, setLoading] = useState(false);
     const [uploading, setUploading] = useState(false);
     const [dragActive, setDragActive] = useState(false);
     const [imagePreview, setImagePreview] = useState('');
+    const [partners, setPartners] = useState([]);
+
+    useEffect(() => {
+        const fetchPartners = async () => {
+            const querySnapshot = await getDocs(collection(db, 'partners'));
+            const partnersData = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setPartners(partnersData);
+        };
+        fetchPartners();
+    }, []);
 
     const [formData, setFormData] = useState({
         title: '',
@@ -29,8 +44,19 @@ const ProductForm = () => {
         idealFor: [],
         shades: ['#e2e8f0', '#94a3b8', '#475569', '#1e293b'],
         image: '',
-        views: 0
+        views: 0,
+        partner: preselectPartner || '',
+        brand: ''
     });
+
+    useEffect(() => {
+        if (preselectPartner && partners.length > 0) {
+            const p = partners.find(p => p.id === preselectPartner);
+            if (p) {
+                setFormData(prev => ({ ...prev, brand: p.name }));
+            }
+        }
+    }, [preselectPartner, partners]);
 
     const [tagInput, setTagInput] = useState('');
     const [featureInput, setFeatureInput] = useState('');
@@ -49,7 +75,13 @@ const ProductForm = () => {
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                setFormData(data);
+                setFormData({
+                    ...data,
+                    tags: data.tags || [],
+                    features: data.features || [],
+                    idealFor: data.idealFor || [],
+                    shades: data.shades || ['#e2e8f0', '#94a3b8', '#475569', '#1e293b']
+                });
                 setImagePreview(data.image || '');
             } else {
                 alert('Product not found');
@@ -176,7 +208,11 @@ const ProductForm = () => {
                 await addDoc(collection(db, 'products'), productData);
             }
 
-            navigate('/admin/products');
+            if (formData.partner) {
+                navigate(`/admin/partners/${formData.partner}/products`);
+            } else {
+                navigate('/admin/products');
+            }
         } catch (error) {
             console.error('Error saving product:', error);
             alert('Failed to save product');
@@ -188,7 +224,7 @@ const ProductForm = () => {
     return (
         <div className="product-form-page">
             <div className="form-header">
-                <button className="back-btn" onClick={() => navigate('/admin/products')}>
+                <button className="back-btn" onClick={() => formData.partner ? navigate(`/admin/partners/${formData.partner}/products`) : navigate('/admin/products')}>
                     ← Back
                 </button>
                 <h1>{isEditing ? 'Edit Product' : 'Add New Product'}</h1>
@@ -306,6 +342,30 @@ const ProductForm = () => {
                             />
                         </div>
 
+                        <div className="form-group">
+                            <label>Partner / Brand *</label>
+                            <select
+                                name="partner"
+                                value={formData.partner || ''}
+                                onChange={(e) => {
+                                    const val = e.target.value;
+                                    const selectedPartner = partners.find(p => p.id === val);
+                                    setFormData(prev => ({
+                                        ...prev,
+                                        partner: val,
+                                        brand: selectedPartner ? selectedPartner.name : ''
+                                    }));
+                                }}
+                                className="partner-select-admin"
+                                required
+                            >
+                                <option value="">Select Partner</option>
+                                {partners.map(p => (
+                                    <option key={p.id} value={p.id}>{p.name}</option>
+                                ))}
+                            </select>
+                        </div>
+
 
 
                         {/* Tags */}
@@ -384,8 +444,7 @@ const ProductForm = () => {
                     <button
                         type="button"
                         className="cancel-btn"
-                        onClick={() => navigate('/admin/products')}
-                    >
+                        onClick={() => formData.partner ? navigate(`/admin/partners/${formData.partner}/products`) : navigate('/admin/products')}>
                         Cancel
                     </button>
                     <button

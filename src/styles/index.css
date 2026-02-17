@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Global Stylesheet
  * 
  * This file contains the design system (CSS variables), base resets, 
@@ -8,19 +8,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Color Palette - White & Light Sky Blue Theme */
-    --primary: #0ea5e9;
-    /* Sky blue for main brand color */
-    --primary-light: #38bdf8;
-    /* Light sky blue for depth */
-    --secondary: #0284c7;
-    /* Deep sky blue for energy */
-    --accent: #7dd3fc;
-    /* Soft sky blue for highlights */
-    --dark: #1f2937;
-    /* Dark gray for text */
-    --light: #f8f9fa;
-    /* Light background */
+    /* Color Palette - Brighter Blue Theme */
+    --primary: #1f8dba;
+    /* Main brand color */
+    --primary-light: #30a5d6;
+    --secondary: #16698a;
+    --accent: #e0f2ff;
+    --dark: #0f4a61;
+    --light: #f4faff;
     --white: #ffffff;
 
     /* Glassmorphism effects */
@@ -43,13 +38,13 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --primary: #38bdf8;
-    --primary-light: #7dd3fc;
-    --secondary: #0ea5e9;
-    --accent: #bae6fd;
-    --dark: #e5e7eb;
-    --light: #1f2937;
-    --white: #111827;
+    --primary: #1f8dba;
+    --primary-light: #30a5d6;
+    --secondary: #16698a;
+    --accent: rgba(31, 141, 186, 0.15);
+    --dark: #f1f5f9;
+    --light: #1e293b;
+    --white: #0f172a;
 
     /* Hero Overlay Dark Mode */
     --hero-overlay-start: rgba(15, 23, 42, 0.95);
@@ -57,18 +52,18 @@
 
     /* Admin specific dark mode */
     --admin-bg: #0f172a;
-    --admin-sidebar: #1e293b;
-    --admin-card: #1e293b;
-    --admin-border: #334155;
-    --admin-text: #f1f5f9;
-    --admin-text-muted: #94a3b8;
+    --admin-sidebar: #111827;
+    --admin-card: rgba(255, 255, 255, 0.05);
+    --admin-border: rgba(255, 255, 255, 0.1);
+    --admin-text: #ffffff;
+    --admin-text-muted: rgba(255, 255, 255, 0.6);
 
-    --glass: rgba(0, 0, 0, 0.3);
+    --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
 
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
 }
 
 /* Global Reset */
@@ -98,7 +93,7 @@ body {
 }
 
 [data-theme="dark"] .public-layout {
-    background-color: #111827;
+    background-color: #0f172a;
 }
 
 [data-theme="dark"] section {
@@ -106,7 +101,7 @@ body {
 }
 
 [data-theme="dark"] .container {
-    color: #e5e7eb;
+    color: #f1f5f9;
 }
 
 @media (max-width: 768px) {
@@ -193,4 +188,48 @@ section {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Branded Loading Spinner */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 100px 0;
+}
+
+.loading-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.loading-spinner::before,
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary);
+}
+
+.loading-spinner::before {
+    animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-spinner::after {
+    border-top-color: var(--primary-light);
+    animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

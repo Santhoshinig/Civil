@@ -51,28 +51,27 @@
 [data-theme="dark"] [style*="background-color: #f8fafc"],
 [data-theme="dark"] [style*="background-color: white"],
 [data-theme="dark"] [style*="background-color: rgb(248, 250, 252)"] {
-    background-color: #1e293b !important;
-    background: #1e293b !important;
-    border-color: #334155 !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
     color: #f1f5f9 !important;
 }
 
 /* Border Overrides */
 [data-theme="dark"] *,
 [data-theme="dark"] [style*="border"] {
-    border-color: #334155 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Link Overrides */
 [data-theme="dark"] .service-link,
 [data-theme="dark"] .nav-link,
 [data-theme="dark"] a {
-    color: #38bdf8 !important;
+    color: var(--primary) !important;
 }
 
 [data-theme="dark"] .nav-link:hover,
 [data-theme="dark"] a:hover {
-    color: #0ea5e9 !important;
+    color: var(--primary-light) !important;
 }
 
 /* Admin Sidebar Visibility Fix */
@@ -92,7 +91,7 @@
 }
 
 [data-theme="dark"] .text-problem {
-    color: #0ea5e9 !important;
+    color: var(--primary-light) !important;
 }
 
 [data-theme="dark"] .text-solution {
@@ -105,7 +104,7 @@
 [data-theme="dark"] select {
     background-color: #0f172a !important;
     color: #ffffff !important;
-    border: 1px solid #334155 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Footer Fix */
@@ -126,7 +125,7 @@
 
 /* Fix for the white text on white background in Hero stats */
 [data-theme="dark"] .stat-card {
-    background: #1e293b !important;
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
 [data-theme="dark"] .stat-label {
@@ -146,7 +145,7 @@
 [data-theme="dark"] .nav-icon,
 [data-theme="dark"] .btn-icon,
 [data-theme="dark"] .feature-icon {
-    color: #38bdf8 !important;
+    color: var(--primary) !important;
 }
 
 /* Aggressive Card Fix for User Side */
@@ -159,9 +158,9 @@
 [data-theme="dark"] .service-modal,
 [data-theme="dark"] .modal-content,
 [data-theme="dark"] .contact-modal-content {
-    background-color: #1e293b !important;
-    background: #1e293b !important;
-    border-color: #334155 !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 [data-theme="dark"] .service-description,
@@ -181,7 +180,7 @@
 [data-theme="dark"] .product-name,
 [data-theme="dark"] .stat-number,
 [data-theme="dark"] .contact-modal-title {
-    color: #38bdf8 !important;
+    color: var(--primary) !important;
 }
 
 [data-theme="dark"] .section-title,
@@ -195,7 +194,7 @@
 
 /* Close button fix for contact modal */
 [data-theme="dark"] .modal-close-btn {
-    background: #334155 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     color: #ffffff !important;
 }
 
@@ -205,12 +204,12 @@
 
 /* Specific tag visibility overrides for dark mode */
 [data-theme="dark"] .tag {
-    background: #334155 !important;
-    color: #38bdf8 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--primary) !important;
 }
 
 [data-theme="dark"] .product-card:hover .tag {
-    background: #38bdf8 !important;
+    background: var(--primary) !important;
     color: #ffffff !important;
 }
 
@@ -219,25 +218,25 @@
 [data-theme="dark"] [style*="background-color: white"],
 [data-theme="dark"] [style*="background: #fff"],
 [data-theme="dark"] [style*="background-color: #fff"] {
-    background-color: #1e293b !important;
-    background: #1e293b !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
     color: #f1f5f9 !important;
 }
 
 /* Product Detail Page Specifics */
 [data-theme="dark"] .ideal-tag {
-    background: #1e293b !important;
-    border-color: #334155 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
     color: #f1f5f9 !important;
 }
 
 [data-theme="dark"] .related-card {
-    background-color: #1e293b !important;
-    border-color: #334155 !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 [data-theme="dark"] .related-content h3 {
-    color: #38bdf8 !important;
+    color: var(--primary) !important;
 }
 
 [data-theme="dark"] .related-content p {
@@ -245,7 +244,7 @@
 }
 
 [data-theme="dark"] .view-link {
-    color: #0ea5e9 !important;
+    color: var(--primary-light) !important;
 }
 
 [data-theme="dark"] .product-long-desc {
