@@ -71,7 +71,7 @@ function MainContent() {
     }
 
     const handleScroll = () => {
-      const sections = ['home', 'services', 'products', 'clients', 'contact'];
+      const sections = ['home', 'clients', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {

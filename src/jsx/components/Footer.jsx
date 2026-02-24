@@ -39,17 +39,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Core Offerings Recap */}
-                    <div className="footer-col">
-                        <h4 className="footer-title">Our Services</h4>
-                        <ul className="footer-links">
-                            <li><Link to="/service/waterproofing">Waterproofing Systems</Link></li>
-                            <li><Link to="/service/flooring">Flooring Systems</Link></li>
-                            <li><Link to="/service/protective-coatings">Protective Coatings</Link></li>
-                            <li><Link to="/service/repair-rehab">Structural Repair</Link></li>
-                            <li><Link to="/service/injection-grouting">Leak Control</Link></li>
-                        </ul>
-                    </div>
 
                     {/* Technical Support/Inquiry Info */}
                     <div className="footer-col">
