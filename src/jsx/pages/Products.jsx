@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import '../../styles/Products.css';
 import useTilt from '../hooks/useTilt';
@@ -62,31 +62,25 @@ const Products = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(8);
+    const [partnerInfo, setPartnerInfo] = useState(null);
 
     // Get partner from query param
     const searchParams = new URLSearchParams(location.search);
     const partnerFilter = searchParams.get('partner');
 
-    const partnerNames = {
-        'ardex': 'Ardex Endura',
-        'fosroc': 'Fosroc',
-        'myk': 'MYK Laticrete',
-        'ramco': 'Ramco Cements',
-        'allied': 'Allied'
-    };
-
-    // Redirect to partners if no partner filter is present
+    // Fetch products and partner info from Firebase
     useEffect(() => {
-        if (!partnerFilter) {
-            navigate('/partners');
-        }
-        window.scrollTo({ top: 0, behavior: 'auto' });
-    }, [partnerFilter, navigate]);
-
-    // Fetch products from Firebase
-    useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchData = async () => {
+            setLoading(true);
             try {
+                // Fetch Partner Info if filter exists
+                if (partnerFilter) {
+                    const partnerDoc = await getDoc(doc(db, 'partners', partnerFilter));
+                    if (partnerDoc.exists()) {
+                        setPartnerInfo(partnerDoc.data());
+                    }
+                }
+
                 const productsCollectionRef = collection(db, 'products');
                 const snapshot = await getDocs(productsCollectionRef);
 
@@ -112,15 +106,13 @@ const Products = () => {
                     setFilteredProducts([]);
                 }
             } catch (error) {
-                console.error('Error fetching products:', error);
-                setProducts([]);
-                setFilteredProducts([]);
+                console.error('Error fetching data:', error);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchProducts();
+        fetchData();
     }, [partnerFilter]);
 
     useEffect(() => {
@@ -172,15 +164,15 @@ const Products = () => {
                 <div className="breadcrumb-nav">
                     <span onClick={() => navigate('/partners')}>Partners</span>
                     <span className="separator">/</span>
-                    <span className="current">{partnerFilter && partnerNames[partnerFilter] ? partnerNames[partnerFilter] : 'All Products'}</span>
+                    <span className="current">{partnerInfo ? partnerInfo.name : (partnerFilter ? 'Loading...' : 'All Products')}</span>
                 </div>
 
                 <div className="section-header">
                     <h2 className="section-title">
-                        {partnerFilter && partnerNames[partnerFilter] ? `${partnerNames[partnerFilter]} Products` : 'Our Products'}
+                        {partnerInfo ? `${partnerInfo.name} Products` : (partnerFilter ? 'Loading...' : 'Our Products')}
                     </h2>
                     <p className="section-subtitle">
-                        {partnerFilter && partnerNames[partnerFilter] ? `Exclusive range of high-performance solutions from ${partnerNames[partnerFilter]}` : 'Premium chemical products for diverse industrial applications'}
+                        {partnerInfo ? `Exclusive range of high-performance solutions from ${partnerInfo.name}` : 'Premium chemical products for diverse industrial applications'}
                     </p>
                 </div>
 

@@ -205,13 +205,15 @@ const Navbar = ({ activeSection }) => {
                         <div className="partners-dropdown">
                             <div className="partners-grid-nav">
                                 {partners.slice(0, 9).map(partner => (
-                                    <div key={partner.id} className="partner-nav-item" onClick={() => { navigate(`/partners?id=${partner.id}`); setIsMobileMenuOpen(false); }}>
+                                    <div key={partner.id} className="partner-nav-item" onClick={() => { navigate(`/products-page?partner=${partner.id}`); setIsMobileMenuOpen(false); }}>
                                         <img src={partner.logo} alt={partner.name} />
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </div>
+
+                    <a href="/#clients" className={`nav-link ${activeSection === 'clients' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleNavClick('clients'); }}>Clients</a>
 
                     <a href="/#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact Us</a>
                 </div>

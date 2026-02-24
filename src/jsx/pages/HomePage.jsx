@@ -18,6 +18,8 @@ const HomePage = ({ activeSection }) => {
         <div className="page-transition">
             <Hero />
             <Overview />
+            <Services />
+            <ProductsPreview />
             <Clients />
             <Contact />
         </div>

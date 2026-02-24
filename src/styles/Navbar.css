@@ -82,6 +82,8 @@
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    padding-right: 40px;
+    /* Space away from links */
 }
 
 .logo-wrapper {
@@ -142,8 +144,8 @@
 /* Nav Links */
 .nav-links {
     display: flex;
-    gap: 45px;
-    /* Increased gap between internal links */
+    gap: 40px;
+    /* Refined gap for 5 items */
     justify-content: center;
     /* Center links in the middle space */
 }
@@ -421,6 +423,8 @@
     align-items: center;
     gap: 12px;
     margin-left: auto;
+    padding-left: 40px;
+    /* Space away from links */
 }
 
 /* Mobile Menu Button */
