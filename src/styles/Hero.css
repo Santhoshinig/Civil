@@ -13,7 +13,8 @@
     justify-content: center;
     overflow: hidden;
     perspective: 1500px;
-    padding-top: 0px;
+    padding: 84px 0 40px;
+    margin-top: 0;
 }
 
 .hero-overlay {
@@ -28,11 +29,8 @@
 .hero-content {
     position: relative;
     z-index: 10;
-    width: 90%;
-    max-width: 1200px;
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
     gap: 13px;
     /* Tightened space */
 }
@@ -42,15 +40,12 @@
     grid-template-columns: 1.1fr 0.9fr;
     align-items: start;
     /* Align to top */
-    gap: 40px;
-    margin-bottom: 38px;
-    padding-top: 40px;
-    /* Add some breathing room from header */
+    gap: 60px;
+    margin-bottom: 40px;
 }
 
 .hero-text {
     color: var(--dark);
-    padding-right: 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -152,7 +147,7 @@
     max-width: 550px;
     color: var(--dark);
     margin-right: auto;
-    margin-left: 2px;
+    margin-left: 0;
     line-height: 1.8;
     animation: hero-fade-up 0.8s ease-out 0.3s backwards;
 }
@@ -212,7 +207,7 @@
     gap: 20px;
     flex-wrap: wrap;
     transform: translateZ(30px);
-    margin-top: 0px;
+    margin-top: 20px;
     z-index: 20;
 }
 

@@ -11,15 +11,13 @@
 
 /* Base Layout for Public Site (Handles Fixed Navbar Spacing) */
 .public-layout {
-    padding-top: 85px;
-    /* Extra space to prevent navbar overlap */
+    padding-top: 0;
     min-height: 100vh;
 }
 
 @media (max-width: 768px) {
     .public-layout {
-        padding-top: 75px;
-        /* Extra space for mobile navbar */
+        padding-top: 0;
     }
 }
 

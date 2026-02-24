@@ -2,7 +2,6 @@
  * Footer Styles
  * 
  * Logic: Orange and construction-themed footer with professional design
- * Uses construction tools background with overlay for readability
  */
 
 .footer {
@@ -10,23 +9,23 @@
         url('/footer theme.jpg') center/cover no-repeat;
     background-attachment: fixed;
     color: var(--white);
-    padding: 60px 0 30px;
+    padding: 80px 0 40px;
     position: relative;
     border-top: 4px solid var(--primary);
 }
 
-/* 4-column grid for brand, links, and contact */
+/* 3-column grid for brand, links, and contact */
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 30px;
+    gap: 60px;
+    margin-bottom: 50px;
     position: relative;
     z-index: 2;
 }
 
 .footer-brand {
-    max-width: 350px;
+    max-width: 400px;
 }
 
 .footer-logo {
@@ -35,37 +34,33 @@
     gap: 10px;
     font-size: 1.8rem;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: var(--primary);
 }
 
 .footer-description {
-    opacity: 0.7;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-/* 
- * Social Icon Wrapper 
- * Logic: Boxy glass containers with a color pop on hover.
- */
+/* Social Connection Hub */
 .social-links {
     display: flex;
     gap: 15px;
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
-    background: rgba(14, 165, 233, 0.2);
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    font-weight: 700;
+    border-radius: 50%;
     transition: var(--transition-fast);
-    border: 1px solid rgba(14, 165, 233, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-link:hover {
@@ -76,12 +71,14 @@
 
 /* Section headings within footer */
 .footer-title {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
     position: relative;
-    padding-bottom: 10px;
-    color: var(--primary);
+    padding-bottom: 12px;
+    color: var(--white);
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .footer-title::after {
@@ -89,47 +86,47 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
-    height: 2px;
-    background: var(--secondary);
+    width: 30px;
+    height: 3px;
+    background: var(--primary);
 }
 
 .footer-links li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .footer-links a {
     opacity: 0.7;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-/* Sliding hover effect for list items */
 .footer-links a:hover {
     opacity: 1;
-    color: var(--secondary);
-    padding-left: 5px;
+    color: var(--primary-light);
+    padding-left: 8px;
 }
 
 .footer-info li {
-    margin-bottom: 15px;
-    opacity: 0.7;
-    font-size: 0.95rem;
+    margin-bottom: 18px;
+    opacity: 0.8;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    gap: 12px;
 }
 
-/* 
- * Copyright & Legal Area 
- * Border-top creates visual separation from the main grid.
- */
+/* Copyright & Legal Area */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
+    padding-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    font-size: 0.85rem;
-    opacity: 0.6;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 .footer-bottom-links {
@@ -137,15 +134,25 @@
     gap: 30px;
 }
 
+.footer-bottom-links a:hover {
+    color: var(--primary-light);
+}
+
 /* Responsive grid adjustments */
-@media (max-width: 968px) {
+@media (max-width: 992px) {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 40px;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }

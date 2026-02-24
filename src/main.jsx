@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
  * Moved to organized styles directory
  */
 import './styles/index.css'
-import App from './App.jsx'
+import App from './jsx/App.jsx'
 
 /**
  * React Application Mounting

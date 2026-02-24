@@ -49,16 +49,16 @@
 }
 
 .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 14px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 700;
     color: #000000 !important;
     /* Force Black */
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 /* 
@@ -68,7 +68,7 @@
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px 20px;
+    padding: 10px 14px;
     border: 1px solid #ddd;
     border-radius: 12px;
     font-family: inherit;

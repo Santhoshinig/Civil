@@ -1,17 +1,14 @@
 .products-preview-section {
-    padding: 60px 20px;
+    padding: 80px 0;
     background: var(--white);
 }
 
-.products-preview-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/* Container logic now inherited from global .container in index.css */
 
 .preview-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 60px;
     align-items: center;
 }
 
@@ -77,7 +74,7 @@
 }
 
 /* Responsive */
-@media (max-width: 968px) {
+@media (max-width: 992px) {
     .preview-content {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -85,11 +82,13 @@
 
     .preview-image {
         height: 300px;
+        order: -1;
     }
 
     .preview-text {
         height: auto;
         justify-content: flex-start;
+        text-align: left;
     }
 
     .preview-text h2 {
@@ -101,6 +100,6 @@
     }
 
     .products-preview-section {
-        padding: 50px 20px;
+        padding: 60px 0;
     }
 }
