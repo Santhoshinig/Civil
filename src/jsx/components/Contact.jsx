@@ -93,7 +93,7 @@ const Contact = () => {
                             onSubmit={handleSubmit}
                         >
                             <div className="form-group">
-                                <label htmlFor="name">Full Name *</label>
+                                <label htmlFor="name">Full Name <span className="required-star">*</span></label>
                                 <input
                                     type="text"
                                     id="name"
@@ -105,7 +105,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Email Address *</label>
+                                <label htmlFor="email">Email Address <span className="required-star">*</span></label>
                                 <input
                                     type="email"
                                     id="email"
@@ -117,18 +117,19 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="phone">Phone Number</label>
+                                <label htmlFor="phone">Phone Number <span className="required-star">*</span></label>
                                 <input
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    placeholder="+1 (555) 000-0000"
+                                    required
+                                    placeholder="+91 XXXXX XXXXX"
                                     value={formData.phone}
                                     onChange={handleChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="message">Message *</label>
+                                <label htmlFor="message">Message <span className="required-star">*</span></label>
                                 <textarea
                                     id="message"
                                     name="message"
@@ -198,7 +199,7 @@ const Contact = () => {
                             </div>
                             <div className="info-content">
                                 <h3>Email</h3>
-                                <p>admin@civildoctor.com</p>
+                                <p>civildoctorslm@gmail.com</p>
                             </div>
                         </div>
 

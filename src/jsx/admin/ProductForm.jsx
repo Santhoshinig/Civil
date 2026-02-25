@@ -297,7 +297,7 @@ const ProductForm = () => {
                     {/* Right Column - Form Fields */}
                     <div className="form-right">
                         <div className="form-group">
-                            <label>Product Title *</label>
+                            <label>Product Title <span className="required-star">*</span></label>
                             <input
                                 type="text"
                                 name="title"
@@ -309,7 +309,7 @@ const ProductForm = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Product Code *</label>
+                            <label>Product Code <span className="required-star">*</span></label>
                             <input
                                 type="text"
                                 name="code"
@@ -343,7 +343,7 @@ const ProductForm = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Partner / Brand *</label>
+                            <label>Partner / Brand <span className="required-star">*</span></label>
                             <select
                                 name="partner"
                                 value={formData.partner || ''}

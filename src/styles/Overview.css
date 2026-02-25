@@ -5,7 +5,7 @@
 .overview-section {
     padding: 0 0 20px;
     background-color: #ffffff;
-    color: #1a1a1a;
+    color: var(--dark);
     overflow-x: clip;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .overview-title {
-    font-size: 3.8rem;
+    font-size: 2.8rem;
     font-weight: 900;
     line-height: 1.05;
     color: var(--primary);
@@ -62,7 +62,7 @@
 .highlight-text {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--dark);
     line-height: 1.3;
     margin-bottom: 35px;
     border-left: 4px solid var(--primary);
@@ -390,6 +390,10 @@
     .story-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .overview-title {
+        font-size: 2.2rem;
     }
 }
 

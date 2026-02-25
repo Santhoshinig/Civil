@@ -58,7 +58,7 @@ const ContactModal = () => {
                 ) : (
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="modal-name">Full Name *</label>
+                            <label htmlFor="modal-name">Full Name <span className="required-star">*</span></label>
                             <input
                                 type="text"
                                 id="modal-name"
@@ -70,7 +70,7 @@ const ContactModal = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="modal-email">Email Address *</label>
+                            <label htmlFor="modal-email">Email Address <span className="required-star">*</span></label>
                             <input
                                 type="email"
                                 id="modal-email"
@@ -82,7 +82,7 @@ const ContactModal = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="modal-phone">Phone Number *</label>
+                            <label htmlFor="modal-phone">Phone Number <span className="required-star">*</span></label>
                             <input
                                 type="tel"
                                 id="modal-phone"
@@ -94,7 +94,7 @@ const ContactModal = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="modal-message">Message *</label>
+                            <label htmlFor="modal-message">Message <span className="required-star">*</span></label>
                             <textarea
                                 id="modal-message"
                                 name="message"

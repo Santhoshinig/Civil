@@ -149,7 +149,8 @@ const Navbar = ({ activeSection }) => {
             name: 'Precision Anchoring',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" /><path d="M12 6v12M6 12h12" />
+                    <path d="M5 12h14" /><path d="M12 5v14" /><circle cx="12" cy="12" r="9" />
+                    <path d="M12 8v8" /><path d="M8 12h8" />
                 </svg>
             )
         },
@@ -158,7 +159,8 @@ const Navbar = ({ activeSection }) => {
             name: 'Fosroc Supply & Apply',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04" />
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
                 </svg>
             )
         },
@@ -167,7 +169,9 @@ const Navbar = ({ activeSection }) => {
             name: 'Ramco Hard Worker Distributor',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20.59 13.41l-7.17 7.170s" /><line x1="7" y1="7" x2="7.01" y2="7" />
+                    <path d="M2 10s3-3 3-8h14s0 5 3 8v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                    <path d="M12 11v6" /><path d="M9 14h6" />
                 </svg>
             )
         },
@@ -178,9 +182,8 @@ const Navbar = ({ activeSection }) => {
             <div className="container nav-container">
                 <div className="nav-logo" onClick={() => handleNavClick('home')}>
                     <div className="logo-wrapper">
-                        <img src="/civil-doctor-logo.png" alt="Civil Doctor Logo" className="logo-img" />
+                        <img src="/civil logo.png" alt="Civil Doctor Logo" className="logo-img" />
                     </div>
-                    <span className="logo-text">CIVIL DOCTOR</span>
                 </div>
 
                 <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -188,16 +191,18 @@ const Navbar = ({ activeSection }) => {
 
                     <div className="nav-item-dropdown">
                         <a href="/services" className={`nav-link dropdown-trigger ${location.pathname === '/services' || location.pathname.startsWith('/service/') ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); navigate('/services'); setIsMobileMenuOpen(false); }}>Services</a>
-                        <div className="services-dropdown">
-                            <div className="services-nav-list wide-dropdown">
-                                {services.map(s => (
-                                    <div key={s.id} className="service-nav-item" onClick={() => { navigate(`/service/${s.id}`); setIsMobileMenuOpen(false); }}>
-                                        <span className="service-nav-icon">{s.icon}</span>
-                                        <span className="service-nav-name">{s.name}</span>
-                                    </div>
-                                ))}
+                        {location.pathname !== '/services' && (
+                            <div className="services-dropdown">
+                                <div className="services-nav-list wide-dropdown">
+                                    {services.map(s => (
+                                        <div key={s.id} className="service-nav-item" onClick={() => { navigate(`/service/${s.id}`); setIsMobileMenuOpen(false); }}>
+                                            <span className="service-nav-icon">{s.icon}</span>
+                                            <span className="service-nav-name">{s.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
 
                     <div className="nav-item-dropdown">

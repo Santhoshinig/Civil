@@ -56,13 +56,16 @@ const PartnersPage = () => {
                             onClick={() => handlePartnerClick(partner.id)}
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                            <div className="partner-logo-box">
-                                <img src={partner.logo} alt={partner.name} className="partner-logo-img" />
+                            <div className="partner-image-container">
+                                <img src={partner.logo} alt={partner.name} className="partner-card-image" />
                             </div>
-                            <h3 className="partner-name">{partner.name}</h3>
-                            <button className="partner-view-btn">
-                                View Products →
-                            </button>
+                            <div className="partner-card-body">
+                                <h3 className="partner-name">{partner.name}</h3>
+                                <div className="partner-link">
+                                    <span>View Products</span>
+                                    <span className="partner-link-arrow">→</span>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

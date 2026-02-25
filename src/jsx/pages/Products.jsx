@@ -11,40 +11,34 @@ import useTilt from '../hooks/useTilt';
  * Individual card with high-fidelity 3D tilt effect.
  */
 const ProductCard = ({ product, index, onClick }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const tiltRef = useTilt();
-
     return (
         <div
-            ref={tiltRef}
             className="product-card animate-slide-left"
-            style={{ animationDelay: `${(index % 8) * 0.1}s`, cursor: 'pointer' }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            style={{ animationDelay: `${(index % 8) * 0.1}s` }}
             onClick={() => onClick(product.id)}
         >
-            <div className="product-image">
-                <div className="product-image-placeholder">
-                    <img src={product.image} alt={product.title} />
-                </div>
-                <div className={`product-overlay ${isHovered ? 'active' : ''}`}>
-                    <button className="product-btn" onClick={(e) => {
-                        e.stopPropagation();
-                        onClick(product.id);
-                    }}>
-                        Know More
-                    </button>
-                </div>
+            {/* View Icon - Positioned absolute to the card */}
+            <div className="product-view-icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
             </div>
 
-            <div className="product-content">
-                <h3 className="product-title" style={{ fontSize: '1.1rem', marginBottom: '8px' }}>{product.title}</h3>
-                <p className="product-description">{product.description}</p>
-                {product.tags && product.tags.length > 0 && (
-                    <div className="product-tags">
-                        <span className="tag">{product.tags[0]}</span>
-                    </div>
-                )}
+            <div className="product-image-container">
+                <img src={product.image} alt={product.title} className="product-card-image" />
+            </div>
+
+            <div className="product-card-inner">
+                <div className="product-info-section">
+                    <h3 className="product-card-title">{product.title}</h3>
+                    <p className="product-card-description">{product.description}</p>
+                </div>
+
+                <div className="product-view-footer">
+                    <span className="view-product-text">View product</span>
+                    <span className="view-product-arrow">→</span>
+                </div>
             </div>
         </div>
     );

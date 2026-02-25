@@ -35,7 +35,7 @@ const Overview = () => {
                 <div className="reveal reveal-up overview-story">
                     <div className="story-grid">
                         <div className="story-text">
-                            <h2 className="overview-title">Engineered Excellence. <br />Enduring Legacy.</h2>
+                            <h2 className="overview-title">Engineered Excellence. Enduring Legacy.</h2>
                             <div className="brand-accent-line"></div>
 
                             <div className="text-content">

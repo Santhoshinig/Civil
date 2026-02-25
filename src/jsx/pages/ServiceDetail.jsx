@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { servicesData } from '../components/Services';
 import '../../styles/Services.css';
 import { useContact } from '../context/ContactContext';
@@ -12,8 +12,18 @@ const ServiceDetail = () => {
     // Find the service in the data array
     const service = servicesData.find(s => s.id === serviceId);
 
+    // State for randomized suggestions
+    const [suggestedServices, setSuggestedServices] = useState([]);
+
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        // Randomize suggestions
+        if (serviceId) {
+            const others = servicesData.filter(s => s.id !== serviceId);
+            const shuffled = [...others].sort(() => 0.5 - Math.random());
+            setSuggestedServices(shuffled.slice(0, 3));
+        }
     }, [serviceId]);
 
     if (!service) {
@@ -29,7 +39,7 @@ const ServiceDetail = () => {
         <div className="service-detail-page page-transition">
             <div className="service-hero" style={{
                 position: 'relative',
-                height: '280px',
+                height: '320px',
                 overflow: 'hidden',
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${service.image}")`,
                 backgroundSize: 'cover',
@@ -40,13 +50,17 @@ const ServiceDetail = () => {
                 color: 'white',
                 textAlign: 'center',
             }}>
-                <div className="container" style={{ paddingTop: '84px' }}>
-                    <h1 style={{ fontSize: '2.5rem', marginBottom: '8px' }}>{service.title}</h1>
-                    <div className="modal-divider" style={{ background: 'var(--secondary)', width: '50px', height: '3px', margin: '0 auto' }}></div>
+                <div className="breadcrumb">
+                    <Link to="/services">Services</Link>
+                    <span style={{ opacity: 0.5 }}>/</span>
+                    <span style={{ fontWeight: '600', color: 'white' }}>{service.title}</span>
+                </div>
+                <div className="container">
+                    <h1 style={{ fontSize: 'min(3rem, 8vw)', fontWeight: '800', marginBottom: '0', lineHeight: '1.2' }}>{service.title}</h1>
                 </div>
             </div>
 
-            <div className="container" style={{ padding: '60px 0' }}>
+            <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
                 <div className="service-content-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px' }}>
                     {/* LEFT COLUMN */}
                     <div className="service-main-content">
@@ -161,39 +175,98 @@ const ServiceDetail = () => {
                     </div>
 
                     <div className="services-grid" style={{
-                        gap: '25px',
+                        gap: '30px',
                         maxWidth: '1200px',
-                        margin: '0 auto'
+                        margin: '0 auto',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
                     }}>
-                        {servicesData
-                            .filter(s => s.id !== serviceId)
-                            .slice(0, 3)
-                            .map((otherService) => (
-                                <div
-                                    key={otherService.id}
-                                    className="service-card"
-                                    style={{
-                                        cursor: 'pointer',
-                                        background: 'white',
-                                        opacity: 1,
-                                        transform: 'none',
-                                        height: '100%',
+                        {suggestedServices.map((otherService) => (
+                            <div
+                                key={otherService.id}
+                                className="service-card visible"
+                                style={{
+                                    cursor: 'pointer',
+                                    background: 'white',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden',
+                                    boxShadow: 'var(--shadow-sm)',
+                                    transition: 'all 0.3s ease',
+                                    border: '1px solid #eef2f6'
+                                }}
+                                onClick={() => navigate(`/service/${otherService.id}`)}
+                            >
+                                <div className="service-image-container" style={{ height: '160px', position: 'relative' }}>
+                                    <img src={otherService.image} alt={otherService.title} className="service-card-image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <div className="service-icon-overlay" style={{
+                                        position: 'absolute',
+                                        bottom: '-15px',
+                                        right: '15px',
+                                        width: '40px',
+                                        height: '40px',
+                                        background: 'var(--primary)',
+                                        color: 'white',
+                                        borderRadius: '10px',
                                         display: 'flex',
-                                        flexDirection: 'column'
-                                    }}
-                                    onClick={() => navigate(`/service/${otherService.id}`)}
-                                >
-                                    <div className="service-image-container" style={{ height: '180px' }}>
-                                        <img src={otherService.image} alt={otherService.title} className="service-card-image" style={{ height: '100%', objectFit: 'cover' }} />
-                                        <div className="service-icon-overlay" style={{ width: '40px', height: '40px' }}>{otherService.icon}</div>
-                                    </div>
-                                    <div className="service-card-body" style={{ flex: 1, padding: '20px' }}>
-                                        <h3 className="service-title" style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{otherService.title}</h3>
-                                        <p className="service-description" style={{ fontSize: '0.9rem', marginBottom: '15px', color: '#64748b' }}>{otherService.description}</p>
-                                        <span className="service-link" style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Know More →</span>
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        boxShadow: 'var(--shadow-md)'
+                                    }}>
+                                        {otherService.icon}
                                     </div>
                                 </div>
-                            ))}
+                                <div className="service-card-body" style={{
+                                    padding: '25px 20px 20px',
+                                    flex: 1,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    textAlign: 'left',
+                                    alignItems: 'flex-start'
+                                }}>
+                                    <h3 style={{
+                                        fontSize: '1.1rem',
+                                        fontWeight: '700',
+                                        color: 'var(--primary)',
+                                        marginBottom: '10px',
+                                        lineHeight: '1.3',
+                                        minHeight: '2.6em',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: '2',
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}>
+                                        {otherService.title}
+                                    </h3>
+                                    <p style={{
+                                        fontSize: '0.85rem',
+                                        marginBottom: '20px',
+                                        color: '#64748b',
+                                        lineHeight: '1.6',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: '3',
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden',
+                                        flex: 1
+                                    }}>
+                                        {otherService.description}
+                                    </p>
+                                    <span className="service-link" style={{
+                                        fontSize: '0.85rem',
+                                        fontWeight: '700',
+                                        background: 'var(--primary)',
+                                        color: 'white',
+                                        padding: '8px 18px',
+                                        borderRadius: '50px',
+                                        transition: 'all 0.3s ease'
+                                    }}>
+                                        Know More →
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

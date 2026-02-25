@@ -8,14 +8,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Color Palette - Brighter Blue Theme */
-    --primary: #1f8dba;
+    /* Color Palette - Brand Green Theme */
+    --primary: #00a884;
     /* Main brand color */
-    --primary-light: #30a5d6;
-    --secondary: #16698a;
-    --accent: #e0f2ff;
-    --dark: #0f4a61;
-    --light: #f4faff;
+    --primary-light: #00c49a;
+    --secondary: #007a60;
+    --accent: #e6fffa;
+    --dark: #1e3a8a;
+    /* Deep logo blue */
+    --light: #f0fdf4;
     --white: #ffffff;
 
     /* Glassmorphism effects */
@@ -38,21 +39,21 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --primary: #1f8dba;
-    --primary-light: #30a5d6;
-    --secondary: #16698a;
-    --accent: rgba(31, 141, 186, 0.15);
+    --primary: #00a884;
+    --primary-light: #30dac0;
+    --secondary: #007a60;
+    --accent: rgba(0, 168, 132, 0.15);
     --dark: #f1f5f9;
-    --light: #1e293b;
-    --white: #0f172a;
+    --light: #1e3a8a;
+    --white: #0a1128;
 
     /* Hero Overlay Dark Mode */
-    --hero-overlay-start: rgba(15, 23, 42, 0.95);
-    --hero-overlay-end: rgba(15, 23, 42, 0.92);
+    --hero-overlay-start: rgba(10, 17, 40, 0.95);
+    --hero-overlay-end: rgba(10, 17, 40, 0.92);
 
     /* Admin specific dark mode */
-    --admin-bg: #0f172a;
-    --admin-sidebar: #111827;
+    --admin-bg: #0a1128;
+    --admin-sidebar: #0a1128;
     --admin-card: rgba(255, 255, 255, 0.05);
     --admin-border: rgba(255, 255, 255, 0.1);
     --admin-text: #ffffff;

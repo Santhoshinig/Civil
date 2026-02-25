@@ -5,29 +5,29 @@
 
 /* ==================== CSS Variables ==================== */
 :root {
-    --admin-bg: #f8faff;
+    --admin-bg: #f0fdf4;
     --admin-sidebar: #ffffff;
     --admin-card: #ffffff;
-    --admin-border: #e0f2ff;
-    --admin-primary: #1f8dba;
-    --admin-primary-light: #30a5d6;
-    --admin-text: #0f4a61;
-    --admin-text-muted: #6699aa;
+    --admin-border: #e6fffa;
+    --admin-primary: #00a884;
+    --admin-primary-light: #00c49a;
+    --admin-text: #1e3a8a;
+    --admin-text-muted: #64748b;
     --admin-success: #10b981;
     --admin-error: #ef4444;
     --admin-warning: #f59e0b;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 20px rgba(0, 0, 63, 0.08);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 63, 0.12);
+    --shadow-md: 0 10px 20px rgba(30, 58, 138, 0.08);
+    --shadow-lg: 0 20px 40px rgba(30, 58, 138, 0.12);
 }
 
 /* Dark Mode Admin Variables */
 [data-theme="dark"] {
-    --admin-bg: #0f172a;
-    --admin-sidebar: #0f172a;
+    --admin-bg: #0a1128;
+    --admin-sidebar: #0a1128;
     --admin-card: rgba(255, 255, 255, 0.05);
     --admin-border: rgba(255, 255, 255, 0.1);
-    --admin-primary: #1f8dba;
+    --admin-primary: #00a884;
     --admin-text: #f1f5f9;
     --admin-text-muted: rgba(255, 255, 255, 0.6);
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -306,13 +306,13 @@
 }
 
 [data-theme="dark"] .bulk-upload-btn-admin {
-    background: #1e293b !important;
+    background: #0d162d !important;
     color: #f1f5f9 !important;
-    border-color: #334155 !important;
+    border-color: #1e3a8a !important;
 }
 
 [data-theme="dark"] .bulk-upload-btn-admin:hover {
-    background: #334155 !important;
+    background: #1e3a8a !important;
     color: var(--admin-primary) !important;
     border-color: var(--admin-primary) !important;
 }
@@ -320,7 +320,7 @@
 [data-theme="dark"] .submit-btn,
 [data-theme="dark"] .start-bulk-btn {
     background: #ffffff !important;
-    color: #1f8dba !important;
+    color: var(--admin-primary) !important;
 }
 
 [data-theme="dark"] .submit-btn:hover,
@@ -329,7 +329,7 @@
 }
 
 [data-theme="dark"] .custom-file-btn {
-    background: #1e293b !important;
+    background: #0d162d !important;
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
     color: #f1f5f9 !important;
@@ -345,13 +345,13 @@
 }
 
 [data-theme="dark"] .upload-status {
-    color: #38bdf8 !important;
-    background: rgba(14, 165, 233, 0.1) !important;
+    color: #34d399 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
 }
 
 [data-theme="dark"] .result-item {
-    background: #1e293b !important;
-    border-color: #334155 !important;
+    background: #0d162d !important;
+    border-color: #1e3a8a !important;
 }
 
 [data-theme="dark"] .result-item .label {
@@ -360,31 +360,31 @@
 
 
 [data-theme="dark"] .secondary-btn-admin {
-    background: #1e293b !important;
+    background: #0d162d !important;
     color: #f1f5f9 !important;
     border-color: #334155 !important;
 }
 
 [data-theme="dark"] .secondary-btn-admin:hover {
-    background: #334155 !important;
+    background: #1e3a8a !important;
 }
 
 
 /* Form Sections */
 [data-theme="dark"] .form-right,
 [data-theme="dark"] .product-form-card {
-    background: #1e293b !important;
+    background: #0d162d !important;
     border-color: #334155 !important;
 }
 
 [data-theme="dark"] .tag-input-wrapper button {
-    background: #334155 !important;
+    background: #1e3a8a !important;
     color: #f1f5f9 !important;
 }
 
 /* Search Bar Inner Styling */
 [data-theme="dark"] .products-toolbar {
-    background: #1e293b !important;
+    background: #0d162d !important;
     border-color: #334155 !important;
 }
 
@@ -393,7 +393,7 @@
 }
 
 [data-theme="dark"] .select-all-box:hover {
-    background: #334155 !important;
+    background: #1e3a8a !important;
 }
 
 
@@ -423,7 +423,7 @@
 }
 
 [data-theme="dark"] .logout-btn {
-    background: #1e293b !important;
+    background: #0d162d !important;
     border-color: #ef4444 !important;
     color: #ef4444 !important;
 }
@@ -439,7 +439,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f0f9ff 0%, #fff 100%);
+    background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
     padding: 20px;
 }
 
@@ -518,6 +518,11 @@
     font-size: 0.9rem;
 }
 
+.required-star {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -534,7 +539,7 @@
 .form-group textarea:focus {
     outline: none;
     border-color: var(--admin-primary) !important;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 168, 132, 0.2);
 }
 
 .form-group input::placeholder,
@@ -556,13 +561,13 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(0, 168, 132, 0.3);
 }
 
 .admin-login-btn:hover:not(:disabled) {
     background: var(--admin-primary-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(0, 168, 132, 0.4);
 }
 
 .admin-login-btn:disabled {
@@ -2600,7 +2605,7 @@
 
 .manage-btn {
     flex: 1;
-    background: rgba(14, 165, 233, 0.05);
+    background: rgba(0, 168, 132, 0.05);
     border: 2px solid var(--admin-primary);
     color: var(--admin-primary);
     padding: 10px 15px;
@@ -2647,7 +2652,7 @@
 }
 
 .edit-icon-btn:hover {
-    background: #e0f2fe;
+    background: #e6fffa;
     transform: scale(1.1);
 }
 

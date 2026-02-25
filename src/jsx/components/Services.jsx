@@ -267,8 +267,8 @@ Precision installation begins with performance materials.`,
         id: 'precision-grouting',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v12M6 12h12" />
+                <path d="M5 12h14" /><path d="M12 5v14" /><circle cx="12" cy="12" r="9" />
+                <path d="M12 8v8" /><path d="M8 12h8" />
             </svg>
         ),
         title: 'Precision Grouting & Anchoring Systems',
@@ -297,7 +297,8 @@ Performance begins at the base.`,
         id: 'fosroc',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
             </svg>
         ),
         title: 'Fosroc — Authorized Distribution & Application Partner',
@@ -328,8 +329,9 @@ Our association with Fosroc enables us to provide end-to-end solutions backed by
         id: 'ramco-hardworker',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
-                <line x1="7" y1="7" x2="7.01" y2="7" />
+                <path d="M2 10s3-3 3-8h14s0 5 3 8v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10z" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M12 11v6" /><path d="M9 14h6" />
             </svg>
         ),
         title: 'Ramco Hard Worker — Authorized Distribution Partner',
@@ -378,9 +380,9 @@ const ServiceCard = ({ service, onClick }) => {
             <div className="service-card-body">
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
-                <span className="service-link">
-                    Know More →
-                </span>
+                <div className="service-link">
+                    Learn more <span className="service-link-arrow">→</span>
+                </div>
             </div>
         </div>
     );
@@ -418,10 +420,6 @@ const Services = () => {
     return (
         <section id="services" className="services-section" ref={servicesRef}>
             <div className="container">
-                <div className="section-header">
-                    <h2 className="section-title">Our Services</h2>
-                </div>
-
                 <div className="services-grid">
                     {servicesData.map((service, index) => (
                         <ServiceCard

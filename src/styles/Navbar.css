@@ -9,7 +9,8 @@
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
-    min-height: 68px;
+    min-height: 85px;
+    /* Increased to accommodate larger logo */
     z-index: 9999 !important;
     background: rgba(255, 255, 255, 0.99);
     backdrop-filter: blur(10px);
@@ -24,28 +25,29 @@
 @media (max-width: 768px) {
     .navbar {
         padding: 12px 0 !important;
-        min-height: 50px;
+        min-height: 70px;
     }
 }
 
 /* Scrolled State */
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Dark Mode Navbar */
 [data-theme="dark"] .navbar {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(10, 17, 40, 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
 [data-theme="dark"] .navbar.scrolled {
-    background: rgba(15, 23, 42, 0.98);
+    background: rgba(10, 17, 40, 1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
+/* Dark Mode Navbar Links Update */
 [data-theme="dark"] .nav-link {
     color: #f1f5f9 !important;
 }
@@ -55,10 +57,7 @@
     color: var(--primary) !important;
 }
 
-/* Flip 'C' logo color in Dark Mode (Invert black to white, keep yellow yellow) */
-[data-theme="dark"] .logo-img {
-    filter: invert(1) hue-rotate(180deg);
-}
+/* Flip 'C' logo color in Dark Mode removed to preserve brand colors */
 
 /* Layout Container - Inherits centering from .container */
 .nav-container {
@@ -80,21 +79,21 @@
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 20px;
     cursor: pointer;
-    padding-right: 40px;
-    /* Space away from links */
+    padding-right: 20px;
 }
 
 .logo-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 280px;
+    height: 65px;
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
     .logo-wrapper {
-        width: 40px;
-        height: 40px;
+        width: 180px;
+        height: 50px;
     }
 }
 
@@ -102,28 +101,13 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    animation: icon-dance 5s ease-in-out infinite;
-}
-
-.logo-text {
-    position: relative;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary) !important;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    white-space: nowrap;
+    /* animation: icon-dance 5s ease-in-out infinite; */
+    /* Removing dance for the wide logo as it might look jittery */
 }
 
 @media (max-width: 768px) {
     .nav-logo {
-        gap: 8px;
-        padding-right: 15px;
-    }
-
-    .logo-text {
-        font-size: 0.9rem;
-        letter-spacing: 0.1px;
+        padding-right: 10px;
     }
 }
 
