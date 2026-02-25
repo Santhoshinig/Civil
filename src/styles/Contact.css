@@ -31,7 +31,7 @@
 /* White form container with shadow for elevation */
 .contact-section {
     background-color: var(--light);
-    padding: 40px 20px 100px;
+    padding: 40px 0 100px;
 }
 
 .contact-form-wrapper {

@@ -80,17 +80,12 @@ const Hero = () => {
                             <div className="popper-icon">🎉</div>
                             <div className="stat-number">25+</div>
                             <div className="stat-label">Years of Excellence</div>
-                            <div className="confetti-container">
-                                {[...Array(20)].map((_, i) => (
-                                    <span key={i} className={`particle ${i % 3 === 0 ? 'ribbon' : i % 2 === 0 ? 'square' : 'diamond'}`}></span>
-                                ))}
-                            </div>
                         </div>
                     </div>
                     <div className="stat-card-wrapper">
                         <div className="stat-card">
                             <div className="stat-number">500+</div>
-                            <div className="stat-label">Projects Completed</div>
+                            <div className="stat-label">Trusted Partners</div>
                         </div>
                     </div>
                     <div className="stat-card-wrapper">

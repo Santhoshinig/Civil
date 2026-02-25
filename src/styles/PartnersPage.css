@@ -38,7 +38,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    max-width: 1100px;
+    max-width: 1700px;
     /* Constrain to ensure 3 per row */
     margin: 0 auto;
 }
