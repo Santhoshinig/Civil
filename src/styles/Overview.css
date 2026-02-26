@@ -70,8 +70,8 @@
 }
 
 .story-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 1.85;
     color: #475569;
     margin-bottom: 25px;
     text-align: left;
@@ -153,7 +153,7 @@
 }
 
 .phi-card h3 {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 800;
     margin-bottom: 15px;
     color: #0f172a;
@@ -161,7 +161,7 @@
 }
 
 .phi-card p {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     color: #64748b;
 }
@@ -217,7 +217,7 @@
 }
 
 .modern-box h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 4px;
     color: #0f172a;
     font-weight: 900;
@@ -225,7 +225,7 @@
 }
 
 .point-item {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 1.7;
     color: #475569;
     margin-bottom: 22px;

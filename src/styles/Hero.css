@@ -152,7 +152,7 @@
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     margin-bottom: 35px;
     opacity: 1;
     font-weight: 400;
@@ -160,7 +160,7 @@
     color: var(--dark);
     margin-right: auto;
     margin-left: 0;
-    line-height: 1.8;
+    line-height: 1.9;
     animation: hero-fade-up 0.8s ease-out 0.3s backwards;
 }
 
