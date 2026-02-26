@@ -23,7 +23,7 @@ const Hero = () => {
             },
             { threshold: 0.1 }
         );
-        const elements = heroRef.current?.querySelectorAll('.animate-slide-up, .hero-character-container');
+        const elements = heroRef.current?.querySelectorAll('.animate-slide-up, .hero-character-container, .expert-consultation-card');
         elements?.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
@@ -73,25 +73,40 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Construction Trust Dashboard */}
-                <div className="hero-stats">
-                    <div className="stat-card-wrapper">
-                        <div className="stat-card celebration-card">
-                            <div className="popper-icon">🎉</div>
-                            <div className="stat-number">25+</div>
-                            <div className="stat-label">Years of Excellence</div>
+                {/* Bottom Row: Static Trust Stats */}
+                <div className="hero-impact-row">
+                    <div className="hero-stats">
+                        {/* 25+ Years of Excellence */}
+                        <div className="stat-card-wrapper celebrate-wrapper">
+                            <div className="stat-card celebration-card">
+                                <div className="popper-icon">🎉</div>
+                                <div className="stat-number">25+</div>
+                                <div className="stat-label">Years of Excellence</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="stat-card-wrapper">
-                        <div className="stat-card">
-                            <div className="stat-number">500+</div>
-                            <div className="stat-label">Trusted Partners</div>
+
+                        {/* 500+ Projects Completed */}
+                        <div className="stat-card-wrapper">
+                            <div className="stat-card">
+                                <div className="stat-number">500+</div>
+                                <div className="stat-label">Projects Completed</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="stat-card-wrapper">
-                        <div className="stat-card">
-                            <div className="stat-number">100%</div>
-                            <div className="stat-label">Quality Assured</div>
+
+                        {/* 100% Premium Quality */}
+                        <div className="stat-card-wrapper">
+                            <div className="stat-card">
+                                <div className="stat-number">100%</div>
+                                <div className="stat-label">Quality Assured</div>
+                            </div>
+                        </div>
+
+                        {/* 75+ Services */}
+                        <div className="stat-card-wrapper">
+                            <div className="stat-card">
+                                <div className="stat-number">75+</div>
+                                <div className="stat-label">Services Provided</div>
+                            </div>
                         </div>
                     </div>
                 </div>

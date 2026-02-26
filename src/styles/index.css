@@ -131,9 +131,11 @@ ul {
 /* Global Content Container - Standardized Alignment */
 .container {
     width: 100%;
-    max-width: 1700px;
+    max-width: 1400px;
+    /* Constrained for the specific margin look */
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 60px;
+    /* Stronger side margins as requested */
 }
 
 @media (max-width: 992px) {
