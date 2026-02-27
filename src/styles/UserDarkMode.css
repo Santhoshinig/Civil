@@ -29,13 +29,13 @@
     color: #ffffff !important;
 }
 
-/* Specific Section Fixes */
+/* Specific Section Look - Transparent to show background animations */
 [data-theme="dark"] .hero-section,
 [data-theme="dark"] .services-section,
 [data-theme="dark"] .overview-section,
 [data-theme="dark"] .product-section,
 [data-theme="dark"] .contact-section {
-    background-color: #0a1128 !important;
+    background-color: transparent !important;
 }
 
 /* Card Overrides (Aggressive) */
@@ -129,7 +129,7 @@
 }
 
 [data-theme="dark"] .stat-label {
-    color: #f1f5f9 !important;
+    color: #f1f5f9;
 }
 
 /* Ensure Navbar text is visible */
@@ -180,7 +180,7 @@
 [data-theme="dark"] .product-name,
 [data-theme="dark"] .stat-number,
 [data-theme="dark"] .contact-modal-title {
-    color: var(--primary) !important;
+    color: var(--primary);
 }
 
 [data-theme="dark"] .section-title,

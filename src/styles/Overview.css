@@ -194,14 +194,15 @@
     height: 5px;
     background: var(--primary);
     opacity: 0.4;
+    transition: opacity 0.3s ease;
 }
 
 .modern-box.vision::before {
-    background: linear-gradient(90deg, #16698a, #0ea5e9);
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
 }
 
 .modern-box.mission::before {
-    background: linear-gradient(90deg, #0f172a, #1e293b);
+    background: linear-gradient(90deg, var(--dark), #334155);
 }
 
 .box-header {
@@ -242,15 +243,40 @@
     opacity: 0.6;
 }
 
-.modern-box:hover {
+.modern-box:hover,
+.modern-box:active,
+.modern-box:focus {
+    background: var(--primary) !important;
+    background-image: none !important;
     transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
-    border-color: #cbd5e1;
+    box-shadow: 0 25px 60px rgba(0, 168, 132, 0.3);
+    border-color: var(--primary) !important;
 }
 
-.modern-box:hover .box-icon {
+.modern-box:hover .box-icon,
+.modern-box:active .box-icon {
     transform: scale(1.1) rotate(-5deg);
-    transition: transform 0.3s ease;
+    color: white !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+.modern-box:hover h2,
+.modern-box:active h2,
+.modern-box:hover .point-item,
+.modern-box:active .point-item {
+    color: white !important;
+}
+
+.modern-box:hover .point-item::before,
+.modern-box:active .point-item::before {
+    color: white !important;
+    opacity: 1;
+}
+
+.modern-box:hover::before,
+.modern-box:active::before {
+    opacity: 1 !important;
+    background: white !important;
 }
 
 
@@ -456,8 +482,14 @@
     color: #475569;
 }
 
-[data-theme="dark"] .phi-card:hover,
-[data-theme="dark"] .modern-box:hover {
+[data-theme="dark"] .phi-card:hover {
     border-color: var(--primary);
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure modern-box hover on dark mode still uses the green theme */
+[data-theme="dark"] .modern-box:hover,
+[data-theme="dark"] .modern-box:active {
+    background: var(--primary) !important;
+    color: white !important;
 }

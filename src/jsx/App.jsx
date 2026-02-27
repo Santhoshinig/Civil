@@ -17,6 +17,7 @@ import MolecularBackground from './components/MolecularBackground';
 import CustomCursor from './components/CustomCursor';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import LoadingScreen from './components/LoadingScreen';
+import BackgroundLottie from './components/BackgroundLottie';
 
 /* Import Admin Components */
 import { AuthProvider } from './hooks/useAuth';
@@ -155,6 +156,7 @@ function MainContent() {
       <LoadingScreen isLoading={isLoading} />
       <div className="public-layout">
         <CustomCursor />
+        <BackgroundLottie />
         <MolecularBackground />
         <Navbar activeSection={activeSection} />
         <Routes>

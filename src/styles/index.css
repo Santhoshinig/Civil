@@ -87,6 +87,15 @@ body {
     overflow-x: hidden;
 }
 
+/* Make all page sections transparent so the background canvas shows through */
+section,
+.hero-section,
+.overview-section,
+.services-section,
+.contact-section {
+    background-color: transparent !important;
+}
+
 /* Dark Mode Body */
 [data-theme="dark"] body {
     background-color: var(--white);
@@ -94,7 +103,7 @@ body {
 }
 
 [data-theme="dark"] .public-layout {
-    background-color: #0f172a;
+    background-color: transparent;
 }
 
 [data-theme="dark"] section {

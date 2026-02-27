@@ -6,8 +6,8 @@
     min-height: 100vh;
     width: 100%;
     position: relative;
-    background: #ffffff;
-    /* Plain white background */
+    background: transparent;
+    /* Made transparent for background animations */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,8 +23,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffffff;
-    /* Clean white background */
+    background: transparent;
+    /* Made transparent */
     z-index: 1;
 }
 
@@ -280,12 +280,36 @@
 
 .stat-card-wrapper {
     width: 240px;
-    /* Increased size */
     flex-shrink: 0;
     position: relative;
     padding-top: 35px;
     display: flex;
     justify-content: center;
+    /* Transformation for the swinging effect */
+    transform-origin: top center;
+    animation: swing-wind 1.5s ease-in-out infinite alternate;
+}
+
+.stat-card-wrapper:nth-child(2) {
+    animation-delay: -0.4s;
+}
+
+.stat-card-wrapper:nth-child(3) {
+    animation-delay: -0.8s;
+}
+
+.stat-card-wrapper:nth-child(4) {
+    animation-delay: -1.2s;
+}
+
+@keyframes swing-wind {
+    0% {
+        transform: rotate(-1.5deg);
+    }
+
+    100% {
+        transform: rotate(1.5deg);
+    }
 }
 
 /* Restored hanging look */
@@ -319,10 +343,10 @@
 }
 
 .stat-card {
-    background: #ffffff;
+    background: #ffffff !important;
     padding: 20px;
     border-radius: 20px;
-    border: 1px solid rgba(0, 168, 132, 0.1);
+    border: 1px solid rgba(0, 168, 132, 0.15);
     color: var(--dark);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -330,13 +354,19 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
-.stat-card:hover {
-    transform: translateY(-10px) scale(1.05);
+.stat-card:hover,
+.stat-card:active {
+    transform: translateY(-5px) scale(1.02);
     border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 168, 132, 0.15);
-    background: #ffffff;
+    box-shadow: 0 20px 40px rgba(0, 168, 132, 0.2);
+}
+
+.stat-card-wrapper:hover {
+    animation-play-state: paused;
 }
 
 @keyframes fast-float-up {
@@ -362,6 +392,8 @@
     color: var(--primary);
     line-height: 1.1;
     margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
 }
 
 .stat-label {
@@ -372,6 +404,8 @@
     letter-spacing: 0.8px;
     color: var(--primary);
     opacity: 0.9;
+    position: relative;
+    z-index: 2;
 }
 
 /* Buttons Overrides */
