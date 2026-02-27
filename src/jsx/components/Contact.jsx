@@ -20,6 +20,8 @@ const Contact = () => {
 
     // UI state for success messaging
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         /**
@@ -55,23 +57,41 @@ const Contact = () => {
     /**
      * Submission Handling Logic
      */
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError(null);
 
-        // Simulate API Call Success
-        console.log('Inquiry Data Sent:', formData);
-        setIsSubmitted(true);
-
-        // Automatic Form Reset after a delay
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                message: '',
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-        }, 5000);
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                // Automatic Form Reset after a delay
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                    });
+                }, 5000);
+            } else {
+                const data = await response.json();
+                setError(data.error || 'Failed to send message. Please try again.');
+            }
+        } catch (err) {
+            setError('An error occurred. Please check your connection.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -140,8 +160,13 @@ const Contact = () => {
                                     onChange={handleChange}
                                 ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary btn-full">
-                                Send Message
+                            {error && <div className="error-message" style={{ color: '#c41e3a', marginBottom: '15px', fontSize: '14px' }}>{error}</div>}
+                            <button
+                                type="submit"
+                                className={`btn btn-primary btn-full ${isLoading ? 'loading' : ''}`}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Sending...' : 'Send Message'}
                             </button>
                         </form>
 

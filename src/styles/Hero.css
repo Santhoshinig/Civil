@@ -161,6 +161,7 @@
     margin-right: auto;
     margin-left: 0;
     line-height: 1.9;
+    text-align: justify;
     animation: hero-fade-up 0.8s ease-out 0.3s backwards;
 }
 
@@ -743,7 +744,7 @@
     .hero-subtitle {
         font-size: 1.15rem;
         padding: 0;
-        text-align: left;
+        text-align: justify;
         margin-right: auto;
         color: var(--dark);
         opacity: 1;

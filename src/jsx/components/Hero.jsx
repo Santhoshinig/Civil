@@ -53,9 +53,7 @@ const Hero = () => {
                         </div>
 
                         <p className="hero-subtitle">
-                            Pioneering Structural Intelligence & Precision Restoration.
-                            We diagnose the unseen to curate resilient, long-term engineering
-                            solutions for modern infrastructure.
+                            Civil Doctor - Salem, care for buildings the way a doctor cares for patients. Whether it's a new construction, an aging construction, or a restoration project, we identify the root cause and deliver durable, long lasting solutions.
                         </p>
                         <div className="hero-buttons">
                             <button className="btn hero-btn-main" onClick={() => navigate('/services')}>

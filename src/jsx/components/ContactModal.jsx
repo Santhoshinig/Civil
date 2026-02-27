@@ -12,6 +12,8 @@ const ContactModal = () => {
         message: '',
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     if (!isContactOpen) return null;
 
@@ -22,21 +24,41 @@ const ContactModal = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Inquiry Data Sent:', formData);
-        setIsSubmitted(true);
+        setIsLoading(true);
+        setError(null);
 
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                message: '',
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-            closeContact();
-        }, 3000);
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                    });
+                    closeContact();
+                }, 3000);
+            } else {
+                const data = await response.json();
+                setError(data.error || 'Failed to send message.');
+            }
+        } catch (err) {
+            setError('An error occurred. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -105,8 +127,13 @@ const ContactModal = () => {
                                 onChange={handleChange}
                             ></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-full">
-                            Send Message
+                        {error && <div className="error-message" style={{ color: '#c41e3a', marginBottom: '10px', fontSize: '13px' }}>{error}</div>}
+                        <button
+                            type="submit"
+                            className={`btn btn-primary btn-full ${isLoading ? 'loading' : ''}`}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Sending...' : 'Send Message'}
                         </button>
                     </form>
                 )}
