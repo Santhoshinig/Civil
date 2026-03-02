@@ -4,15 +4,15 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
 
-// Firebase configuration provided by user
+// Updated Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAxOf6aMfBka4TpwzwLvOVpU0__NmMZ2io",
-    authDomain: "civil-doctor.firebaseapp.com",
-    projectId: "civil-doctor",
-    storageBucket: "civil-doctor.firebasestorage.app",
-    messagingSenderId: "1043016511371",
-    appId: "1:1043016511371:web:0a0d90314e864a2c54498e",
-    measurementId: "G-0EC0ZRTFMM"
+    apiKey: "AIzaSyAzDFQSBTsefhZjQ54O-oYdPidzeI6sU8M",
+    authDomain: "civildoctor-bf649.firebaseapp.com",
+    projectId: "civildoctor-bf649",
+    storageBucket: "civildoctor-bf649.firebasestorage.app",
+    messagingSenderId: "699788183616",
+    appId: "1:699788183616:web:1c738c204124815c2cb7a5",
+    measurementId: "G-7BYMWETNDB"
 };
 
 // Initialize Firebase
@@ -24,4 +24,6 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 
+export { analytics };
 export default app;
+

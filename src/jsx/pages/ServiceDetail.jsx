@@ -226,42 +226,21 @@ const ServiceDetail = () => {
                                     textAlign: 'left',
                                     alignItems: 'flex-start'
                                 }}>
-                                    <h3 style={{
+                                    <h3 className="service-title" style={{
                                         fontSize: '1.1rem',
-                                        fontWeight: '700',
-                                        color: 'var(--primary)',
-                                        marginBottom: '10px',
-                                        lineHeight: '1.3',
                                         minHeight: '2.6em',
-                                        display: '-webkit-box',
-                                        WebkitLineClamp: '2',
-                                        WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden'
                                     }}>
                                         {otherService.title}
                                     </h3>
-                                    <p style={{
+                                    <p className="service-description" style={{
                                         fontSize: '0.85rem',
                                         marginBottom: '20px',
-                                        color: '#64748b',
-                                        lineHeight: '1.6',
-                                        display: '-webkit-box',
                                         WebkitLineClamp: '3',
-                                        WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden',
                                         flex: 1
                                     }}>
                                         {otherService.description}
                                     </p>
-                                    <span className="service-link" style={{
-                                        fontSize: '0.85rem',
-                                        fontWeight: '700',
-                                        background: 'var(--primary)',
-                                        color: 'white',
-                                        padding: '8px 18px',
-                                        borderRadius: '50px',
-                                        transition: 'all 0.3s ease'
-                                    }}>
+                                    <span className="service-link">
                                         Know More →
                                     </span>
                                 </div>

@@ -16,7 +16,7 @@ const BackgroundLottie = () => {
                 height: '100%',
                 zIndex: -1,
                 pointerEvents: 'none',
-                opacity: 0.03,
+                opacity: 0.04,
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',

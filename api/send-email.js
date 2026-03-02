@@ -28,8 +28,9 @@ export default async function handler(req, res) {
     }
 
     try {
+        console.log('Attempting to send email with data:', { name, email, to: 'civildoctorslm@gmail.com' });
         const { data, error } = await resend.emails.send({
-            from: 'Civil Doctor Inquiry <onboarding@resend.dev>',
+            from: 'onboarding@resend.dev',
             to: ['civildoctorslm@gmail.com'],
             subject: `New Inquiry from ${name}`,
             reply_to: email,
@@ -50,11 +51,14 @@ export default async function handler(req, res) {
         });
 
         if (error) {
-            return res.status(400).json(error);
+            console.error('Resend API Error:', error);
+            return res.status(400).json({ error: error.message || 'Resend error', details: error });
         }
 
+        console.log('Email sent successfully:', data);
         return res.status(200).json(data);
     } catch (error) {
+        console.error('Server Handler Error:', error);
         return res.status(500).json({ error: error.message });
     }
 }
