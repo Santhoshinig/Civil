@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import '../../styles/Navbar.css';
 import { useContact } from '../context/ContactContext';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * Navbar Component
@@ -12,7 +13,7 @@ const Navbar = ({ activeSection }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [partners, setPartners] = useState([]);
-    const [theme, setTheme] = useState(document.documentElement.getAttribute('data-theme') || 'light');
+    const { theme, toggleTheme } = useTheme();
     const location = useLocation();
     const navigate = useNavigate();
     const { openContact } = useContact();
@@ -40,18 +41,7 @@ const Navbar = ({ activeSection }) => {
         fetchPartners();
     }, []);
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-    };
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        setTheme(savedTheme);
-    }, []);
 
     const handleNavClick = (sectionId) => {
         setIsMobileMenuOpen(false);

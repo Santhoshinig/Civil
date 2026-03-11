@@ -11,21 +11,15 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-    // FORCE 'light' as the starting theme every single time.
-    const [theme, setTheme] = useState('light');
-
-    useEffect(() => {
-        // Force reset the theme on mount to be double sure
-        setTheme('light');
-        document.documentElement.setAttribute('data-theme', 'light');
-        document.body.setAttribute('data-theme', 'light');
-    }, []);
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('civil_dr_theme_v1') || 'dark';
+    });
 
     useEffect(() => {
         // Apply theme to document whenever it changes
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+        localStorage.setItem('civil_dr_theme_v1', theme);
     }, [theme]);
 
     const toggleTheme = () => {

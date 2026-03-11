@@ -84,7 +84,7 @@
 
 .story-image-group {
     position: relative;
-    border-radius: 4px 120px 4px 4px;
+    border-radius: 16px; /* Neater, consistent corners */
     overflow: hidden;
     aspect-ratio: 16/11;
     box-shadow: 0 40px 80px rgba(15, 141, 186, 0.15);

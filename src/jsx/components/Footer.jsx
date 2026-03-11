@@ -53,7 +53,14 @@ const Footer = () => {
 
                 {/* Global Bottom Bar / Legal */}
                 <div className="footer-bottom">
-                    <p>Copyright &copy; 2015 Civil Doctor.       All rights reserved.</p>
+                    <p>Copyright &copy; 2015 Civil Doctor. All rights reserved.</p>
+                    <p className="crafted-by">
+                        Designed & Developed by{' '}
+                        <a href="https://strobilantech.com/" target="_blank" rel="noopener noreferrer">
+                            Strobilan Technologies
+                        </a>
+                        <span className="heart">❤️</span>
+                    </p>
                     <div className="footer-bottom-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>

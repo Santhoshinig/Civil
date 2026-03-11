@@ -7,13 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Civil Doctor - Premium civil construction products, structural diagnostics, and innovative building solutions. Expert restoration and waterproofing." />
-  <title>Civil Doctor</title>
+  <title>Civil Doctor </title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <!-- Theme Detection & Lock Script -->
+  <script>
+    (function () {
+      try {
+        const theme = localStorage.getItem('civil_dr_theme_v1') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { }
+    })();
+  </script>
 </head>
 
 <body>

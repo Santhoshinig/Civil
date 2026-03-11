@@ -151,8 +151,10 @@
 /* Aggressive Card Fix for User Side */
 [data-theme="dark"] .service-card,
 [data-theme="dark"] .product-card,
+[data-theme="dark"] .partner-card-v2,
 [data-theme="dark"] .service-card-body,
 [data-theme="dark"] .product-card-body,
+[data-theme="dark"] .partner-card-body,
 [data-theme="dark"] .product-content,
 [data-theme="dark"] .stat-card,
 [data-theme="dark"] .service-modal,
@@ -165,6 +167,8 @@
 
 [data-theme="dark"] .service-description,
 [data-theme="dark"] .product-description,
+[data-theme="dark"] .partner-name,
+[data-theme="dark"] [class*="partner-link"],
 [data-theme="dark"] .stat-label,
 [data-theme="dark"] .section-subtitle,
 [data-theme="dark"] .modal-description,
@@ -178,9 +182,15 @@
 [data-theme="dark"] .product-title,
 [data-theme="dark"] .service-title,
 [data-theme="dark"] .product-name,
+[data-theme="dark"] .partner-card-v2:hover .partner-name,
 [data-theme="dark"] .stat-number,
 [data-theme="dark"] .contact-modal-title {
-    color: var(--primary);
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .partner-image-container {
+    background: #ffffff !important;
+    opacity: 0.9;
 }
 
 [data-theme="dark"] .section-title,

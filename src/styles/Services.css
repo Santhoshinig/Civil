@@ -43,15 +43,15 @@
 
 .service-card {
     flex: 0 1 calc(25% - 25px);
-    min-width: 250px;
+    min-width: 280px;
     max-width: 400px;
-    height: 420px;
+    min-height: 440px;
     background: var(--white);
     padding: 0;
-    border-radius: 4px;
+    border-radius: 12px; /* Standardized modern radius */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -114,21 +114,19 @@
 
 .service-image-container {
     width: 100%;
-    height: 160px;
-    /* Reduced from 180px for better text clearance */
+    height: 180px;
+    /* Restored to a more standard height */
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-    background: #f1f5f9;
+    background: transparent;
     z-index: 1;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
 }
 
 .service-card:hover .service-image-container {
-    height: 0;
-    opacity: 0;
-    transform: translateY(-20px) scale(0.9);
+    opacity: 0.9;
+    transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
@@ -154,8 +152,7 @@
 }
 
 .service-card-body {
-    padding: 25px 20px;
-    /* Reduced padding slightly */
+    padding: 20px; /* Reduced from 25px to close the gap */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -172,29 +169,30 @@
 
 @media (max-width: 768px) {
     .service-card-body {
-        padding: 20px 16px 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        align-items: center;
-    }
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
 }
 
 .service-title {
-    font-size: 1.4rem;
-    /* Adjusted from 1.6rem for better fit */
+    font-size: 1.3rem;
     font-weight: 800;
-    margin-bottom: 12px;
-    /* Reduced from 20px */
+    margin-bottom: 15px;
     color: var(--dark);
-    line-height: 1.2;
-    min-height: 2.4em;
+    line-height: 1.25;
+    min-height: 2.5em; /* Ensures consistent spacing for 1 or 2 lines */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    transition: color 0.3s ease;
 }
 
 .service-card:hover .service-title {
@@ -485,7 +483,7 @@
 }
 
 [data-theme="dark"] .service-image-container {
-    background: #0f172a;
+    background: transparent;
 }
 
 .breadcrumb {
@@ -499,6 +497,39 @@
     gap: 10px;
     z-index: 10;
     letter-spacing: 0.5px;
+}
+
+/* Expertise List Hover Styles - Aggressive Overrides */
+.expertise-list-item {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease !important;
+    cursor: pointer;
+}
+
+.expertise-tick {
+    transition: background 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease !important;
+}
+
+/* Hover State */
+.expertise-list-item:hover .expertise-tick {
+    background: #4ade80 !important; /* Bright Light Green */
+    color: #0c1a3a !important;      /* Dark text for contrast on light green */
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+.expertise-list-item:hover {
+    transform: translateX(10px);
+    color: #4ade80 !important;
+}
+
+/* Dark Mode Specific Hover */
+[data-theme="dark"] .expertise-list-item:hover {
+    color: #4ade80 !important;
+}
+
+[data-theme="dark"] .expertise-list-item:hover .expertise-tick {
+    background: #4ade80 !important;
+    color: #0a1128 !important;
 }
 
 .breadcrumb a {

@@ -219,7 +219,7 @@
     .nav-item-dropdown {
         width: 100%;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .nav-link.active {
@@ -258,8 +258,21 @@
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 850px;
+    max-width: 95vw;
     z-index: 1000;
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 992px) {
+    .services-dropdown {
+        width: 700px;
+        padding: 20px;
+    }
+    
+    .services-nav-list {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+        gap: 10px;
+    }
 }
 
 [data-theme="dark"] .services-dropdown {
@@ -411,8 +424,9 @@
 }
 
 @media (max-width: 768px) {
+    .services-dropdown,
     .partners-dropdown {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -422,8 +436,7 @@
     align-items: center;
     gap: 12px;
     margin-left: auto;
-    padding-left: 40px;
-    /* Space away from links */
+    padding-left: 20px;
 }
 
 /* Mobile Menu Button */

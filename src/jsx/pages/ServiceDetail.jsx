@@ -93,8 +93,8 @@ const ServiceDetail = () => {
                                 </h3>
                                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                     {service.expertiseAreas.map((area, idx) => (
-                                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '1rem', color: '#334155', lineHeight: '1.6' }}>
-                                            <span style={{
+                                        <li key={idx} className="expertise-list-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '1rem', color: '#334155', lineHeight: '1.6' }}>
+                                            <span className="expertise-tick" style={{
                                                 minWidth: '8px', height: '8px', marginTop: '7px',
                                                 background: 'var(--primary)', borderRadius: '50%', display: 'inline-block'
                                             }}></span>
@@ -118,8 +118,8 @@ const ServiceDetail = () => {
                             <h3 style={{ marginBottom: '20px', color: 'var(--primary)', fontSize: '1.3rem' }}>We Also Expertise In</h3>
                             <ul style={{ display: 'flex', flexDirection: 'column', gap: '15px', listStyle: 'none', padding: 0 }}>
                                 {service.subServices.map((sub, idx) => (
-                                    <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '1rem', color: '#334155', lineHeight: '1.4' }}>
-                                        <span style={{
+                                    <li key={idx} className="expertise-list-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '1rem', color: '#334155', lineHeight: '1.4' }}>
+                                        <span className="expertise-tick" style={{
                                             minWidth: '22px',
                                             height: '22px',
                                             background: 'var(--secondary)',

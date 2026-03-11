@@ -26,7 +26,18 @@ const ProductCard = ({ product, index, onClick }) => {
             </div>
 
             <div className="product-image-container">
-                <img src={product.image} alt={product.title} className="product-card-image" />
+                {product.image ? (
+                    <img src={product.image} alt={product.title} className="product-card-image" />
+                ) : (
+                    <div className="product-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                        <span>No Image Available</span>
+                    </div>
+                )}
             </div>
 
             <div className="product-card-inner">
@@ -193,7 +204,7 @@ const Products = () => {
                 {visibleCount < filteredProducts.length && (
                     <div className="load-more-container" style={{ textAlign: 'center', marginTop: '50px' }}>
                         <button className="btn btn-primary" onClick={handleLoadMore}>
-                            Know More
+                            Load More
                         </button>
                     </div>
                 )}
