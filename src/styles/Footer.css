@@ -193,7 +193,10 @@
     color: rgba(255, 255, 255, 0.7) !important;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    white-space: nowrap; /* Force single line */
 }
 
 .crafted-by a {
@@ -212,9 +215,17 @@
 .heart {
     display: inline-block;
     color: #ff0000;
-    margin-left: 4px;
+    margin-left: 2px;
+    font-size: 1.1rem;
     filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.5));
     animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+    .crafted-by {
+        font-size: 0.75rem; /* Slightly smaller for very small phones */
+        gap: 4px;
+    }
 }
 
 @keyframes heartbeat {

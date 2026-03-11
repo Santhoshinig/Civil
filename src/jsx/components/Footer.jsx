@@ -61,10 +61,7 @@ const Footer = () => {
                         </a>
                         <span className="heart">❤️</span>
                     </p>
-                    <div className="footer-bottom-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                    </div>
+
                 </div>
             </div>
         </footer>

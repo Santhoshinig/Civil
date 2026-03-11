@@ -40,16 +40,29 @@ const Overview = () => {
 
                             <div className="text-content">
                                 <p className="highlight-text">
-                                    At Civil Doctor - Salem, we care for buildings the way a doctor cares for patients.
+                                    Since Inception, Civil doctor has been guided by a singular principle - Uncompromising excellence in structural integrity.
                                 </p>
                                 <p>
-                                    Whether it's a new construction, an aging structure, or a restoration project, we identify the root cause to deliver durable, long-lasting solutions.
-                                    Since inception, we have been guided by a singular principle — <strong>Uncompromising excellence in structural integrity.</strong>
+                                    Built on the conviction that true engineering extends beyond surface repair, Civil doctor was established to delivery clarity in diagnosis, Precision in execution and permanence in performance.
                                 </p>
                                 <p>
-                                    Built on the conviction that true engineering extends beyond surface repair, we combine technical depth with disciplined methodology.
-                                    Each project reinforces not only the strength of the structures we serve, but the confidence entrusted to us.
+                                    Over time, our work has come to reflect discipline methodology, technical depth and an unwavering commitment to quality. Each project reinforces not only the strength of the structures we serve, but the confidence entrusted to us.
                                 </p>
+                                <p>
+                                    Our legacy is defined not by volume, But by durability. Not by assurances, but by measurable performance.
+                                </p>
+                                <p>
+                                    Civil doctor continues to uphold the standards upon which it was founded - Integrity, precision and engineered permanence.
+                                </p>
+
+                                <div className="expertise-capabilities-section">
+                                    <h3 className="section-inline-title">Our Expertise</h3>
+                                    <p>
+                                        Civil doctor delivers specialised structural and protection solutions designed to preserve integrity and extend the service life of infrastructure.
+                                    </p>
+
+
+                                </div>
                             </div>
                         </div>
 
@@ -64,16 +77,16 @@ const Overview = () => {
 
                 <div className="reveal reveal-up philosophy-grid">
                     <div className="phi-card">
-                        <h3>Structural solution specialist</h3>
-                        <p>Civil Doctor is not a contractor — but an authority in identifying and solving complex structural challenges.</p>
+                        <h3>Structural Solution Specialist</h3>
+                        <p>Civil Doctor is not a contractor - but a Structural solution specialist</p>
                     </div>
                     <div className="phi-card">
-                        <h3>Engineers permanent solutions</h3>
-                        <p>We don't offer temporary fixes. We engineer systems that stand the test of time and climate.</p>
+                        <h3>Permanent Solutions</h3>
+                        <p>Civil Doctor doesn't offer temporary fixes - but engineer permanent Solutions</p>
                     </div>
                     <div className="phi-card">
-                        <h3>Diagnoses the unseen</h3>
-                        <p>and protects the structure</p>
+                        <h3>Beyond Surface Repair</h3>
+                        <p>Civil Doctor doesn't just repair the surface - but diagnose the unseen and protects structure</p>
                     </div>
                 </div>
 

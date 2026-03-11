@@ -478,32 +478,57 @@
 
 /* Theme Toggle Button */
 .theme-toggle-nav-btn {
-    background: white;
-    border: 1px solid var(--admin-border);
-    width: 45px;
-    height: 45px;
-    min-width: 45px;
+    background: #334155; /* Dark background to make white moon pop */
+    border: none;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
     flex-shrink: 0;
     border-radius: 50%;
-    font-size: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .theme-toggle-nav-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    background: #272c35;
+}
+
+.theme-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: #ffffff; /* Universal white color */
+}
+
+.moon-svg {
+    stroke: #ffffff;
+    stroke-width: 2px;
+}
+
+.sun-svg {
+    stroke: #ffffff;
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
 }
 
 .theme-toggle-nav-btn:hover {
-    border-color: var(--primary);
-    background: #f0f9ff;
-    transform: rotate(20deg) scale(1.1);
+    transform: scale(1.1);
+    background: #1e293b;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle-nav-btn:hover {
+    background: #2d3440;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-nav-btn:hover .theme-icon {
+    transform: rotate(20deg);
 }
 
 @media (max-width: 768px) {
